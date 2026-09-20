@@ -133,7 +133,7 @@ resolution, and how the borders rendered.
 ## Installation
 
 1. Copy the `sgb_gbc_borders` folder into your mods directory.
-2. Enable the mod in the launcher's MODS panel.
+2. Enable the mod in the launcher's MODS panel (enabled by default).
 3. Launch any supported game.
 
 ## Credits
