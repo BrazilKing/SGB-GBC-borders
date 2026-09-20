@@ -1,8 +1,8 @@
 # SGB/GBC Classic
 
 Manually reworked SGB and GBC borders for Gen 1 & 2 in gen1recomp. Per-game
-frames, auto and selectable day/night version, universal GBC Special Pikachu
-Edition. No AI art.
+overlays, auto and selectable day/night version, universally applicable GBC
+Special Pikachu Edition. No AI art.
 
 ## What it does
 
@@ -34,10 +34,29 @@ All options are in the mod manager.
 
 Red, Blue, Yellow, Gold, Silver, Crystal.
 
+## Display
+
+The border artwork is authored at **1024×768**, the native resolution of the
+**TrimUI Brick**. On that device every frame renders 1:1 — no scaling, no
+interpolation, pixel-perfect.
+
+On other devices the borders stretch to fill the screen. They work everywhere,
+but they look correct on the Brick. If you use a display with a different
+aspect ratio, expect some distortion of the round shapes in the SGB frames.
+
+## Testing
+
+This mod has **only been tested on the TrimUI Brick**. It should work on any
+device that runs gen1recomp, but behavior on other screens, aspect ratios, or
+launcher builds is unverified.
+
+**Feedback is welcome** — through GitHub issues or the gen1recomp Discord mod
+section. If you report from another device, please include your device,
+resolution, and how the borders rendered.
+
 ## Notes
 
 - Changes apply live — no restart needed
-- Optimized for the TrimUI Brick (1024×768); borders render 1:1 on that display
 - **All border artwork is manually reworked by the author. No AI art was used.**
 
 ## Installation
