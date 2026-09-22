@@ -17,7 +17,8 @@ live from the mod manager — no restart needed.
   manually or automatically
 - **Universal GBC Special Pikachu Edition frame** — usable with any supported
   game
-- **GOLD 97** — the SGB border from the Spaceworld '97 demo
+- **GOLD 97** — the SGB border from the Spaceworld '97 demo — usable with any supported
+  game
 
 ## Options
 
