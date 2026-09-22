@@ -29,8 +29,8 @@ All options are in the mod manager.
 | **BACKGROUND** | `AUTO` | Picks day or night from your system clock on Gen 2 games. Gen 1 games have no night frame and stay on day. |
 | | `DAY` | Always the day frame. |
 | | `NIGHT` | Always the night frame on Gen 2. Falls back to the day frame on Gen 1. |
-| | `GBC YELLOW` | The universal GBC Special Pikachu Edition frame, regardless of which game is running. |
-| | `GOLD 97` | The Spaceworld '97 demo border. |
+| | `GBC YELLOW` | GBC Special Pikachu Edition frame, regardless of which game is running. |
+| | `GOLD 97` | The Spaceworld '97 demo border, regardless of which game is running. |
 
 ## Supported games
 
