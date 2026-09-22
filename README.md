@@ -9,15 +9,17 @@ Special Pikachu Edition. No AI art.
 The overlay draws on top of the game and is unaffected by shaders, so colors
 stay crisp regardless of what filter you have enabled. Border changes apply
 live from the mod manager — no restart needed. The mod also detects your
-screen's aspect ratio automatically and picks the closest matching frame.
+screen's aspect ratio automatically and picks the closest matching frame, and
+reads the launcher's screen position setting to select a matching overlay when
+one exists.
 
 ## Frames included
 
 - **Per-game SGB borders** for Red, Blue, Yellow, Gold, Silver, and Crystal
-- **Multiple backgrounds for Red** — day and night versions for four
-  aspect ratios
-- **Day and night variants** for Gold, Silver, and Crystal, switchable
-  manually or automatically
+- **Multiple backgrounds for Red** — four aspect ratios, with position
+  variants (Center / Upper / Top) for 20:9 and 9:20
+- **Day and night variants** for Blue, Yellow, Gold, Silver, and Crystal,
+  switchable manually or automatically
 - **Universal GBC Special Pikachu Edition frame** — usable with any supported
   game
 - **GOLD 97** — the SGB border from the Spaceworld '97 demo — usable with any
@@ -30,9 +32,9 @@ All options are in the mod manager.
 | Option | Value | What it does |
 |---|---|---|
 | **OVERLAY** | on / off | Master switch. Off draws nothing. |
-| **BACKGROUND** | `AUTO` | Picks day or night from your system clock on Gen 2 games. Gen 1 games have no night frame yet and stay on day (except for Red as of v1.0.4). |
+| **BACKGROUND** | `AUTO` | Picks day or night from your system clock on games that have a night frame. |
 | | `DAY` | Always the day frame. |
-| | `NIGHT` | Always the night frame on Gen 2. Falls back to the day frame on Gen 1. |
+| | `NIGHT` | Always the night frame where available. Falls back to the day frame on games that only have day art (currently Red). |
 | | `GBC YELLOW` | GBC Special Pikachu Edition frame, regardless of which game is running. |
 | | `GOLD 97` | The Spaceworld '97 demo border, regardless of which game is running. |
 | **SCREEN ASPECT RATIO** | `AUTO (DETECT)` | Picks the closest match from the screen's current dimensions. |
@@ -48,15 +50,20 @@ Red, Blue, Yellow, Gold, Silver, Crystal.
 
 ## Display
 
-The border artwork is authored at **1024×768**, the native resolution of the
+The border artwork is authored at 1024×768, the native resolution of the
 **TrimUI Brick**. On that device every frame renders 1:1 — no scaling, no
 interpolation, pixel-perfect.
 
 The mod detects your screen's aspect ratio and picks the closest matching
 frame automatically. You can override this with the **SCREEN ASPECT RATIO**
-option. Aspect variants are available for Red (all four aspects, day and
-night) and for the GOLD 97 frame. Other games fall back to their 4:3 frame
-when a matching aspect is unavailable.
+option. Aspect variants are available for Red and for the GOLD 97 frame.
+Other games fall back to their 4:3 frame when a matching aspect is
+unavailable.
+
+The mod also reads the launcher's **screen position** setting (Center /
+Upper / Top) and prefers a matching overlay file when one exists. Currently
+only Red has position variants, and only for the 20:9 and 9:20 aspects. On
+every other frame the position is ignored and the standard overlay is drawn.
 
 ## Testing
 
@@ -74,10 +81,11 @@ resolution, and how the borders rendered.
 
 - Changes apply live — no restart needed
 - **Automatic aspect ratio selection only applies to overlays that have been
-  reworked in all supported aspect ratios.** Currently that means Red (all
-  four) and the GOLD 97 frame (4:3, 16:9, 16:9 bezel, 20:9, 9:20). Other
-  overlays only have a 4:3 version and render at that ratio regardless of the
-  screen.
+  reworked in all supported aspect ratios.** Currently that means Red and the
+  GOLD 97 frame. Other overlays only have a 4:3 version and render at that
+  ratio regardless of the screen.
+- **Screen position variants currently only exist for Red at 20:9 and 9:20.**
+  Other frames ignore the launcher's position setting.
 - `16:9 BEZEL (TEST)` is experimental and needs testing
 - **All border artwork is manually reworked by the author. No AI art was used.**
 
