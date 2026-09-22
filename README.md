@@ -30,7 +30,7 @@ All options are in the mod manager.
 | Option | Value | What it does |
 |---|---|---|
 | **OVERLAY** | on / off | Master switch. Off draws nothing. |
-| **BACKGROUND** | `AUTO` | Picks day or night from your system clock on Gen 2 games. Gen 1 games have no night frame yet and stay on day (except for Red as of now). |
+| **BACKGROUND** | `AUTO` | Picks day or night from your system clock on Gen 2 games. Gen 1 games have no night frame yet and stay on day (except for Red as of v1.0.4). |
 | | `DAY` | Always the day frame. |
 | | `NIGHT` | Always the night frame on Gen 2. Falls back to the day frame on Gen 1. |
 | | `GBC YELLOW` | GBC Special Pikachu Edition frame, regardless of which game is running. |
