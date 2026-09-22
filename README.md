@@ -14,14 +14,14 @@ screen's aspect ratio automatically and picks the closest matching frame.
 ## Frames included
 
 - **Per-game SGB borders** for Red, Blue, Yellow, Gold, Silver, and Crystal
-- **Multiple backgrounds for Red** — day and night versions for all four
+- **Multiple backgrounds for Red** — day and night versions for four
   aspect ratios
 - **Day and night variants** for Gold, Silver, and Crystal, switchable
   manually or automatically
 - **Universal GBC Special Pikachu Edition frame** — usable with any supported
   game
 - **GOLD 97** — the SGB border from the Spaceworld '97 demo — usable with any
-  supported game, in five aspect ratios
+  supported game, for four aspect ratios
 
 ## Options
 
