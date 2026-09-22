@@ -74,4 +74,4 @@ back.
 
 ## Credits
 
-Borders and mod by BrazilKing.
+Borders and mod by BrazilKing, based on original SGB frames/GBC pokemon editions.
