@@ -11,7 +11,9 @@ stay crisp regardless of what filter you have enabled. Border changes apply
 live from the mod manager — no restart needed. The mod also detects your
 screen's aspect ratio automatically and picks the closest matching frame, and
 reads the launcher's screen position setting to select a matching overlay when
-one exists.
+one exists. On a phone, this means the mod automatically follows both the
+chosen screen position and the device's orientation — switching between
+horizontal and vertical layouts for Pokémon Red as the device rotates.
 
 ## Frames included
 
