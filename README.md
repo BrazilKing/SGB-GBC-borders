@@ -47,8 +47,7 @@ interpolation, pixel-perfect.
 **All functionality has been 100% tested and working on the TrimUI Brick.**
 
 **Support for other devices is not ready yet.** The mod should work on
-anything that runs gen1recomp, but behavior on other screens, aspect ratios,
-or launcher builds is unverified.
+anything that runs gen1recomp, but behavior on other aspect ratios will cause some stretching.
 
 **Feedback is welcome** — through GitHub issues or the gen1recomp Discord mod
 section. If you report from another device, please include your device,
