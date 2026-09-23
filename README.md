@@ -8,24 +8,20 @@ Special Pikachu Edition. No AI art.
 
 The overlay draws on top of the game and is unaffected by shaders, so colors
 stay crisp regardless of what filter you have enabled. Border changes apply
-live from the mod manager — no restart needed. The mod also detects your
-screen's aspect ratio automatically and picks the closest matching frame, and
-reads the launcher's screen position setting to select a matching overlay when
-one exists. On a phone, this means the mod automatically follows both the
-chosen screen position and the device's orientation — switching between
-horizontal and vertical layouts for Pokémon Red as the device rotates.
+live from the mod manager — no restart needed. This version is built for
+4:3 displays and is optimized specifically for the TrimUI Brick. The user has
+full control over the overlay: any style is selectable on any supported game.
 
 ## Frames included
 
 - **Per-game SGB borders** for Red, Blue, Yellow, Gold, Silver, and Crystal
-- **Multiple backgrounds for Red** — four aspect ratios, with position
-  variants (Center / Upper / Top) for 20:9 and 9:20
-- **Day and night variants** for Blue, Yellow, Gold, Silver, and Crystal,
-  switchable manually or automatically
-- **Universal GBC Special Pikachu Edition frame** — usable with any supported
-  game
-- **GOLD 97** — the SGB border from the Spaceworld '97 demo — usable with any
-  supported game, for four aspect ratios
+- **Day and night variants** for all six supported games, switchable manually
+  or automatically
+- **GOLD 97** — the SGB border from the Spaceworld '97 demo, with a night
+  version featuring Pikablu. The default for Gold, and selectable on any
+  other game.
+- **Universal GBC Special Pikachu Edition frame** — usable with all six
+  supported games
 
 ## Options
 
@@ -33,47 +29,52 @@ All options are in the mod manager.
 
 | Option | Value | What it does |
 |---|---|---|
-| **OVERLAY** | on / off | Master switch. Off draws nothing. |
-| **BACKGROUND** | `AUTO` | Picks day or night from your system clock on games that have a night frame. |
+| **OVERLAY** | on / off | Master switch. **Off by default** — turn on after first launch. Disabled initially so the launcher UI isn't cropped on some devices, which would make settings hard to navigate. |
+| **OVERLAY STYLE** | `AUTO` | Picks the frame matching the running game. Gold defaults to GOLD 97. |
+| | `RED` | Red frame — usable with all six supported games |
+| | `BLUE` | Blue frame — usable with all six supported games |
+| | `YELLOW` | Yellow frame — usable with all six supported games |
+| | `GBC YELLOW` | GBC Special Pikachu Edition frame — universal |
+| | `GOLD` | Gold frame — usable with all six supported games |
+| | `GOLD 97` | Spaceworld '97 demo frame — usable with all six supported games |
+| | `SILVER` | Silver frame — usable with all six supported games |
+| | `CRYSTAL` | Crystal frame — usable with all six supported games |
+| **DAY/NIGHT MODE** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). |
 | | `DAY` | Always the day frame. |
-| | `NIGHT` | Always the night frame where available. Falls back to the day frame on games that only have day art (currently Red). |
-| | `GBC YELLOW` | GBC Special Pikachu Edition frame, regardless of which game is running. |
-| | `GOLD 97` | The Spaceworld '97 demo border, regardless of which game is running. |
-| **SCREEN ASPECT RATIO** | `AUTO (DETECT)` | Picks the closest match from the screen's current dimensions. |
-| | `4:3 (HANDHELD)` | 1024×768 |
-| | `16:9 NO BEZEL (SAFE)` | 1920×1080 without the blue frame |
-| | `16:9 BEZEL (TEST)` | 1920×1080 with the blue frame |
-| | `20:9 (LANDSCAPE)` | 2400×1080 |
-| | `9:20 (PORTRAIT)` | 1080×2400 |
+| | `NIGHT` | Always the night frame. |
 
 ## Supported games
 
-Red, Blue, Yellow, Gold, Silver, Crystal.
+Red, Blue, Yellow, Gold, Silver, Crystal — all six supported games.
 
 ## Display
 
-The border artwork is authored at 1024×768, the native resolution of the
-**TrimUI Brick**. On that device every frame renders 1:1 — no scaling, no
-interpolation, pixel-perfect.
+This version of the mod is **optimized for the TrimUI Brick** at 1024×768.
+It should work correctly on any 4:3 handheld with a similar screen size.
 
-The mod detects your screen's aspect ratio and picks the closest matching
-frame automatically. You can override this with the **SCREEN ASPECT RATIO**
-option. Aspect variants are available for Red and for the GOLD 97 frame.
-Other games fall back to their 4:3 frame when a matching aspect is
-unavailable.
+The border artwork is authored at 4:3. On the Brick it renders pixel-perfect
+at 1:1.
 
-The mod also reads the launcher's **screen position** setting (Center /
-Upper / Top) and prefers a matching overlay file when one exists. Currently
-only Red has position variants, and only for the 20:9 and 9:20 aspects. On
-every other frame the position is ignored and the standard overlay is drawn.
+All 4:3 screens have been updated to the new 4:3 viewport that ships with
+gen1recomp v0.3.5.
+
+## 16:9 and mobile devices
+
+**Support for 16:9 and mobile screens has been removed in this version.**
+Automatic aspect ratio detection had a slight negative performance impact on
+handhelds and offered little benefit, since their screens are already 4:3.
+The process of reworking overlays for every aspect ratio and screen position
+proved too complex to maintain alongside the 4:3 set.
+
+If you are on a 16:9 or mobile device, **use v1.0.4** instead. That release
+contains partial 16:9 and mobile support, though it is incomplete and was not
+fully tested on those screens.
+
+Running v1.0.6 on a non-4:3 screen will stretch the artwork.
 
 ## Testing
 
-**All functionality has been 100% tested and working on the TrimUI Brick.**
-
-**Support for other devices is not ready yet.** The mod should work on
-anything that runs gen1recomp, but behavior on other screens and aspect
-ratios is unverified.
+**All 4:3 functionality has been tested and is working on the TrimUI Brick.**
 
 **Feedback is welcome** — through GitHub issues or the gen1recomp Discord mod
 section. If you report from another device, please include your device,
@@ -81,29 +82,30 @@ resolution, and how the borders rendered.
 
 ## Notes
 
+- The overlay is **disabled on first launch** to prevent the UI from being
+  cropped on certain devices, which can make it difficult to navigate the
+  settings menu. Turn on **OVERLAY** once the mod is enabled.
 - Changes apply live — no restart needed
-- **Automatic aspect ratio selection only applies to overlays that have been
-  reworked in all supported aspect ratios.** Currently that means Red and the
-  GOLD 97 frame. Other overlays only have a 4:3 version and render at that
-  ratio regardless of the screen.
-- **Screen position variants currently only exist for Red at 20:9 and 9:20.**
-  Other frames ignore the launcher's position setting.
-- `16:9 BEZEL (TEST)` is experimental and needs testing
-- **All border artwork is manually reworked by the author. No AI art was used.**
+- If a frame file is missing, the mod shows an on-screen warning instead of
+  drawing a fallback
+- **All border artwork is manually reworked by the author. No AI art was
+  used.**
 
 ## Installation
 
 1. Install the `.zip` through your mod manager, **or** copy the extracted
    folder into your mods directory.
 2. Enable the mod in the launcher's MODS panel.
-3. Launch any supported game.
+3. Launch any supported game. The overlay is off on first launch — the game
+   screen will look normal.
+4. Open the mod options and turn on **OVERLAY**. The frame appears immediately.
 
 ## Updating
 
 This mod supports in-launcher updates. The launcher's MODS panel will show an
 **Update** button when a newer release is available on GitHub. The
-**Versions** button lets you pick any published release if you need to roll
-back.
+**Versions** button lets you pick any published release — useful if you need
+to roll back to v1.0.4 for 16:9 or mobile use.
 
 ## Credits
 
