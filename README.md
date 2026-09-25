@@ -61,7 +61,7 @@ the specific device. If your screen is not 1024×768, the frames will still
 display, but exact pixel alignment is not guaranteed.
 
 All 4:3 screens have been updated to the new 4:3 viewport that ships with
-gen1recomp v0.3.5.
+gen1recomp v0.3.5 onwards.
 
 This build represents the intended final quality level of the mod. Every
 detail has been manually maximised within the author's capabilities. That
