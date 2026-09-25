@@ -20,8 +20,9 @@ full control over the overlay: any style is selectable on any supported game.
 - **GOLD 97** — the SGB border from the Spaceworld '97 demo, with a night
   version featuring Pikablu. The default for Gold, and selectable on any
   other game.
-- **Universal GBC Special Pikachu Edition frame** — usable with all six
-  supported games
+- **Universal Game Boy frames** — GB, GB Pocket, GB Light, and the GBC
+  Special Pikachu Edition, all usable with all six supported games
+- **NIDOKING** — a universal frame featuring Nidoking
 
 ## Options
 
@@ -34,11 +35,15 @@ All options are in the mod manager.
 | | `RED` | Red frame — usable with all six supported games |
 | | `BLUE` | Blue frame — usable with all six supported games |
 | | `YELLOW` | Yellow frame — usable with all six supported games |
-| | `GBC YELLOW` | GBC Special Pikachu Edition frame — universal |
 | | `GOLD` | Gold frame — usable with all six supported games |
 | | `GOLD 97` | Spaceworld '97 demo frame — usable with all six supported games |
 | | `SILVER` | Silver frame — usable with all six supported games |
 | | `CRYSTAL` | Crystal frame — usable with all six supported games |
+| | `GB` | Original Game Boy frame — universal |
+| | `GB POCKET` | Game Boy Pocket frame — universal |
+| | `GB LIGHT` | Game Boy Light frame — universal |
+| | `GBC YELLOW` | GBC Special Pikachu Edition frame — universal |
+| | `NIDOKING` | Nidoking frame — universal |
 | **DAY/NIGHT MODE** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). |
 | | `DAY` | Always the day frame. |
 | | `NIGHT` | Always the night frame. |
@@ -50,13 +55,19 @@ Red, Blue, Yellow, Gold, Silver, Crystal — all six supported games.
 ## Display
 
 This version of the mod is **optimized for the TrimUI Brick** at 1024×768.
-It should work correctly on any 4:3 handheld with a similar screen size.
+On that resolution every frame is pixel-perfect.
 
-The border artwork is authored at 4:3. On the Brick it renders pixel-perfect
-at 1:1.
+Other resolutions scale the artwork proportionally, and the result depends on
+the specific device. If your screen is not 1024×768, the frames will still
+display, but exact pixel alignment is not guaranteed.
 
 All 4:3 screens have been updated to the new 4:3 viewport that ships with
 gen1recomp v0.3.5.
+
+This build represents the intended final quality level of the mod. Every
+detail has been manually maximised within the author's capabilities. That
+quality is specific to 1024×768; other resolutions are outside the intended
+experience.
 
 ## 16:9 and mobile devices
 
@@ -70,7 +81,7 @@ If you are on a 16:9 or mobile device, **use v1.0.4** instead. That release
 contains partial 16:9 and mobile support, though it is incomplete and was not
 fully tested on those screens.
 
-Running v1.0.6 on a non-4:3 screen will stretch the artwork.
+Running v1.0.8 on a non-4:3 screen will stretch the artwork.
 
 ## Testing
 
