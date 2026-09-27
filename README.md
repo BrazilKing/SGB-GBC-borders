@@ -4,7 +4,7 @@ Manually reworked SGB and GBC borders for Gen 1 & 2 in gen1recomp. Per-game
 overlays, auto and selectable day/night version, universally applicable GBC
 Special Pikachu Edition.
 
-**34 pixel-perfect overlays** — every one hand-drawn, no AI art.
+**42 pixel-perfect overlays** — every one hand-drawn, no AI art.
 
 ## What it does
 
@@ -12,7 +12,8 @@ The overlay draws on top of the game and is unaffected by shaders, so colors
 stay crisp regardless of what filter you have enabled. Border changes apply
 live from the mod manager — no restart needed. This version is built for
 4:3 displays and is optimized specifically for the TrimUI Brick. The user has
-full control over the overlay: any style is selectable on any supported game.
+full control over the overlay: any console and Pokémon theme combination is
+selectable on any supported game.
 
 ## Frames included
 
@@ -22,12 +23,12 @@ full control over the overlay: any style is selectable on any supported game.
 - **GOLD 97** — the SGB border from the Spaceworld '97 demo, with a night
   version featuring Pikablu. The default for Gold, and selectable on any
   other game.
-- **Themed SGB frames** — TOTODILE, CHIKORITA, and KANGASKHAN, each with day
-  and night variants
-- **Universal GB and GBC frames** — plain GB family (GB, GB Dark, GB Light,
-  GB Pocket), Kangaskhan variants for GB, GB Light, and GB Pocket, generic
-  GBC, and themed GBC frames (Chikorita, Kangaskhan, Nidoking, Pikachu,
-  Pikachu Alt, Totodile)
+- **Themed SGB frames** — TOTODILE, CHIKORITA, KANGASKHAN, and MEOWTH, each
+  with day and night variants
+- **GB and GBC device frames** — plain GB, GB Dark, GB Light, GB Pocket, and
+  GBC, plus themed variants for Kangaskhan and Meowth across all GB models,
+  and themed GBC frames for Chikorita, Kangaskhan, Meowth, Nidoking, Pikachu,
+  Pikachu Alt, and Totodile
 
 ## Options
 
@@ -35,23 +36,23 @@ All options are in the mod manager.
 
 | Option | Value | What it does |
 |---|---|---|
-| **OVERLAY** | on / off | Master switch. **Off by default** — turn on after first launch. Disabled initially so the launcher UI isn't cropped on some devices, which would make settings hard to navigate. |
-| **SGB STYLE** | `OFF` | Disables the SGB row |
-| | `AUTO` | Picks the frame matching the running game. Gold defaults to GOLD 97. |
-| | `RED` / `BLUE` / `YELLOW` / `GOLD` / `GOLD 97` / `SILVER` / `CRYSTAL` | Game-specific SGB frames with day and night variants |
-| | `TOTODILE` / `CHIKORITA` / `KANGASKHAN` | Themed SGB frames with day and night variants |
-| **GBC STYLE** | `OFF` | Disables the GBC row |
-| | `GBC` | Generic GBC frame |
-| | `CHIKORITA` / `KANGASKHAN` / `NIDOKING` / `PIKACHU` / `PIKACHU ALT` / `TOTODILE` | Themed GBC frames, day-only |
-| **GB STYLE** | `OFF` | Disables the GB row |
-| | `GB` / `GB DARK` / `GB LIGHT` / `GB POCKET` | Game Boy model frames, day-only |
-| | `KANGASKHAN GB` / `KANGASKHAN LIGHT` / `KANGASKHAN POCKET` | Kangaskhan-themed GB variants, day-only |
+| **CONSOLE** | `NONE` | No console selected — overlay does not draw unless a Pokémon is also set |
+| | `GB` | Game Boy device frame |
+| | `GB DARK` | Game Boy Dark device frame |
+| | `GB LIGHT` | Game Boy Light device frame |
+| | `GB POCKET` | Game Boy Pocket device frame |
+| | `GBC` | Game Boy Color device frame |
+| | `SGB` | Super Game Boy. Automatically chooses the running game's SGB frame. Day/night can be changed manually. |
+| **POKEMON** | `NONE` | No Pokémon theme — the plain console frame is shown |
+| | `CHIKORITA` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `PIKACHU ALT` / `TOTODILE` | Pokémon-themed overlays. Available console variants vary by theme. |
 | **DAY/NIGHT MODE** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). |
 | | `DAY` | Always the day frame. |
 | | `NIGHT` | Always the night frame. |
 
-Only one style family is drawn at a time. Priority is SGB → GBC → GB. Set a
-higher-priority row to `OFF` to use a lower one.
+Both `CONSOLE` and `POKEMON` default to `NONE`, so the overlay does not draw
+until at least one is set to a real value. If a Pokémon theme doesn't have a
+variant for the selected console, the mod falls back to the same Pokémon on
+another console and shows a brief notice.
 
 ## Supported games
 
@@ -98,16 +99,22 @@ resolution, and how the borders rendered.
 
 ## Notes
 
-- The overlay is **disabled on first launch** to prevent the UI from being
-  cropped on certain devices, which can make it difficult to navigate the
-  settings menu. Turn on **OVERLAY** once the mod is enabled.
+- Both `CONSOLE` and `POKEMON` default to `NONE`, so the overlay is
+  **disabled on first launch** to prevent the UI from being cropped on
+  certain devices, which can make it difficult to navigate the settings
+  menu. Set either row to a real value to enable the overlay.
 - Changes apply live — no restart needed
-- **Day/night applies to the ten SGB frames** — the seven game frames
-  (RED through CRYSTAL, plus GOLD 97 via `AUTO`) and the three themed frames
-  (TOTODILE, CHIKORITA, KANGASKHAN). All GBC and GB frames are day-only.
-- **If `SGB STYLE = AUTO` and the running game can't be identified, no
-  overlay is drawn.** A notice appears on screen for 5 seconds asking you to
-  pick a style manually.
+- **Day/night applies to the SGB frames** — the seven game frames
+  (RED through CRYSTAL, plus GOLD 97 via `AUTO`) and the themed SGB frames
+  (TOTODILE, CHIKORITA, KANGASKHAN, MEOWTH). All GBC and GB frames are
+  day-only.
+- **If `CONSOLE = SGB` and the running game can't be identified, no overlay
+  is drawn.** A notice appears on screen for 5 seconds asking you to pick a
+  style manually.
+- **If a Pokémon theme doesn't have a variant for the selected console**, the
+  mod falls back to the same Pokémon on another console and shows a brief
+  notice. If no variant exists at all, the console's plain device frame is
+  drawn.
 - If a frame file is missing, the mod shows an on-screen warning instead of
   drawing a fallback
 - **All border artwork is manually reworked by the author. No AI art was
@@ -120,7 +127,8 @@ resolution, and how the borders rendered.
 2. Enable the mod in the launcher's MODS panel.
 3. Launch any supported game. The overlay is off on first launch — the game
    screen will look normal.
-4. Open the mod options and turn on **OVERLAY**. The frame appears immediately.
+4. Open the mod options, set `CONSOLE` (and optionally `POKEMON`), and the
+   frame appears immediately.
 
 ## Updating
 
