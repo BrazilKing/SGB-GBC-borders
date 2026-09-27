@@ -2,7 +2,9 @@
 
 Manually reworked SGB and GBC borders for Gen 1 & 2 in gen1recomp. Per-game
 overlays, auto and selectable day/night version, universally applicable GBC
-Special Pikachu Edition. **26 pixel-perfect overlays** in total. No AI art.
+Special Pikachu Edition.
+
+**34 pixel-perfect overlays** — every one hand-drawn, no AI art.
 
 ## What it does
 
@@ -20,10 +22,12 @@ full control over the overlay: any style is selectable on any supported game.
 - **GOLD 97** — the SGB border from the Spaceworld '97 demo, with a night
   version featuring Pikablu. The default for Gold, and selectable on any
   other game.
-- **Themed SGB frames** — TOTODILE and CHIKORITA, day-only
-- **Universal GB and GBC frames** — GB, GB Dark, GB Pocket, GB Light, GBC,
-  Pikachu, Pikachu Alt, Nidoking, Chikorita, and Totodile, all usable with
-  all six supported games
+- **Themed SGB frames** — TOTODILE, CHIKORITA, and KANGASKHAN, each with day
+  and night variants
+- **Universal GB and GBC frames** — plain GB family (GB, GB Dark, GB Light,
+  GB Pocket), Kangaskhan variants for GB, GB Light, and GB Pocket, generic
+  GBC, and themed GBC frames (Chikorita, Kangaskhan, Nidoking, Pikachu,
+  Pikachu Alt, Totodile)
 
 ## Options
 
@@ -35,12 +39,13 @@ All options are in the mod manager.
 | **SGB STYLE** | `OFF` | Disables the SGB row |
 | | `AUTO` | Picks the frame matching the running game. Gold defaults to GOLD 97. |
 | | `RED` / `BLUE` / `YELLOW` / `GOLD` / `GOLD 97` / `SILVER` / `CRYSTAL` | Game-specific SGB frames with day and night variants |
-| | `TOTODILE` / `CHIKORITA` | Themed SGB frames, day-only |
+| | `TOTODILE` / `CHIKORITA` / `KANGASKHAN` | Themed SGB frames with day and night variants |
 | **GBC STYLE** | `OFF` | Disables the GBC row |
 | | `GBC` | Generic GBC frame |
-| | `CHIKORITA` / `NIDOKING` / `PIKACHU` / `PIKACHU ALT` / `TOTODILE` | Themed GBC frames, day-only |
+| | `CHIKORITA` / `KANGASKHAN` / `NIDOKING` / `PIKACHU` / `PIKACHU ALT` / `TOTODILE` | Themed GBC frames, day-only |
 | **GB STYLE** | `OFF` | Disables the GB row |
 | | `GB` / `GB DARK` / `GB LIGHT` / `GB POCKET` | Game Boy model frames, day-only |
+| | `KANGASKHAN GB` / `KANGASKHAN LIGHT` / `KANGASKHAN POCKET` | Kangaskhan-themed GB variants, day-only |
 | **DAY/NIGHT MODE** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). |
 | | `DAY` | Always the day frame. |
 | | `NIGHT` | Always the night frame. |
@@ -97,9 +102,12 @@ resolution, and how the borders rendered.
   cropped on certain devices, which can make it difficult to navigate the
   settings menu. Turn on **OVERLAY** once the mod is enabled.
 - Changes apply live — no restart needed
-- **Day/night applies only to the seven SGB game frames** (RED through
-  CRYSTAL, plus GOLD 97 via `AUTO`). Themed SGB frames, all GBC frames, and
-  all GB frames are day-only.
+- **Day/night applies to the ten SGB frames** — the seven game frames
+  (RED through CRYSTAL, plus GOLD 97 via `AUTO`) and the three themed frames
+  (TOTODILE, CHIKORITA, KANGASKHAN). All GBC and GB frames are day-only.
+- **If `SGB STYLE = AUTO` and the running game can't be identified, no
+  overlay is drawn.** A notice appears on screen for 5 seconds asking you to
+  pick a style manually.
 - If a frame file is missing, the mod shows an on-screen warning instead of
   drawing a fallback
 - **All border artwork is manually reworked by the author. No AI art was
@@ -119,7 +127,7 @@ resolution, and how the borders rendered.
 This mod supports in-launcher updates. The launcher's MODS panel will show an
 **Update** button when a newer release is available on GitHub. The
 **Versions** button lets you pick any published release — useful if you need
-   to roll back to v1.0.4 for 16:9 or mobile use.
+to roll back to v1.0.4 for 16:9 or mobile use.
 
 ## Credits
 
