@@ -4,7 +4,7 @@ Manually reworked SGB and GBC borders for Gen 1 & 2 in gen1recomp. Per-game
 overlays, auto and selectable day/night version, universally applicable GBC
 Special Pikachu Edition.
 
-**61 pixel-perfect overlays** — every one hand-drawn, no AI art.
+**71 pixel-perfect overlays** — every one hand-drawn, no AI art.
 
 ## What it does
 
@@ -21,12 +21,13 @@ selectable on any supported game.
 - **Day and night variants** for all six supported games, switchable manually
   or automatically
 - **GOLD 97** — the SGB border from the Spaceworld '97 demo, with a night
-  version featuring Pikablu. Selectable via the `SGB GOLD 97` console option,
-  and overrides any Pokémon theme choice.
-- **Themed SGB frames** — CHIKORITA, KANGASKHAN, MEOWTH, NIDOKING, PIKACHU,
-  and TOTODILE, each with day and night variants
+  version featuring Pikablu. Selectable via the `SPECIAL` option, and
+  overrides any Pokémon theme choice.
+- **Themed SGB frames** — CHIKORITA, GEODUDE, KANGASKHAN, MEOWTH, NIDOKING,
+  PIKACHU, and TOTODILE, each with day and night variants
 - **GB and GBC device frames** — plain GB, GB Dark, GB Light, GB Pocket, and
   GBC, plus themed variants for every Pokémon across all GB models and GBC
+- **FER'S GOLD PARTY** — a party-themed overlay selectable via `SPECIAL`
 
 ## Options
 
@@ -41,16 +42,21 @@ All options are in the mod manager.
 | | `GB POCKET` | Game Boy Pocket device frame |
 | | `GBC` | Game Boy Color device frame |
 | | `SGB` | Super Game Boy. Automatically chooses the running game's SGB frame. Day/night can be changed manually. |
-| | `SGB GOLD 97` | Forces the Spaceworld '97 Gold demo frame. Overrides any Pokémon theme. |
 | **POKEMON** | `NONE` | No Pokémon theme — the plain console frame is shown |
-| | `CHIKORITA` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `TOTODILE` | Pokémon-themed overlays. All themes have a variant for every console. |
+| | `CHIKORITA` / `GEODUDE` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `TOTODILE` | Pokémon-themed overlays. All themes have a variant for every console. |
+| **SPECIAL** | `NONE` | No special overlay |
+| | `FER'S GOLD PARTY` | Party-themed overlay. Day-only. |
+| | `GOLD 97` | Spaceworld '97 demo frame. Day/night variants available via `SGB DAY/NIGHT`. |
 | **SGB DAY/NIGHT** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). Only affects SGB frames. |
 | | `DAY` | Always the day frame. |
 | | `NIGHT` | Always the night frame. |
 
-Both `CONSOLE` and `POKEMON` default to `NONE`, so the overlay does not draw
-until at least one is set to a real value. If `POKEMON` is set without
-`CONSOLE`, a notice appears and no overlay is drawn.
+`CONSOLE` and `POKEMON` default to `NONE`. `SPECIAL` also defaults to
+`NONE`. If `POKEMON` is set without `CONSOLE`, a notice appears and no
+overlay is drawn.
+
+**`SPECIAL` overrides both `CONSOLE` and `POKEMON`.** If it's set to anything
+other than `NONE`, its frame draws regardless of the other two rows.
 
 ## Supported games
 
@@ -97,19 +103,20 @@ resolution, and how the borders rendered.
 
 ## Notes
 
-- Both `CONSOLE` and `POKEMON` default to `NONE`, so the overlay is
+- `CONSOLE`, `POKEMON`, and `SPECIAL` default to `NONE`, so the overlay is
   **disabled on first launch** to prevent the UI from being cropped on
   certain devices, which can make it difficult to navigate the settings
-  menu. Set either row to a real value to enable the overlay.
+  menu. Set any row to a real value to enable the overlay.
 - Changes apply live — no restart needed
-- **SGB DAY/NIGHT applies to the SGB frames** — the seven game frames
-  (RED through CRYSTAL, plus GOLD 97 via `SGB GOLD 97`) and the six themed
-  SGB frames (CHIKORITA, KANGASKHAN, MEOWTH, NIDOKING, PIKACHU, TOTODILE).
-  All GBC and GB frames are day-only.
+- **SGB DAY/NIGHT applies to the SGB frames** — the six game frames
+  (RED through CRYSTAL) and the seven themed SGB frames (CHIKORITA, GEODUDE,
+  KANGASKHAN, MEOWTH, NIDOKING, PIKACHU, TOTODILE). Gold 97 also respects
+  the setting. All GBC and GB frames are day-only, and `FER'S GOLD PARTY`
+  is day-only.
 - **Gold defaults to the standard Gold frame.** To use the Spaceworld '97
-  demo frame, select `SGB GOLD 97`.
-- **`SGB GOLD 97` has the highest priority.** If selected, it draws the
-  Gold 97 frame regardless of the Pokémon theme or running game.
+  demo frame, select `SPECIAL = GOLD 97`.
+- **`SPECIAL` has the highest priority.** If set to `FER'S GOLD PARTY` or
+  `GOLD 97`, that frame draws regardless of `CONSOLE` or `POKEMON`.
 - **If `CONSOLE = SGB` and the running game can't be identified, no overlay
   is drawn.** A notice appears on screen for 5 seconds asking you to pick a
   style manually.
