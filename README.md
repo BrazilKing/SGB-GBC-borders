@@ -132,7 +132,7 @@ resolution, and how the borders rendered.
 4. Open the mod options, set `CONSOLE` (and optionally `POKEMON`), and the
    frame appears immediately.
 
-**On gen1recomp v0.3.22 – v0.3.29:** the mod manager's update feature is
+**On gen1recomp v0.3.22 – v0.3.28:** the mod manager's update feature is
 broken. See the **Updating** section for manual install instructions.
 
 ## Updating
@@ -142,12 +142,12 @@ This mod supports in-launcher updates. The launcher's MODS panel will show an
 **Versions** button lets you pick any published release — useful if you need
 to roll back to v1.0.4 for 16:9 or mobile use.
 
-**Important:** gen1recomp **v0.3.22 through v0.3.29** have a broken mod
+**Important:** gen1recomp **v0.3.22 through v0.3.28** have a broken mod
 updater. If you are on any of these engine versions, the launcher's
 **Update** button will fail and the mod will not install through the mod
 manager.
 
-**Install or update manually on v0.3.22 – v0.3.29:**
+**Install or update manually on v0.3.22 – v0.3.28:**
 
 1. Download the `.zip` from the GitHub releases page.
 2. Extract the folder.
@@ -155,9 +155,8 @@ manager.
    replacing the existing one.
 4. Restart the launcher.
 
-Engine versions outside this range may have a working updater. If the
-**Update** button is visible and works, use it. If it fails, fall back to
-the manual steps above.
+**gen1recomp v0.3.29 and later have a working updater.** Use the **Update**
+button as normal.
 
 ## Credits
 
