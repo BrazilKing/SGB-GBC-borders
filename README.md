@@ -4,7 +4,7 @@ Manually reworked SGB and GBC borders for Gen 1 & 2 in gen1recomp. Per-game
 overlays, auto and selectable day/night version, universally applicable GBC
 Special Pikachu Edition.
 
-**42 pixel-perfect overlays** — every one hand-drawn, no AI art.
+**61 pixel-perfect overlays** — every one hand-drawn, no AI art.
 
 ## What it does
 
@@ -23,12 +23,10 @@ selectable on any supported game.
 - **GOLD 97** — the SGB border from the Spaceworld '97 demo, with a night
   version featuring Pikablu. The default for Gold, and selectable on any
   other game.
-- **Themed SGB frames** — TOTODILE, CHIKORITA, KANGASKHAN, and MEOWTH, each
-  with day and night variants
+- **Themed SGB frames** — CHIKORITA, KANGASKHAN, MEOWTH, NIDOKING, PIKACHU,
+  and TOTODILE, each with day and night variants
 - **GB and GBC device frames** — plain GB, GB Dark, GB Light, GB Pocket, and
-  GBC, plus themed variants for Kangaskhan and Meowth across all GB models,
-  and themed GBC frames for Chikorita, Kangaskhan, Meowth, Nidoking, Pikachu,
-  Pikachu Alt, and Totodile
+  GBC, plus themed variants for every Pokémon across all GB models and GBC
 
 ## Options
 
@@ -44,15 +42,13 @@ All options are in the mod manager.
 | | `GBC` | Game Boy Color device frame |
 | | `SGB` | Super Game Boy. Automatically chooses the running game's SGB frame. Day/night can be changed manually. |
 | **POKEMON** | `NONE` | No Pokémon theme — the plain console frame is shown |
-| | `CHIKORITA` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `PIKACHU ALT` / `TOTODILE` | Pokémon-themed overlays. Available console variants vary by theme. |
+| | `CHIKORITA` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `TOTODILE` | Pokémon-themed overlays. All themes have a variant for every console. |
 | **DAY/NIGHT MODE** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). |
 | | `DAY` | Always the day frame. |
 | | `NIGHT` | Always the night frame. |
 
 Both `CONSOLE` and `POKEMON` default to `NONE`, so the overlay does not draw
-until at least one is set to a real value. If a Pokémon theme doesn't have a
-variant for the selected console, the mod falls back to the same Pokémon on
-another console and shows a brief notice.
+until at least one is set to a real value.
 
 ## Supported games
 
@@ -105,16 +101,14 @@ resolution, and how the borders rendered.
   menu. Set either row to a real value to enable the overlay.
 - Changes apply live — no restart needed
 - **Day/night applies to the SGB frames** — the seven game frames
-  (RED through CRYSTAL, plus GOLD 97 via `AUTO`) and the themed SGB frames
-  (TOTODILE, CHIKORITA, KANGASKHAN, MEOWTH). All GBC and GB frames are
-  day-only.
+  (RED through CRYSTAL, plus GOLD 97 via `AUTO`) and the six themed SGB
+  frames (CHIKORITA, KANGASKHAN, MEOWTH, NIDOKING, PIKACHU, TOTODILE). All
+  GBC and GB frames are day-only.
 - **If `CONSOLE = SGB` and the running game can't be identified, no overlay
   is drawn.** A notice appears on screen for 5 seconds asking you to pick a
   style manually.
-- **If a Pokémon theme doesn't have a variant for the selected console**, the
-  mod falls back to the same Pokémon on another console and shows a brief
-  notice. If no variant exists at all, the console's plain device frame is
-  drawn.
+- **Every Pokémon theme has a frame for every console**, so no fallback
+  notice should appear in normal use.
 - If a frame file is missing, the mod shows an on-screen warning instead of
   drawing a fallback
 - **All border artwork is manually reworked by the author. No AI art was
@@ -130,12 +124,31 @@ resolution, and how the borders rendered.
 4. Open the mod options, set `CONSOLE` (and optionally `POKEMON`), and the
    frame appears immediately.
 
+**On gen1recomp v0.3.29:** the mod manager's update feature is broken. See
+the **Updating** section for manual install instructions.
+
 ## Updating
 
 This mod supports in-launcher updates. The launcher's MODS panel will show an
 **Update** button when a newer release is available on GitHub. The
 **Versions** button lets you pick any published release — useful if you need
 to roll back to v1.0.4 for 16:9 or mobile use.
+
+**Important:** gen1recomp v0.3.29 has a broken mod updater. If you are on
+that engine version, the launcher's **Update** button will fail and the mod
+will not install through the mod manager.
+
+**Install or update manually on v0.3.29:**
+
+1. Download the `.zip` from the GitHub releases page.
+2. Extract the folder.
+3. Copy the extracted `sgb_gbc_borders` folder into your mods directory,
+   replacing the existing one.
+4. Restart the launcher.
+
+Engine versions before and after v0.3.29 may have a working updater. If the
+**Update** button is visible and works, use it. If it fails, fall back to
+the manual steps above.
 
 ## Credits
 
