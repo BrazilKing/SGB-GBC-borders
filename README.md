@@ -43,12 +43,13 @@ All options are in the mod manager.
 | | `SGB` | Super Game Boy. Automatically chooses the running game's SGB frame. Day/night can be changed manually. |
 | **POKEMON** | `NONE` | No Pokémon theme — the plain console frame is shown |
 | | `CHIKORITA` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `TOTODILE` | Pokémon-themed overlays. All themes have a variant for every console. |
-| **DAY/NIGHT MODE** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). |
+| **SGB DAY/NIGHT** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). Only affects SGB frames. |
 | | `DAY` | Always the day frame. |
 | | `NIGHT` | Always the night frame. |
 
 Both `CONSOLE` and `POKEMON` default to `NONE`, so the overlay does not draw
-until at least one is set to a real value.
+until at least one is set to a real value. If `POKEMON` is set without
+`CONSOLE`, a notice appears and no overlay is drawn.
 
 ## Supported games
 
@@ -100,13 +101,15 @@ resolution, and how the borders rendered.
   certain devices, which can make it difficult to navigate the settings
   menu. Set either row to a real value to enable the overlay.
 - Changes apply live — no restart needed
-- **Day/night applies to the SGB frames** — the seven game frames
+- **SGB DAY/NIGHT applies to the SGB frames** — the seven game frames
   (RED through CRYSTAL, plus GOLD 97 via `AUTO`) and the six themed SGB
   frames (CHIKORITA, KANGASKHAN, MEOWTH, NIDOKING, PIKACHU, TOTODILE). All
   GBC and GB frames are day-only.
 - **If `CONSOLE = SGB` and the running game can't be identified, no overlay
   is drawn.** A notice appears on screen for 5 seconds asking you to pick a
   style manually.
+- **If `POKEMON` is set but `CONSOLE` is still `NONE`**, no overlay is drawn
+  and a notice appears for 5 seconds asking you to pick a console.
 - **Every Pokémon theme has a frame for every console**, so no fallback
   notice should appear in normal use.
 - If a frame file is missing, the mod shows an on-screen warning instead of
