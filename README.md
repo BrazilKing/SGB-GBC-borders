@@ -4,7 +4,7 @@ Manually reworked SGB and GBC borders for Gen 1 & 2 in gen1recomp. Per-game
 overlays, auto and selectable day/night version, universally applicable GBC
 Special Pikachu Edition.
 
-**77 pixel-perfect overlays** — every one hand-drawn, no AI art.
+**113 pixel-perfect overlays** — every one hand-drawn, no AI art.
 
 ## What it does
 
@@ -27,7 +27,8 @@ selectable on any supported game.
 - **GB and GBC device frames** — plain GB, GB Dark, GB Light, GB Pocket, and
   GBC, plus themed variants for every Pokémon across all GB models and GBC
 - **PARTY overlays** — nine community-requested frames, each based on a
-  contributor's current or favourite Gen 1/2 Pokémon. Currently GBC-only.
+  contributor's current or favourite Gen 1/2 Pokémon. Available in GB,
+  GB Dark, GB Light, GB Pocket, and GBC variants.
 
 ## Options
 
@@ -35,8 +36,6 @@ All options are in the mod manager.
 
 | Option | Value | What it does |
 |---|---|---|
-| **PARTY** | `NONE` | No party overlay |
-| | `BLOODDLL` / `DARTHTRON64` / `FERNANDO` / `FERNANDO B` / `FOXEGORY5` / `THEEON` / `TORCHICISLAND` / `TORCHICISLAND B` / `ZEAK6464` | Community-requested party overlays. Each is a personal favourite Gen 1/2 Pokémon frame. Currently GBC-only and day-only. |
 | **CONSOLE** | `NONE` | No console selected — overlay does not draw unless a Pokémon is also set |
 | | `GB` | Game Boy device frame |
 | | `GB DARK` | Game Boy Dark device frame |
@@ -45,17 +44,23 @@ All options are in the mod manager.
 | | `GBC` | Game Boy Color device frame |
 | | `SGB` | Super Game Boy. Automatically chooses the running game's SGB frame. Day/night can be changed manually. |
 | | `SGB GOLD 97` | Forces the Spaceworld '97 Gold demo frame. |
+| **PARTY** | `NONE` | No party overlay |
+| | `BLOODDLL` / `DARTHTRON64` / `FERNANDO` / `FERNANDO B` / `FOXEGORY5` / `THEEON` / `TORCHICISLAND` / `TORCHICISLAND B` / `ZEAK6464` | Community-requested party overlays. Each is a personal favourite Gen 1/2 Pokémon frame. Combines with `CONSOLE` to pick the hardware variant. |
 | **POKEMON** | `NONE` | No Pokémon theme — the plain console frame is shown |
 | | `CHIKORITA` / `GEODUDE` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `TOTODILE` | Pokémon-themed overlays. All themes have a variant for every console. |
 | **SGB DAY/NIGHT** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). Only affects SGB frames. |
 | | `DAY` | Always the day frame. |
 | | `NIGHT` | Always the night frame. |
 
-`PARTY`, `CONSOLE`, and `POKEMON` all default to `NONE`. If `POKEMON` is set
+`CONSOLE`, `PARTY`, and `POKEMON` all default to `NONE`. If `POKEMON` is set
 without `CONSOLE`, a notice appears and no overlay is drawn.
 
-**`PARTY` overrides both `CONSOLE` and `POKEMON`.** If it's set to anything
-other than `NONE`, its frame draws regardless of the other rows.
+**`CONSOLE` and `PARTY` combine.** To draw a party frame, set both rows —
+the console selects the hardware variant, the party row selects the
+contributor. If `CONSOLE` is `NONE`, `SGB`, or `SGB GOLD 97` while a party
+is set, a notice appears and nothing draws.
+
+**`PARTY` overrides `POKEMON`.** If both are set, the party frame wins.
 
 ## Supported games
 
@@ -102,7 +107,7 @@ resolution, and how the borders rendered.
 
 ## Notes
 
-- `PARTY`, `CONSOLE`, and `POKEMON` default to `NONE`, so the overlay is
+- `CONSOLE`, `PARTY`, and `POKEMON` default to `NONE`, so the overlay is
   **disabled on first launch** to prevent the UI from being cropped on
   certain devices, which can make it difficult to navigate the settings
   menu. Set any row to a real value to enable the overlay.
@@ -113,10 +118,10 @@ resolution, and how the borders rendered.
   and GB frames are day-only, and `PARTY` overlays are day-only.
 - **Gold defaults to the standard Gold frame.** To use the Spaceworld '97
   demo frame, select `CONSOLE = SGB GOLD 97`.
-- **`PARTY` has the highest priority.** If set, that frame draws regardless
-  of `CONSOLE` or `POKEMON`.
-- **`PARTY` overlays are currently GBC-only.** No SGB or GB variants exist.
-  Additional variants may be added in future releases.
+- **`PARTY` combines with `CONSOLE`.** Set both to draw a party frame on a
+  specific hardware variant. Setting `PARTY` with `CONSOLE = NONE`, `SGB`,
+  or `SGB GOLD 97` triggers a notice and draws nothing.
+- **`PARTY` wins over `POKEMON`.** If both are set, the party frame draws.
 - **If `CONSOLE = SGB` and the running game can't be identified, no overlay
   is drawn.** A notice appears on screen for 5 seconds asking you to pick a
   style manually.
@@ -136,11 +141,8 @@ resolution, and how the borders rendered.
 2. Enable the mod in the launcher's MODS panel.
 3. Launch any supported game. The overlay is off on first launch — the game
    screen will look normal.
-4. Open the mod options, set `CONSOLE` (and optionally `POKEMON`), and the
-   frame appears immediately.
-
-**On gen1recomp v0.3.22 – v0.3.28:** the mod manager's update feature is
-broken. See the **Updating** section for manual install instructions.
+4. Open the mod options, set `CONSOLE` (and optionally `POKEMON` or
+   `PARTY`), and the frame appears immediately.
 
 ## Updating
 
@@ -148,22 +150,6 @@ This mod supports in-launcher updates. The launcher's MODS panel will show an
 **Update** button when a newer release is available on GitHub. The
 **Versions** button lets you pick any published release — useful if you need
 to roll back to v1.0.4 for 16:9 or mobile use.
-
-**Important:** gen1recomp **v0.3.22 through v0.3.28** have a broken mod
-updater. If you are on any of these engine versions, the launcher's
-**Update** button will fail and the mod will not install through the mod
-manager.
-
-**Install or update manually on v0.3.22 – v0.3.28:**
-
-1. Download the `.zip` from the GitHub releases page.
-2. Extract the folder.
-3. Copy the extracted `sgb_gbc_borders` folder into your mods directory,
-   replacing the existing one.
-4. Restart the launcher.
-
-**gen1recomp v0.3.29 and later have a working updater.** Use the **Update**
-button as normal.
 
 ## Credits
 
