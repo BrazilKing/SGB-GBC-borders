@@ -4,7 +4,7 @@ Manually reworked GB, GBC, GBA, and SGB overlays for Gen 1, 2, and 3 in
 gen1recomp. Per-game overlays, auto and selectable day/night version,
 universally applicable GBC Special Pikachu Edition.
 
-**125 pixel-perfect PNG files.** 117 frame overlays plus 8 gym badge layers,
+125 pixel-perfect PNG files. 117 frame overlays plus 8 gym badge layers,
 producing **798 possible on-screen combinations** — every file hand-drawn,
 no AI art.
 
