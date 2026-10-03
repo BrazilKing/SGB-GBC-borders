@@ -20,7 +20,7 @@ selectable on any supported game.
 The mod also supports an optional **gym badge layer**, drawn on top of the
 active frame, and its frame-selection logic is fully cached so it no longer
 does per-frame filesystem work. Options save per save file, so each
-playthrough can have its own setup. Currently supported for gen1.
+playthrough can have its own setup. Gym badge layer is currently only supported by Gen 1.
 
 ## Frames included
 
