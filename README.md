@@ -19,7 +19,8 @@ selectable on any supported game.
 
 The mod also supports an optional **gym badge layer**, drawn on top of the
 active frame, and its frame-selection logic is fully cached so it no longer
-does per-frame filesystem work.
+does per-frame filesystem work. Options save per save file, so each
+playthrough can have its own setup.
 
 ## Frames included
 
@@ -106,18 +107,36 @@ is set, a notice appears and the base console frame draws instead.
 
 **`PARTY` overrides `POKEMON`.** If both are set, the party frame wins.
 
+## Saving per save file
+
+Options save **per save file**, not globally. A fresh save starts at the
+mod's default settings (no console, no Pokémon, no party, `AUTO (GYM)` badge,
+`AUTO` day/night). The first time you change an option in that save, the
+mod writes the value into that save's storage — and only that save.
+
+So:
+
+- **Red save 1** can show a GB Light frame while **Red save 2** shows an SGB
+  frame.
+- **Red** and **Crystal** can each have their own setup.
+- Starting a new game gives you the mod's defaults, not whatever you had
+  selected last time.
+- Changing an option in one save never affects any other save.
+
 ## GBA on Gen 1/2 games
 
 GBA device frames are available on any supported game. On a Gen 1 or Gen 2
-game, selecting a GBA console draws the frame with a warning that GBA was
-not the hardware those games ran on. The frame still renders — the warning
-is informational.
+game, selecting a GBA console draws the frame with an informational notice
+that GBA was not the hardware those games ran on. The frame still renders —
+the notice is informational.
 
 ## Gen 3 games
 
-On Gen 3 games, only GBA frames are available. Selecting GB, GBC, or SGB
-shows a warning and draws nothing. This keeps the console selection
-consistent with the hardware those games actually ran on.
+On Gen 3 games, only GBA frames are available. Selecting GB, GBC, SGB, or
+SGB GOLD 97 shows a notice and draws nothing. Party and Pokémon overlays do
+not render on Gen 3 either — there are no themed or party GBA variants yet,
+so the plain GBA frame draws in their place with a notice. This keeps the
+console selection consistent with the hardware those games actually ran on.
 
 ## Gym badges
 
@@ -193,8 +212,7 @@ badge active during normal gameplay.
 
 ## Supported games
 
-Red, Blue, Yellow, Gold, Silver, Crystal — plus Gen 3 (Ruby, Sapphire,
-Emerald, FireRed, LeafGreen).
+Red, Blue, Yellow, Gold, Silver, Crystal — plus Gen 3.
 
 ## Display
 
@@ -242,6 +260,8 @@ resolution, and how the borders rendered.
   cropped on certain devices, which can make it difficult to navigate the
   settings menu. Set any row to a real value to enable the overlay.
 - Changes apply live — no restart needed
+- **Options save per save file.** A fresh save starts at the mod's defaults.
+  See "Saving per save file" above.
 - **SGB DAY/NIGHT applies to the SGB frames** — the six game frames
   (RED through CRYSTAL), the seven themed SGB frames (CHIKORITA, GEODUDE,
   KANGASKHAN, MEOWTH, NIDOKING, PIKACHU, TOTODILE), and Gold 97. All GBC,
@@ -258,8 +278,10 @@ resolution, and how the borders rendered.
   `CONSOLE` set to a GBA model and `POKEMON` or `PARTY` set, the mod draws
   the plain GBA frame with a notice. Themed GBA art is planned for a future
   release.
-- **Gen 3 games only render GBA frames.** Picking GB, GBC, or SGB on a Gen 3
-  game shows a notice and draws nothing.
+- **Gen 3 games only render GBA frames.** Picking GB, GBC, SGB, or
+  SGB GOLD 97 on a Gen 3 game shows a notice and draws nothing. Party and
+  Pokémon overlays do not render either; the plain GBA frame draws with a
+  notice instead.
 - **GBA frames on Gen 1/2 games draw with an informational notice** that GBA
   wasn't the hardware those games ran on.
 - **If `CONSOLE = SGB` and the running game can't be identified, no overlay
