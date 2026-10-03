@@ -4,7 +4,9 @@ Manually reworked SGB and GBC borders for Gen 1 & 2 in gen1recomp. Per-game
 overlays, auto and selectable day/night version, universally applicable GBC
 Special Pikachu Edition.
 
-**113 pixel-perfect overlays** — every one hand-drawn, no AI art.
+**121 pixel-perfect PNG files.** 113 frame overlays plus 8 gym badge layers,
+producing **794 possible on-screen combinations** — every file hand-drawn,
+no AI art.
 
 ## What it does
 
@@ -14,6 +16,10 @@ live from the mod manager — no restart needed. This version is built for
 4:3 displays and is optimized specifically for the TrimUI Brick. The user has
 full control over the overlay: any console and Pokémon theme combination is
 selectable on any supported game.
+
+The mod now also supports an optional **gym badge layer**, drawn on top of
+the active frame, and its frame-selection logic is fully cached so it no
+longer does per-frame filesystem work.
 
 ## Frames included
 
@@ -29,6 +35,34 @@ selectable on any supported game.
 - **PARTY overlays** — nine community-requested frames, each based on a
   contributor's current or favourite Gen 1/2 Pokémon. Available in GB,
   GB Dark, GB Light, GB Pocket, and GBC variants.
+- **Eight R/B/Y gym badges** — Boulder, Cascade, Thunder, Rainbow, Soul,
+  Marsh, Volcano, and Earth, drawn as a badge layer on top of GB and GBC
+  frames
+
+## Overlay combinations
+
+The mod ships **121 PNG files**. From them it can produce **794 distinct
+on-screen overlays**, and the user never has to scroll through a flat list
+to reach any of them. Everything is built from five short option rows —
+CONSOLE, POKEMON, PARTY, GYM BADGE, and SGB DAY/NIGHT — each with a handful
+of choices. The combinations emerge from those rows.
+
+The mod also detects which game you are playing automatically. When
+`CONSOLE = SGB` and `POKEMON = NONE`, the correct official SGB overlay for
+your game — Red, Blue, Yellow, Gold, Silver, or Crystal — is loaded on its
+own, with no extra selection needed. Six official SGB frames, each with a
+day and night variant, are picked for you.
+
+The count breaks down like this:
+
+- **Badge-capable base frames (GB and GBC only)** — 4 GB plain + 1 GBC
+  plain + 28 GB themed + 7 GBC themed + 45 party = **85**
+- **Badge layer** — 8 badges + no badge = **9 states**
+- **Badge-capable overlays** — 85 × 9 = **765**
+- **SGB frames** — 14 game defaults (day/night) + 14 themed Pokémon = **28**
+  (badge layer suppressed by design)
+- **Blank state** — **1**
+- **Total on-screen overlays** — 765 + 28 + 1 = **794**
 
 ## Options
 
@@ -48,12 +82,16 @@ All options are in the mod manager.
 | | `BLOODDLL` / `DARTHTRON64` / `FERNANDO` / `FERNANDO B` / `FOXEGORY5` / `THEEON` / `TORCHICISLAND` / `TORCHICISLAND B` / `ZEAK6464` | Community-requested party overlays. Each is a personal favourite Gen 1/2 Pokémon frame. Combines with `CONSOLE` to pick the hardware variant. |
 | **POKEMON** | `NONE` | No Pokémon theme — the plain console frame is shown |
 | | `CHIKORITA` / `GEODUDE` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `TOTODILE` | Pokémon-themed overlays. All themes have a variant for every console. |
+| **GYM BADGE** | `NONE` | No badge layer |
+| | `AUTO (GYM)` | Shows the matching badge when inside its gym |
+| | `AUTO (CITY)` | Shows the matching badge anywhere in the corresponding city, and inside the gym |
+| | `BOULDER` / `CASCADE` / `THUNDER` / `RAINBOW` / `SOUL` / `MARSH` / `VOLCANO` / `EARTH` | Forces a specific badge regardless of map |
 | **SGB DAY/NIGHT** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). Only affects SGB frames. |
 | | `DAY` | Always the day frame. |
 | | `NIGHT` | Always the night frame. |
 
-`CONSOLE`, `PARTY`, and `POKEMON` all default to `NONE`. If `POKEMON` is set
-without `CONSOLE`, a notice appears and no overlay is drawn.
+`CONSOLE`, `PARTY`, `POKEMON`, and `GYM BADGE` all default to `NONE`. If
+`POKEMON` is set without `CONSOLE`, a notice appears and no overlay is drawn.
 
 **`CONSOLE` and `PARTY` combine.** To draw a party frame, set both rows —
 the console selects the hardware variant, the party row selects the
@@ -61,6 +99,76 @@ contributor. If `CONSOLE` is `NONE`, `SGB`, or `SGB GOLD 97` while a party
 is set, a notice appears and nothing draws.
 
 **`PARTY` overrides `POKEMON`.** If both are set, the party frame wins.
+
+## Gym badges
+
+The badge is a second overlay drawn on top of the base frame, not a
+replacement for it. Whatever the base overlay is — a themed GB or GBC frame,
+a party overlay, or a plain GB or GBC device frame — the badge draws over
+it. Every existing option keeps working exactly as before.
+
+**SGB frames are the one exception.** When the base overlay is a Super Game
+Boy frame, the badge layer is skipped entirely. SGB frames fill the whole
+window with their own decorative art, so a badge drawn on top would collide
+with the frame's icons and borders. Badges render only over GB and GBC
+variants.
+
+Layer order:
+
+1. Base frame — chosen by the `CONSOLE`, `POKEMON`, and `PARTY` rows
+2. Gym badge — drawn on top, when the badge option applies and the base
+   frame is GB or GBC
+
+**`AUTO (GYM)`** reads the current map. When the player enters a gym, the
+matching badge appears. When the player leaves, it disappears. The mapping
+follows the chronological gym order: Pewter shows Boulder, Cerulean shows
+Cascade, and so on through Viridian showing Earth.
+
+**`AUTO (CITY)`** extends the automatic behavior to the whole city instead
+of just the gym interior. Entering Pewter City shows the Boulder Badge and
+it stays visible anywhere in Pewter until the player leaves. Gym interiors
+are still covered by the same badge.
+
+Note that Viridian City is reachable at the very start of the game, before
+the player has earned any badges. Selecting `AUTO (CITY)` will show the
+Earth Badge on that first visit.
+
+**Manual mode** — selecting any specific badge forces it to draw regardless
+of which map the player is on.
+
+Some combinations:
+
+- `PARTY = MEOWTH` + `GYM BADGE = AUTO (GYM)` — Meowth's party frame shows
+  normally, and the Pewter badge appears when the player enters Pewter Gym.
+- `CONSOLE = GBC` + `POKEMON = CHIKORITA` + `GYM BADGE = EARTH` — Chikorita's
+  GBC frame is always accompanied by the Earth Badge.
+- `CONSOLE = GB LIGHT` + `GYM BADGE = NONE` — clean GB Light device frame
+  with no badge at all.
+- `CONSOLE = SGB` + `GYM BADGE = AUTO (CITY)` — SGB frame draws with no
+  badge, even inside a gym or city.
+
+## Performance
+
+- **Cached path resolution.** The mod no longer re-evaluates the full
+  frame-selection tree on every frame. Previously each frame checked options,
+  built asset paths, and probed the filesystem to confirm each candidate
+  file existed — up to six file existence checks per frame during normal
+  play. That work is now memoized. The selection is recomputed only when
+  something that affects it actually changes: an option is edited, the
+  player enters a new map, or the day/night period flips. The result is
+  identical; only the wasted work is gone.
+- **Zero-cost idle rendering.** When the base frame is `NONE` and no badge
+  applies, the render hook now returns before touching any graphics state.
+  No canvas save, no scissor save, no color save, no restore. Nothing to
+  draw means nothing is done.
+- **Correct SGB frame resolution on late game-version detection.** The game
+  version is now part of the cache key, so if the SGB default frame is
+  resolved before the game version becomes available, the correct frame is
+  picked up automatically instead of being stuck on a fallback until the
+  next option change.
+
+These changes are most noticeable on lower-power devices with a frame or
+badge active during normal gameplay.
 
 ## Supported games
 
@@ -107,10 +215,10 @@ resolution, and how the borders rendered.
 
 ## Notes
 
-- `CONSOLE`, `PARTY`, and `POKEMON` default to `NONE`, so the overlay is
-  **disabled on first launch** to prevent the UI from being cropped on
-  certain devices, which can make it difficult to navigate the settings
-  menu. Set any row to a real value to enable the overlay.
+- `CONSOLE`, `PARTY`, `POKEMON`, and `GYM BADGE` default to `NONE`, so the
+  overlay is **disabled on first launch** to prevent the UI from being
+  cropped on certain devices, which can make it difficult to navigate the
+  settings menu. Set any row to a real value to enable the overlay.
 - Changes apply live — no restart needed
 - **SGB DAY/NIGHT applies to the SGB frames** — the six game frames
   (RED through CRYSTAL), the seven themed SGB frames (CHIKORITA, GEODUDE,
@@ -122,6 +230,8 @@ resolution, and how the borders rendered.
   specific hardware variant. Setting `PARTY` with `CONSOLE = NONE`, `SGB`,
   or `SGB GOLD 97` triggers a notice and draws nothing.
 - **`PARTY` wins over `POKEMON`.** If both are set, the party frame draws.
+- **Badges render only over GB and GBC frames.** SGB frames suppress the
+  badge layer by design, since the SGB art fills the whole window.
 - **If `CONSOLE = SGB` and the running game can't be identified, no overlay
   is drawn.** A notice appears on screen for 5 seconds asking you to pick a
   style manually.
@@ -141,8 +251,8 @@ resolution, and how the borders rendered.
 2. Enable the mod in the launcher's MODS panel.
 3. Launch any supported game. The overlay is off on first launch — the game
    screen will look normal.
-4. Open the mod options, set `CONSOLE` (and optionally `POKEMON` or
-   `PARTY`), and the frame appears immediately.
+4. Open the mod options, set `CONSOLE` (and optionally `POKEMON`, `PARTY`,
+   or `GYM BADGE`), and the frame appears immediately.
 
 ## Updating
 
