@@ -317,3 +317,7 @@ to roll back to v1.0.4 for 16:9 or mobile use.
 Borders and mod by BrazilKing, based on original SGB frames and GBC Pokémon
 editions. PARTY overlays are community-requested, each based on a
 contributor's current or favourite Gen 1/2 Pokémon.
+
+## Known bugs / To be fixed
+- In a GBA game it is still possible to render the GB/GBC overlay, this should be blocked. NOTE: This will crop the viewport.
+- Mod doesn't save configuration per save file. Instead, it applies your chosen settings in all games.
