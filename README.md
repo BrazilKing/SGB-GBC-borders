@@ -1,37 +1,39 @@
-# SGB/GBC Classic
+# G1R Classic Overlays
 
-Manually reworked SGB and GBC borders for Gen 1 & 2 in gen1recomp. Per-game
-overlays, auto and selectable day/night version, universally applicable GBC
-Special Pikachu Edition.
+Manually reworked GB, GBC, GBA, and SGB overlays for Gen 1, 2, and 3 in
+gen1recomp. Per-game overlays, auto and selectable day/night version,
+universally applicable GBC Special Pikachu Edition.
 
-**121 pixel-perfect PNG files.** 113 frame overlays plus 8 gym badge layers,
-producing **794 possible on-screen combinations** — every file hand-drawn,
+**125 pixel-perfect PNG files.** 117 frame overlays plus 8 gym badge layers,
+producing **798 possible on-screen combinations** — every file hand-drawn,
 no AI art.
 
 ## What it does
 
 The overlay draws on top of the game and is unaffected by shaders, so colors
-stay crisp regardless of what filter you have enabled. Border changes apply
+stay crisp regardless of what filter you have enabled. Overlay changes apply
 live from the mod manager — no restart needed. This version is built for
 4:3 displays and is optimized specifically for the TrimUI Brick. The user has
 full control over the overlay: any console and Pokémon theme combination is
 selectable on any supported game.
 
-The mod now also supports an optional **gym badge layer**, drawn on top of
-the active frame, and its frame-selection logic is fully cached so it no
-longer does per-frame filesystem work.
+The mod also supports an optional **gym badge layer**, drawn on top of the
+active frame, and its frame-selection logic is fully cached so it no longer
+does per-frame filesystem work.
 
 ## Frames included
 
 - **Per-game SGB borders** for Red, Blue, Yellow, Gold, Silver, and Crystal
-- **Day and night variants** for all six supported games, switchable manually
-  or automatically
+- **Day and night variants** for all six supported Gen 1/2 games, switchable
+  manually or automatically
 - **GOLD 97** — the SGB border from the Spaceworld '97 demo, with a night
   version featuring Pikablu. Selectable via the `SGB GOLD 97` console option.
 - **Themed SGB frames** — CHIKORITA, GEODUDE, KANGASKHAN, MEOWTH, NIDOKING,
   PIKACHU, and TOTODILE, each with day and night variants
 - **GB and GBC device frames** — plain GB, GB Dark, GB Light, GB Pocket, and
   GBC, plus themed variants for every Pokémon across all GB models and GBC
+- **GBA device frames** — plain GBA, GBA Light, GBA SP, and GBA SP Light.
+  Device frames only; no themed Pokémon or party variants yet.
 - **PARTY overlays** — nine community-requested frames, each based on a
   contributor's current or favourite Gen 1/2 Pokémon. Available in GB,
   GB Dark, GB Light, GB Pocket, and GBC variants.
@@ -41,7 +43,7 @@ longer does per-frame filesystem work.
 
 ## Overlay combinations
 
-The mod ships **121 PNG files**. From them it can produce **794 distinct
+The mod ships **125 PNG files**. From them it can produce **798 distinct
 on-screen overlays**, and the user never has to scroll through a flat list
 to reach any of them. Everything is built from five short option rows —
 CONSOLE, POKEMON, PARTY, GYM BADGE, and SGB DAY/NIGHT — each with a handful
@@ -59,10 +61,10 @@ The count breaks down like this:
   plain + 28 GB themed + 7 GBC themed + 45 party = **85**
 - **Badge layer** — 8 badges + no badge = **9 states**
 - **Badge-capable overlays** — 85 × 9 = **765**
-- **SGB frames** — 14 game defaults (day/night) + 14 themed Pokémon = **28**
-  (badge layer suppressed by design)
+- **SGB and GBA frames** — 28 SGB + 4 GBA = **32** (badge layer suppressed
+  by design)
 - **Blank state** — **1**
-- **Total on-screen overlays** — 765 + 28 + 1 = **794**
+- **Total on-screen overlays** — 765 + 32 + 1 = **798**
 
 ## Options
 
@@ -70,18 +72,22 @@ All options are in the mod manager.
 
 | Option | Value | What it does |
 |---|---|---|
-| **CONSOLE** | `NONE` | No console selected — overlay does not draw unless a Pokémon is also set |
+| **CONSOLE** | `NONE` | No console selected — overlay does not draw unless a Pokémon or party is also set |
 | | `GB` | Game Boy device frame |
 | | `GB DARK` | Game Boy Dark device frame |
 | | `GB LIGHT` | Game Boy Light device frame |
 | | `GB POCKET` | Game Boy Pocket device frame |
 | | `GBC` | Game Boy Color device frame |
+| | `GBA` | Game Boy Advance device frame |
+| | `GBA LIGHT` | Game Boy Advance with the SP backlight |
+| | `GBA SP` | Game Boy Advance SP device frame |
+| | `GBA SP LIGHT` | Game Boy Advance SP with the brighter AGS-101 screen |
 | | `SGB` | Super Game Boy. Automatically chooses the running game's SGB frame. Day/night can be changed manually. |
 | | `SGB GOLD 97` | Forces the Spaceworld '97 Gold demo frame. |
 | **PARTY** | `NONE` | No party overlay |
 | | `BLOODDLL` / `DARTHTRON64` / `FERNANDO` / `FERNANDO B` / `FOXEGORY5` / `THEEON` / `TORCHICISLAND` / `TORCHICISLAND B` / `ZEAK6464` | Community-requested party overlays. Each is a personal favourite Gen 1/2 Pokémon frame. Combines with `CONSOLE` to pick the hardware variant. |
 | **POKEMON** | `NONE` | No Pokémon theme — the plain console frame is shown |
-| | `CHIKORITA` / `GEODUDE` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `TOTODILE` | Pokémon-themed overlays. All themes have a variant for every console. |
+| | `CHIKORITA` / `GEODUDE` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `TOTODILE` | Pokémon-themed overlays. All themes have a variant for every GB, GBC, and SGB console. |
 | **GYM BADGE** | `NONE` | No badge layer |
 | | `AUTO (GYM)` | Shows the matching badge when inside its gym |
 | | `AUTO (CITY)` | Shows the matching badge anywhere in the corresponding city, and inside the gym |
@@ -96,9 +102,22 @@ All options are in the mod manager.
 **`CONSOLE` and `PARTY` combine.** To draw a party frame, set both rows —
 the console selects the hardware variant, the party row selects the
 contributor. If `CONSOLE` is `NONE`, `SGB`, or `SGB GOLD 97` while a party
-is set, a notice appears and nothing draws.
+is set, a notice appears and the base console frame draws instead.
 
 **`PARTY` overrides `POKEMON`.** If both are set, the party frame wins.
+
+## GBA on Gen 1/2 games
+
+GBA device frames are available on any supported game. On a Gen 1 or Gen 2
+game, selecting a GBA console draws the frame with a warning that GBA was
+not the hardware those games ran on. The frame still renders — the warning
+is informational.
+
+## Gen 3 games
+
+On Gen 3 games, only GBA frames are available. Selecting GB, GBC, or SGB
+shows a warning and draws nothing. This keeps the console selection
+consistent with the hardware those games actually ran on.
 
 ## Gym badges
 
@@ -107,11 +126,11 @@ replacement for it. Whatever the base overlay is — a themed GB or GBC frame,
 a party overlay, or a plain GB or GBC device frame — the badge draws over
 it. Every existing option keeps working exactly as before.
 
-**SGB frames are the one exception.** When the base overlay is a Super Game
-Boy frame, the badge layer is skipped entirely. SGB frames fill the whole
-window with their own decorative art, so a badge drawn on top would collide
-with the frame's icons and borders. Badges render only over GB and GBC
-variants.
+**SGB and GBA frames are the exceptions.** When the base overlay is a Super
+Game Boy frame or a GBA frame, the badge layer is skipped entirely. SGB
+frames fill the whole window with their own decorative art, and the badge
+art is R/B/Y Gen 1 content that doesn't belong on a GBA frame. Badges render
+only over GB and GBC variants.
 
 Layer order:
 
@@ -146,6 +165,8 @@ Some combinations:
   with no badge at all.
 - `CONSOLE = SGB` + `GYM BADGE = AUTO (CITY)` — SGB frame draws with no
   badge, even inside a gym or city.
+- `CONSOLE = GBA SP` + `GYM BADGE = AUTO (CITY)` — GBA SP frame draws with
+  no badge, regardless of map.
 
 ## Performance
 
@@ -172,7 +193,8 @@ badge active during normal gameplay.
 
 ## Supported games
 
-Red, Blue, Yellow, Gold, Silver, Crystal — all six supported games.
+Red, Blue, Yellow, Gold, Silver, Crystal — plus Gen 3 (Ruby, Sapphire,
+Emerald, FireRed, LeafGreen).
 
 ## Display
 
@@ -222,25 +244,32 @@ resolution, and how the borders rendered.
 - Changes apply live — no restart needed
 - **SGB DAY/NIGHT applies to the SGB frames** — the six game frames
   (RED through CRYSTAL), the seven themed SGB frames (CHIKORITA, GEODUDE,
-  KANGASKHAN, MEOWTH, NIDOKING, PIKACHU, TOTODILE), and Gold 97. All GBC
-  and GB frames are day-only, and `PARTY` overlays are day-only.
+  KANGASKHAN, MEOWTH, NIDOKING, PIKACHU, TOTODILE), and Gold 97. All GBC,
+  GB, and GBA frames are day-only, and `PARTY` overlays are day-only.
 - **Gold defaults to the standard Gold frame.** To use the Spaceworld '97
   demo frame, select `CONSOLE = SGB GOLD 97`.
 - **`PARTY` combines with `CONSOLE`.** Set both to draw a party frame on a
   specific hardware variant. Setting `PARTY` with `CONSOLE = NONE`, `SGB`,
-  or `SGB GOLD 97` triggers a notice and draws nothing.
+  or `SGB GOLD 97` shows a notice and draws the plain console frame.
 - **`PARTY` wins over `POKEMON`.** If both are set, the party frame draws.
-- **Badges render only over GB and GBC frames.** SGB frames suppress the
-  badge layer by design, since the SGB art fills the whole window.
+- **Badges render only over GB and GBC frames.** SGB and GBA frames suppress
+  the badge layer by design.
+- **GBA frames have no themed Pokémon or party variants yet.** With
+  `CONSOLE` set to a GBA model and `POKEMON` or `PARTY` set, the mod draws
+  the plain GBA frame with a notice. Themed GBA art is planned for a future
+  release.
+- **Gen 3 games only render GBA frames.** Picking GB, GBC, or SGB on a Gen 3
+  game shows a notice and draws nothing.
+- **GBA frames on Gen 1/2 games draw with an informational notice** that GBA
+  wasn't the hardware those games ran on.
 - **If `CONSOLE = SGB` and the running game can't be identified, no overlay
   is drawn.** A notice appears on screen for 5 seconds asking you to pick a
   style manually.
 - **If `POKEMON` is set but `CONSOLE` is still `NONE`**, no overlay is drawn
   and a notice appears for 5 seconds asking you to pick a console.
-- **Every Pokémon theme has a frame for every console**, so no fallback
-  notice should appear in normal use.
-- If a frame file is missing, the mod shows an on-screen warning instead of
-  drawing a fallback
+- **If a frame file is missing, the mod draws the plain console frame and
+  shows a notice** explaining which file is missing. Nothing silently
+  substitutes a different overlay.
 - **All border artwork is manually reworked by the author. No AI art was
   used.**
 
