@@ -19,8 +19,10 @@ active frame, and its frame-selection logic is fully cached so it no longer
 does per-frame filesystem work. Options save per save file, so each
 playthrough can have its own setup.
 
-Generation gating is strict: Gen 1/2 games only render GB, GBC, and SGB
-frames; Gen 3 games only render GBA frames.
+The mod manager shows six rows, labeled by generation so it's clear which
+apply where. All rows are visible on every boot — the platform defines a
+mod's options once at load and doesn't support per-game filtering. The mod
+resolves whichever rows match the running game and ignores the rest.
 
 ## Frames included
 
@@ -134,32 +136,36 @@ So:
 - Starting a new game gives you the mod's defaults, not whatever you had
   selected last time.
 
-## Generation gating
+## Generation handling
 
-The mod enforces strict generation separation on both sides:
+The mod resolves the generation-specific rows that apply to the running game
+and ignores the rest:
 
-- **Gen 1/2 games** (Red, Blue, Yellow, Gold, Silver, Crystal) only render
-  GB, GBC, and SGB frames. Picking a GBA console shows a notice and draws
-  nothing.
-- **Gen 3 games** only render GBA frames. Picking a GB, GBC, SGB, or
-  SGB GOLD 97 console shows a notice and draws nothing.
+- **Gen 1/2 games** (Red, Blue, Yellow, Gold, Silver, Crystal) read
+  `PKMN GEN1-2`, `PARTY GEN1-2`, and `GYM BADGE GEN1`. The `PKMN GEN3` row
+  is ignored.
+- **Gen 3 games** read `PKMN GEN3`. The `PKMN GEN1-2`, `PARTY GEN1-2`, and
+  `GYM BADGE GEN1` rows are ignored.
 
-This keeps the console selection consistent with the hardware those games
-actually ran on and prevents a frame from cropping the viewport on the
-wrong game.
+`CONSOLE` and `DAY/NIGHT` apply on both.
+
+The mod does not block a console based on the running generation. Picking a
+console from another generation's frame family draws a plain console frame
+with an informational notice rather than nothing, so a mismatched selection
+never leaves the screen bare.
 
 ## GBA on Gen 1/2 games
 
-GBA frames are not available on Gen 1/2 games. Selecting a GBA console on a
-Gen 1/2 game shows a notice and draws nothing. The frame set and the
-hardware match.
+Selecting a GBA console on a Gen 1/2 game draws the GBA frame with an
+informational notice that GBA was not the hardware those games ran on. The
+frame renders; the notice is informational.
 
 ## Gen 3 games
 
-On Gen 3 games, only GBA frames and the Gen 3 themes (CELEBI, SUICUNE,
-POKEMON CENTER) are available. GB, GBC, and SGB consoles show a notice and
-draw nothing. Party frames do not render on Gen 3 — the plain GBA frame
-draws in their place with a notice.
+On Gen 3 games, GBA consoles and the Gen 3 themes (CELEBI, SUICUNE, POKEMON
+CENTER) draw normally. Selecting a GB, GBC, or SGB console draws the plain
+console frame with a notice, since there are no themed or party overlays for
+those consoles in the Gen 3 frame set. Party frames do not render on Gen 3.
 
 ## Gym badges
 
@@ -279,6 +285,11 @@ resolution, and how the borders rendered.
 
 ## Notes
 
+- **The mod platform does not support per-generation option schemas.** A
+  mod's options are defined once at load and cannot be filtered, hidden, or
+  swapped based on the running game. That's why all six option rows appear
+  on every boot, including the rows that don't apply to the current
+  generation. The row labels are the only signal.
 - `CONSOLE`, `PKMN GEN1-2`, `PARTY GEN1-2`, `GYM BADGE GEN1`, and
   `PKMN GEN3` default to `NONE`, so the overlay is **disabled on first
   launch** to prevent the UI from being cropped on certain devices, which
@@ -287,9 +298,8 @@ resolution, and how the borders rendered.
 - Changes apply live — no restart needed
 - **Options save per save file.** A fresh save starts at the mod's defaults.
   See "Saving per save file" above.
-- **Generation gating is strict.** Gen 1/2 games only render GB/GBC/SGB
-  frames; Gen 3 games only render GBA frames. Mismatched consoles produce a
-  notice and draw nothing.
+- **Gen 1/2 and Gen 3 save separate settings.** A frame chosen while playing
+  Red never shows up on a FireRed boot, and vice versa.
 - **DAY/NIGHT applies to SGB and GBA frames.** For SGB, it selects the day
   or night variant of the running game's frame and the themed Pokémon
   frames. For GBA, it selects between the day and night art of the chosen
