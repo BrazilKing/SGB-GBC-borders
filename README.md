@@ -56,7 +56,7 @@ resolves whichever rows match the running game and ignores the rest.
 
 ## Overlay combinations
 
-The mod ships **152 PNG files**. From them it can produce **3,887 unique
+The mod ships **158 PNG files**. From them it can produce **3,887 unique
 possible on-screen overlays**, and the user never has to scroll through a
 flat list to reach any of them. Everything is built from ten short option
 rows — CONSOLE, DAY/NIGHT, POKEBALL GB/GBC, POKEBALL GBA, PKMN LOGO GB/GBC,
