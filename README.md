@@ -149,10 +149,10 @@ and ignores the rest:
 
 `CONSOLE` and `DAY/NIGHT` apply on both.
 
-The mod does not block a console based on the running generation. Picking a
-console from another generation's frame family draws a plain console frame
-with an informational notice rather than nothing, so a mismatched selection
-never leaves the screen bare.
+The mod does not block any selection based on the running generation. When a
+console or theme from the other generation's set is selected, the mod draws
+the plain console frame with an informational notice rather than nothing, so
+a mismatched selection never leaves the screen bare.
 
 ## GBA on Gen 1/2 games
 
@@ -160,12 +160,19 @@ Selecting a GBA console on a Gen 1/2 game draws the GBA frame with an
 informational notice that GBA was not the hardware those games ran on. The
 frame renders; the notice is informational.
 
+Selecting a Gen 3 theme (`CELEBI`, `SUICUNE`, `POKEMON CENTER`) on a Gen 1/2
+game suppresses the themed overlay — there is no Gen 1/2 art for those
+themes — and draws the plain console frame with a notice.
+
 ## Gen 3 games
 
 On Gen 3 games, GBA consoles and the Gen 3 themes (CELEBI, SUICUNE, POKEMON
 CENTER) draw normally. Selecting a GB, GBC, or SGB console draws the plain
 console frame with a notice, since there are no themed or party overlays for
-those consoles in the Gen 3 frame set. Party frames do not render on Gen 3.
+those consoles in the Gen 3 frame set. Selecting a Gen 1/2 theme (CHIKORITA,
+GEODUDE, etc.) suppresses the themed overlay and draws the plain console
+frame with a notice — those themes have no Gen 3 variants. Party frames do
+not render on Gen 3.
 
 ## Gym badges
 
@@ -232,7 +239,8 @@ Some combinations:
   No canvas save, no scissor save, no color save, no restore. Nothing to
   draw means nothing is done.
 - **Correct SGB frame resolution on late game-version detection.** The game
-  version is now part of the cache key, so if the SGB default frame is
+  version is now part of the cache key and is read from the live game object
+  when the platform event hasn't delivered it, so if the SGB default frame is
   resolved before the game version becomes available, the correct frame is
   picked up automatically instead of being stuck on a fallback until the
   next option change.
