@@ -75,10 +75,10 @@ The count breaks down like this:
 - **GB LIGHT** — 17 base/theme/party results × 11 badge states × 4 icon states = **748**
 - **GB POCKET** — 17 base/theme/party results × 11 badge states × 4 icon states = **748**
 - **GBC** — 17 base/theme/party results × 11 badge states × 4 icon states = **748**
-- **SGB** — 16 base/theme results × 1 badge × 1 icon = **16**
-- **SGB GOLD 97** — 1 base result × 1 badge × 1 icon × 2 day/night = **2**
-- **GBA** — 4 base/theme results × 1 badge × 2 day/night × 8 icon states = **64**
-- **GBA SP** — 4 base/theme results × 1 badge × 2 day/night × 8 icon states = **64**
+- **SGB** — 16 base/theme results = **16**
+- **SGB GOLD 97** — 1 base result × 2 day/night = **2**
+- **GBA** — 4 base/theme results × 2 day/night × 8 icon states = **64**
+- **GBA SP** — 4 base/theme results × 2 day/night × 8 icon states = **64**
 - **Blank state** (`CONSOLE = NONE`) — **1**
 - **Total on-screen overlays** — 1,496 + 748 + 748 + 748 + 16 + 2 + 64 + 64 + 1 = **3,887**
 
