@@ -1,4 +1,4 @@
-**3,887 unique possible on-screen combinations from 152 hand-drawn PNG files — no AI art.**
+**3,887 unique possible on-screen combinations from 158 hand-drawn PNG files — no AI art.**
 
 Manually reworked GB, GBC, GBA, and SGB overlays for Gen 1, 2, and 3 in
 gen1recomp. Per-game selections, auto and selectable day/night versions,
