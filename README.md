@@ -1,6 +1,6 @@
 # G1R Classic Overlays
 
-**810 possible on-screen combinations from 137 hand-drawn PNG files — no AI art.**
+**3,775 unique possible on-screen combinations from 146 hand-drawn PNG files — no AI art.**
 
 Manually reworked GB, GBC, GBA, and SGB overlays for Gen 1, 2, and 3 in
 gen1recomp. Per-game selections, auto and selectable day/night versions and more customization.
@@ -15,11 +15,12 @@ full control over the overlay: any console and theme combination is
 selectable on any supported game.
 
 The mod also supports an optional **gym badge layer**, drawn on top of the
-active frame, and its frame-selection logic is fully cached so it no longer
-does per-frame filesystem work. Options save per save file, so each
-playthrough can have its own setup.
+active frame, plus two optional **icon layers** — a Pokéball and a Pokémon
+logo — that stack on top of GB and GBC frames. Its frame-selection logic is
+fully cached so it does no per-frame filesystem work. Options save per save
+file, so each playthrough can have its own setup.
 
-The mod manager shows six rows, labeled by generation so it's clear which
+The mod manager shows eight rows, labeled by generation so it's clear which
 apply where. All rows are visible on every boot — the platform defines a
 mod's options once at load and doesn't support per-game filtering. The mod
 resolves whichever rows match the running game and ignores the rest.
@@ -45,15 +46,17 @@ resolves whichever rows match the running game and ignores the rest.
 - **Eight R/B/Y gym badges** — Boulder, Cascade, Thunder, Rainbow, Soul,
   Marsh, Volcano, and Earth, drawn as a badge layer on top of GB and GBC
   frames
+- **Two icon overlays** — a Pokéball and a Pokémon logo, each drawn as a
+  full-screen layer on top of GB and GBC frames. Toggleable independently.
 
 ## Overlay combinations
 
-The mod ships **137 PNG files**. From them it can produce **810 distinct
-on-screen overlays**, and the user never has to scroll through a flat list
-to reach any of them. Everything is built from six short option rows —
-CONSOLE, PKMN GEN1-2, PARTY GEN1-2, GYM BADGE GEN1, PKMN GEN3, and
-DAY/NIGHT — each with a handful of choices. The combinations emerge from
-those rows.
+The mod ships **146 PNG files**. From them it can produce **3,775 unique
+possible on-screen overlays**, and the user never has to scroll through a
+flat list to reach any of them. Everything is built from eight short option
+rows — CONSOLE, DAY/NIGHT, POKEBALL GB/GBC, PKMN LOGO GB/GBC, PKMN GEN1-2,
+PARTY GEN1-2, GYM BADGE GEN 1-2, and PKMN GEN3 — each with a handful of
+choices. The combinations emerge from those rows.
 
 The mod also detects which game you are playing automatically. When
 `CONSOLE = SGB` and no themed overlay is set, the correct official SGB
@@ -63,14 +66,15 @@ frames, each with a day and night variant, are picked for you.
 
 The count breaks down like this:
 
-- **Badge-capable base frames (GB and GBC only)** — 4 GB plain + 1 GBC
-  plain + 28 GB themed + 7 GBC themed + 45 party = **85**
-- **Badge layer** — 8 badges + no badge = **9 states**
-- **Badge-capable overlays** — 85 × 9 = **765**
-- **SGB and GBA frames** — 28 SGB + 16 GBA = **44** (badge layer
-  suppressed by design)
-- **Blank state** — **1**
-- **Total on-screen overlays** — 765 + 44 + 1 = **810**
+- **GB family consoles** (`gb`, `gb_dark`, `gblight`, `gbpocket`, `gbc`) —
+  17 base/theme/party results × 11 badge states × 4 icon states = **748**
+  per console × 5 = **3,740**
+- **SGB** — 8 base/theme results × 1 badge × 1 icon × 2 day/night = **16**
+- **SGB GOLD 97** — 1 base result × 1 badge × 1 icon × 2 day/night = **2**
+- **GBA** — 4 base/theme results × 1 badge × 1 icon × 2 day/night = **8**
+- **GBA SP** — 4 base/theme results × 1 badge × 1 icon × 2 day/night = **8**
+- **Blank state** (`CONSOLE = NONE`) — **1**
+- **Total on-screen overlays** — 3,740 + 16 + 2 + 8 + 8 + 1 = **3,775**
 
 ## Options
 
@@ -89,24 +93,29 @@ clear which apply where.
 | | `GBA SP` | Game Boy Advance SP device frame (day/night via the DAY/NIGHT row) |
 | | `SGB` | Super Game Boy. Automatically chooses the running game's SGB frame. Day/night can be changed manually. |
 | | `SGB GOLD 97` | Forces the Spaceworld '97 Gold demo frame. |
+| **DAY/NIGHT GB/SGB/GBA** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). Applies to SGB and GBA frames. |
+| | `DAY` | Always the day variant. |
+| | `NIGHT` | Always the night variant. |
+| **POKEBALL GB/GBC** | `OFF` | No Pokéball icon |
+| | `ON` | Draws the Pokéball icon on top of GB and GBC frames |
+| **PKMN LOGO GB/GBC** | `OFF` | No Pokémon logo icon |
+| | `ON` | Draws the Pokémon logo icon on top of GB and GBC frames |
 | **PKMN GEN1-2** | `NONE` | No Pokémon theme for Gen 1/2 games |
 | | `CHIKORITA` / `GEODUDE` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `TOTODILE` | Pokémon-themed overlays for GB, GBC, and SGB. All themes have a variant for every Gen 1/2 console. |
 | **PARTY GEN1-2** | `NONE` | No party overlay |
 | | `BLOODDLL` / `DARTHTRON64` / `FERNANDO` / `FERNANDO B` / `FOXEGORY5` / `THEEON` / `TORCHICISLAND` / `TORCHICISLAND B` / `ZEAK6464` | Community-requested party overlays. Combines with `CONSOLE` to pick the hardware variant. Gen 1/2 only. |
-| **GYM BADGE GEN1** | `NONE` | No badge layer |
+| **GYM BADGE GEN 1-2** | `NONE` | No badge layer |
 | | `AUTO (GYM)` | Shows the matching badge when inside its gym |
 | | `AUTO (CITY)` | Shows the matching badge anywhere in the corresponding city, and inside the gym |
 | | `BOULDER` / `CASCADE` / `THUNDER` / `RAINBOW` / `SOUL` / `MARSH` / `VOLCANO` / `EARTH` | Forces a specific badge regardless of map |
 | **PKMN GEN3** | `NONE` | No theme for Gen 3 games |
 | | `CELEBI` / `SUICUNE` | Pokémon-themed overlays for GBA and GBA SP |
 | | `POKEMON CENTER` | Pokémon Center themed overlay for GBA and GBA SP |
-| **DAY/NIGHT** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). Applies to SGB and GBA frames. |
-| | `DAY` | Always the day variant. |
-| | `NIGHT` | Always the night variant. |
 
-`CONSOLE`, `PKMN GEN1-2`, `PARTY GEN1-2`, `GYM BADGE GEN1`, and
-`PKMN GEN3` all default to `NONE`. If a theme is set without `CONSOLE`,
-a notice appears and no overlay is drawn.
+`CONSOLE`, `POKEBALL GB/GBC`, `PKMN LOGO GB/GBC`, `PKMN GEN1-2`,
+`PARTY GEN1-2`, `GYM BADGE GEN 1-2`, and `PKMN GEN3` all default to
+`NONE`/`OFF`. If a theme is set without `CONSOLE`, a notice appears and no
+overlay is drawn.
 
 **`CONSOLE` and `PARTY` combine.** To draw a party frame, set both rows —
 the console selects the hardware variant, the party row selects the
@@ -116,12 +125,19 @@ is set, a notice appears and the base console frame draws instead.
 **`PARTY` overrides `PKMN`.** If both a party and a Pokémon theme are set,
 the party frame wins.
 
+**Icons stack on the frame.** `POKEBALL GB/GBC` and `PKMN LOGO GB/GBC` draw
+their full-screen overlays on top of whatever base frame, theme, party, or
+badge is active. Both icons can be enabled at once — the Pokéball draws
+first, then the Pokémon logo. Both are suppressed on SGB, SGB GOLD 97, GBA,
+GBA SP, and `CONSOLE = NONE`.
+
 ## Saving per save file
 
 Options save **per save file**, not globally. A fresh save starts at the
-mod's default settings (no console, no theme, no party, `AUTO (GYM)` badge,
-`AUTO` day/night). The first time you change an option in that save, the
-mod writes the value into that save's storage — and only that save.
+mod's default settings (no console, no theme, no party, no icons,
+`AUTO (GYM)` badge, `AUTO` day/night). The first time you change an option
+in that save, the mod writes the value into that save's storage — and only
+that save.
 
 Gen 1/2 and Gen 3 saves hold separate settings. A frame chosen while
 playing Red never shows up on a FireRed boot, and vice versa.
@@ -142,12 +158,13 @@ The mod resolves the generation-specific rows that apply to the running game
 and ignores the rest:
 
 - **Gen 1/2 games** (Red, Blue, Yellow, Gold, Silver, Crystal) read
-  `PKMN GEN1-2`, `PARTY GEN1-2`, and `GYM BADGE GEN1`. The `PKMN GEN3` row
-  is ignored.
+  `PKMN GEN1-2`, `PARTY GEN1-2`, and `GYM BADGE GEN 1-2`. The `PKMN GEN3`
+  row is ignored.
 - **Gen 3 games** read `PKMN GEN3`. The `PKMN GEN1-2`, `PARTY GEN1-2`, and
-  `GYM BADGE GEN1` rows are ignored.
+  `GYM BADGE GEN 1-2` rows are ignored.
 
-`CONSOLE` and `DAY/NIGHT` apply on both.
+`CONSOLE`, `DAY/NIGHT`, `POKEBALL GB/GBC`, and `PKMN LOGO GB/GBC` apply on
+both, with icon rows restricted to GB/GBC consoles by design.
 
 The mod does not block any selection based on the running generation. When a
 console or theme from the other generation's set is selected, the mod draws
@@ -171,8 +188,8 @@ CENTER) draw normally. Selecting a GB, GBC, or SGB console draws the plain
 console frame with a notice, since there are no themed or party overlays for
 those consoles in the Gen 3 frame set. Selecting a Gen 1/2 theme (CHIKORITA,
 GEODUDE, etc.) suppresses the themed overlay and draws the plain console
-frame with a notice — those themes have no Gen 3 variants. Party frames do
-not render on Gen 3.
+frame with a notice — those themes have no Gen 3 variants. Party frames and
+icon overlays do not render on Gen 3.
 
 ## Gym badges
 
@@ -192,6 +209,8 @@ Layer order:
 1. Base frame — chosen by the `CONSOLE`, `PKMN`, and `PARTY` rows
 2. Gym badge — drawn on top, when the badge option applies and the base
    frame is GB or GBC
+3. Icons — Pokéball and/or Pokémon logo, drawn on top when enabled and the
+   base frame is GB or GBC
 
 **`AUTO (GYM)`** reads the current map. When the player enters a gym, the
 matching badge appears. When the player leaves, it disappears. The mapping
@@ -212,17 +231,19 @@ of which map the player is on.
 
 Some combinations:
 
-- `PARTY GEN1-2 = MEOWTH` + `GYM BADGE GEN1 = AUTO (GYM)` — Meowth's party
-  frame shows normally, and the Pewter badge appears when the player enters
-  Pewter Gym.
-- `CONSOLE = GBC` + `PKMN GEN1-2 = CHIKORITA` + `GYM BADGE GEN1 = EARTH` —
-  Chikorita's GBC frame is always accompanied by the Earth Badge.
-- `CONSOLE = GB LIGHT` + `GYM BADGE GEN1 = NONE` — clean GB Light device
+- `PARTY GEN1-2 = MEOWTH` + `GYM BADGE GEN 1-2 = AUTO (GYM)` — Meowth's
+  party frame shows normally, and the Pewter badge appears when the player
+  enters Pewter Gym.
+- `CONSOLE = GBC` + `PKMN GEN1-2 = CHIKORITA` + `GYM BADGE GEN 1-2 = EARTH`
+  — Chikorita's GBC frame is always accompanied by the Earth Badge.
+- `CONSOLE = GB LIGHT` + `GYM BADGE GEN 1-2 = NONE` — clean GB Light device
   frame with no badge at all.
-- `CONSOLE = SGB` + `GYM BADGE GEN1 = AUTO (CITY)` — SGB frame draws with
-  no badge, even inside a gym or city.
-- `CONSOLE = GBA SP` + `GYM BADGE GEN1 = AUTO (CITY)` — GBA SP frame draws
-  with no badge, regardless of map.
+- `CONSOLE = SGB` + `GYM BADGE GEN 1-2 = AUTO (CITY)` — SGB frame draws
+  with no badge, even inside a gym or city.
+- `CONSOLE = GBA SP` + `GYM BADGE GEN 1-2 = AUTO (CITY)` — GBA SP frame
+  draws with no badge, regardless of map.
+- `CONSOLE = GBC` + `POKEBALL GB/GBC = ON` + `PKMN LOGO GB/GBC = ON` —
+  GBC frame with both icons stacked on top.
 
 ## Performance
 
@@ -233,11 +254,12 @@ Some combinations:
   play. That work is now memoized. The selection is recomputed only when
   something that affects it actually changes: an option is edited, the
   player enters a new map, or the day/night period flips. The result is
-  identical; only the wasted work is gone.
-- **Zero-cost idle rendering.** When the base frame is `NONE` and no badge
-  applies, the render hook now returns before touching any graphics state.
-  No canvas save, no scissor save, no color save, no restore. Nothing to
-  draw means nothing is done.
+  identical; only the wasted work is gone. The icon layer joins the same
+  cache, keyed on `CONSOLE`, `POKEBALL GB/GBC`, and `PKMN LOGO GB/GBC`.
+- **Zero-cost idle rendering.** When the base frame is `NONE`, no badge
+  applies, and no icons are enabled, the render hook now returns before
+  touching any graphics state. No canvas save, no scissor save, no color
+  save, no restore. Nothing to draw means nothing is done.
 - **Correct SGB frame resolution on late game-version detection.** The game
   version is now part of the cache key and is read from the live game object
   when the platform event hasn't delivered it, so if the SGB default frame is
@@ -245,8 +267,8 @@ Some combinations:
   picked up automatically instead of being stuck on a fallback until the
   next option change.
 
-These changes are most noticeable on lower-power devices with a frame or
-badge active during normal gameplay.
+These changes are most noticeable on lower-power devices with a frame,
+badge, or icon active during normal gameplay.
 
 ## Supported games
 
@@ -295,14 +317,15 @@ resolution, and how the borders rendered.
 
 - **The mod platform does not support per-generation option schemas.** A
   mod's options are defined once at load and cannot be filtered, hidden, or
-  swapped based on the running game. That's why all six option rows appear
+  swapped based on the running game. That's why all eight option rows appear
   on every boot, including the rows that don't apply to the current
   generation. The row labels are the only signal.
-- `CONSOLE`, `PKMN GEN1-2`, `PARTY GEN1-2`, `GYM BADGE GEN1`, and
-  `PKMN GEN3` default to `NONE`, so the overlay is **disabled on first
-  launch** to prevent the UI from being cropped on certain devices, which
-  can make it difficult to navigate the settings menu. Set any row to a
-  real value to enable the overlay.
+- `CONSOLE`, `POKEBALL GB/GBC`, `PKMN LOGO GB/GBC`, `PKMN GEN1-2`,
+  `PARTY GEN1-2`, `GYM BADGE GEN 1-2`, and `PKMN GEN3` default to
+  `NONE`/`OFF`, so the overlay is **disabled on first launch** to prevent
+  the UI from being cropped on certain devices, which can make it difficult
+  to navigate the settings menu. Set any row to a real value to enable the
+  overlay.
 - Changes apply live — no restart needed
 - **Options save per save file.** A fresh save starts at the mod's defaults.
   See "Saving per save file" above.
@@ -313,6 +336,10 @@ resolution, and how the borders rendered.
   frames. For GBA, it selects between the day and night art of the chosen
   console. All GBC and GB frames are day-only, and `PARTY` overlays are
   day-only.
+- **Icon overlays are GB/GBC only.** `POKEBALL GB/GBC` and
+  `PKMN LOGO GB/GBC` are suppressed on SGB, SGB GOLD 97, GBA, GBA SP, and
+  `CONSOLE = NONE`. They stack on top of any GB or GBC frame, theme, party,
+  or badge.
 - **Gold defaults to the standard Gold frame.** To use the Spaceworld '97
   demo frame, select `CONSOLE = SGB GOLD 97`.
 - **`PARTY GEN1-2` combines with `CONSOLE`.** Set both to draw a party frame
@@ -342,8 +369,8 @@ resolution, and how the borders rendered.
 2. Enable the mod in the launcher's MODS panel.
 3. Launch any supported game. The overlay is off on first launch — the game
    screen will look normal.
-4. Open the mod options, set `CONSOLE` (and optionally a theme or party
-   row), and the frame appears immediately.
+4. Open the mod options, set `CONSOLE` (and optionally a theme, party, badge,
+   or icon row), and the frame appears immediately.
 
 ## Updating
 
