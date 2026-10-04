@@ -1,6 +1,6 @@
 # G1R Classic Overlays
 
-**810** possible on-screen combinations through 137 hand-drawn PNG files and 0 AI art
+**810 possible on-screen combinations from 137 hand-drawn PNG files — no AI art.**
 
 Manually reworked GB, GBC, GBA, and SGB overlays for Gen 1, 2, and 3 in
 gen1recomp. Per-game selections, auto and selectable day/night versions.
