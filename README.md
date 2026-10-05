@@ -436,6 +436,10 @@ This mod supports in-launcher updates. The launcher's MODS panel will show an
 **Versions** button lets you pick any published release — useful if you need
 to roll back to v1.0.4 for 16:9 or mobile use.
 
+## Known bugs
+
+As of v1.3.3 and v1.3.4, automatic BADGE overlay does not work in gen 3, although you can still set the BADGE overlay manually!
+
 ## Credits
 
 Borders and mod by BrazilKing, based on original SGB frames and GBC Pokémon
