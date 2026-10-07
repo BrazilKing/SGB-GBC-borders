@@ -1,11 +1,9 @@
-# G1R Classic Overlays
+**326,652 overlay combinations from 186 hand-drawn PNG files — no AI art.**
 
-**6,575 overlay combinations from 166 hand-drawn PNG files — no AI art.**
-
-Manually reworked GB, GBC, GBA, and SGB overlays for Gen 1, 2, and 3 in
-gen1recomp. Per-game selections, auto and selectable day/night versions,
-themed Pokémon frames, party overlays, gym badges, Pokéball icons, and
-Pokémon logo icons.
+Manually reworked GB, GBC, GBA, and SGB overlays for Gen 1, 2, FireRed,
+and LeafGreen in gen1recomp. Per-game selections, auto and selectable
+day/night versions, themed Pokémon frames, party overlays, gym badges,
+Pokéball icons, and Pokémon logo icons.
 
 ## What it does
 
@@ -60,33 +58,121 @@ whichever rows match the running game and ignores the rest.
 
 ## Overlay combinations
 
-The mod ships **166 PNG files**. From them it can produce **6,575 unique
-possible on-screen overlays**, and the user never has to scroll through a
-flat list to reach any of them. Everything is built from eight short option
-rows — CONSOLE, DAY/NIGHT, GYM BADGE, POKEBALL, PKMN LOGO, PKMN GEN1-2,
-PARTY GEN1-2, and PKMN GEN3 — each with a handful of choices. The
-combinations emerge from those rows.
+The mod ships **186 PNG files**. From them it can produce **326,652 unique
+possible on-screen overlays** across all supported games.
 
-The mod also detects which game you are playing automatically. When
-`CONSOLE = SGB` and no themed overlay is set, the correct official SGB
-overlay for your game — Red, Blue, Yellow, Gold, Silver, or Crystal — is
-loaded on its own, with no extra selection needed. Six official SGB
-frames, each with a day and night variant, are picked for you.
+Nothing is presented as a flat list — everything is built from eight short
+option rows (CONSOLE, DAY/NIGHT, GYM BADGE, POKEBALL, PKMN LOGO,
+PKMN GEN1-2, PARTY GEN1-2, PKMN GEN3), each with a handful of choices.
+The combinations emerge from those rows.
 
-The count breaks down like this:
+A configuration is only counted when it is **valid** for the running game:
+mismatched console/theme picks, blocked rows, and options ignored by that
+generation are excluded. Selectors (`AUTO (GYM)`, `AUTO (CITY)`,
+`LEFT AUTO`, `TOP AUTO`, `BOTH AUTO`) are counted as the distinct choices
+they are.
 
-- **GB** — 34 base/theme/party images × 11 badge states × 4 icon states = **1,496**
-- **GB LIGHT** — 17 base/theme/party results × 11 badge states × 4 icon states = **748**
-- **GB POCKET** — 17 base/theme/party results × 11 badge states × 4 icon states = **748**
-- **GBC** — 17 base/theme/party results × 11 badge states × 4 icon states = **748**
-- **SGB** — 16 base/theme results = **16**
-- **SGB GOLD 97** — 1 base result × 2 day/night = **2**
-- **GBA** — 4 base/theme results × 2 day/night × 8 icon states × 11 badge states = **704**
-- **GBA SP** — 4 base/theme results × 2 day/night × 8 icon states × 11 badge states = **704**
-- **Blank state** (`CONSOLE = NONE`) — **1**
-- **Total on-screen overlays** —
-  1,496 + 748 + 748 + 748 + 16 + 2 + 704 + 704 + 1 = **5,167** base
-  combinations × fireRed/LeafGreen badge extension = **6,575** total
+### How each console resolves
+
+Each rendered overlay is a stack of up to four layers:
+
+1. **Frame** — device, theme, or party image (always present when a console
+   is chosen)
+2. **Icons** — Pokéball and/or Pokémon logo
+3. **Gym badge** — Gen 1/2 GB-family, or FireRed/LeafGreen GBA only
+4. **Earned badges** — FireRed/LeafGreen GBA only
+
+### Gen 1 (Red, Blue, Yellow)
+
+**GB** — 17 frame-content results (1 plain + 7 themes + 9 party) × 2
+day/night × 4 icon states × 11 badge states = **1,496**
+
+**GB LIGHT** — 17 × 1 × 4 × 11 = **748**
+
+**GB POCKET** — 17 × 1 × 4 × 11 = **748**
+
+**GBC** — 17 × 1 × 4 × 11 = **748**
+
+**SGB** — (1 plain + 7 themes) × 2 day/night = **16**
+
+**SGB GOLD 97** — 1 × 2 day/night = **2**
+
+Gen 1 total: 1,496 + 748 + 748 + 748 + 16 + 2 = **3,758**
+
+### Gen 2 (Gold, Silver, Crystal)
+
+Same structure as Gen 1, but `gym_badge_gen2` has **19** choices
+(none + `AUTO (GYM)` + `AUTO (CITY)` + 8 Johto + 8 Kanto GSC).
+
+**GB** — 17 × 2 × 4 × 19 = **2,584**
+
+**GB LIGHT** — 17 × 1 × 4 × 19 = **1,292**
+
+**GB POCKET** — 17 × 1 × 4 × 19 = **1,292**
+
+**GBC** — 17 × 1 × 4 × 19 = **1,292**
+
+**SGB** — (1 + 7) × 2 = **16**
+
+**SGB GOLD 97** — 1 × 2 = **2**
+
+Gen 2 total: 2,584 + 1,292 + 1,292 + 1,292 + 16 + 2 = **6,478**
+
+### Gen 3 Hoenn (Ruby, Sapphire, Emerald)
+
+GBA consoles only. Gym badge layer is not available on Hoenn games, and
+party frames are Gen 1/2 only.
+
+**GBA / GBA SP** — 4 theme results (none + celebi + suicune + pokemoncenter)
+× 2 day/night × 64 icon combos × 1 badge × 1 earned = **512** per console
+
+Hoenn total: 512 + 512 = **1,024**
+
+### FireRed / LeafGreen
+
+GBA consoles only. All four layers are live.
+
+**GBA / GBA SP** — 4 theme results × 2 day/night × 64 icon combos ×
+11 badge states × 28 earned-badge states = **157,696** per console
+
+FireRed/LeafGreen total: 157,696 + 157,696 = **315,392**
+
+### Blank state
+
+**`CONSOLE = NONE`** — no overlay drawn = **1**
+
+### Grand total
+
+| Game | Valid combinations |
+|---|---|
+| Gen 1 (Red, Blue, Yellow) | 3,758 |
+| Gen 2 (Gold, Silver, Crystal) | 6,478 |
+| Gen 3 Hoenn (Ruby, Sapphire, Emerald) | 1,024 |
+| FireRed / LeafGreen | 315,392 |
+| Blank state (`CONSOLE = NONE`) | 1 |
+| **Total** | **326,652** |
+
+### Why 326,652 combinations produce 153,516 distinct screens
+
+Some selectable choices resolve to the **same rendered image**:
+
+- `AUTO (GYM)` and `AUTO (CITY)` pick one of the existing badge images
+  (11 badge choices → 9 distinct images; 19 → 17 on Gen 2)
+- `LEFT AUTO`, `TOP AUTO`, `BOTH AUTO` earned badges pick one of the
+  forced counts (28 earned choices → 25 distinct earned layers)
+- `BALL SIZE GEN3` has no effect when `POKEBALL` is not drawing a GBA ball
+  (64 icon combos → 40 distinct icon sets)
+
+Collapsing these produces **153,516 distinct composited screens** across
+all games. Almost the entire difference comes from FireRed/LeafGreen, where
+all three collapses stack multiplicatively:
+
+option states per FRLG console: 4 × 2 × 64 × 11 × 28 = 157,696
+distinct images per FRLG console: 4 × 2 × 40 × 9 × 25 = 72,000
+
+The 326,652 figure is the **selectable** count. The 153,516 figure is the
+**visual** count. Both are valid, and both exclude illegal cross-generation
+states.
 
 ## Options
 
@@ -438,7 +524,9 @@ to roll back to v1.0.4 for 16:9 or mobile use.
 
 ## Known bugs
 
-As of v1.3.3 and v1.3.4, automatic BADGE overlay does not work in gen 3, although you can still set the BADGE overlay manually!
+- `AUTO (GYM)` badge mode does not work on FireRed and LeafGreen yet.
+  `AUTO (CITY)` works and can be used instead, or set the badge manually.
+  `AUTO (GYM)` works on Gen 1 and Gen 2 games as before.
 
 ## Credits
 
