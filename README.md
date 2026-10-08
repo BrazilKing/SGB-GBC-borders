@@ -15,16 +15,16 @@ full control over the overlay: any console and theme combination is
 selectable on any supported game.
 
 The mod also supports an optional **gym badge layer**, drawn on top of the
-active frame, plus two optional **icon layers** — a Pokéball and a Pokémon
-logo. Both icons and the badge are drawn full-screen on top of the active
-frame. Its frame-selection logic is fully cached so it does no per-frame
-filesystem work. Options save per save file, so each playthrough can have
-its own setup.
+active frame, plus optional **icon layers** — a Pokéball, a Pokémon logo,
+and GBA-only center/right Pokéballs with size control. All icons and the
+badge are drawn full-screen on top of the active frame. Its frame-selection
+logic is fully cached so it does no per-frame filesystem work. Options save
+per save file, so each playthrough can have its own setup.
 
-The mod manager shows eight rows, labeled so it's clear which apply where.
-All rows are visible on every boot — the platform defines a mod's options
-once at load and doesn't support per-game filtering. The mod resolves
-whichever rows match the running game and ignores the rest.
+The mod manager shows **fourteen rows**, labeled so it's clear which apply
+where. All rows are visible on every boot — the platform defines a mod's
+options once at load and doesn't support per-game filtering. The mod
+resolves whichever rows match the running game and ignores the rest.
 
 ## Frames included
 
@@ -52,19 +52,21 @@ whichever rows match the running game and ignores the rest.
   badges as they appear in the GSC badge case), and the eight FireRed /
   LeafGreen Kanto badges. Drawn as a badge layer on top of GB, GBC, and
   FireRed/LeafGreen GBA frames.
-- **Two icon overlays** — a Pokéball and a Pokémon logo. Each toggles
-  independently and resolves to the correct asset for the current console
-  family.
+- **Icon overlays** — Pokéball (toggles on/off, console-aware), Pokémon
+  logo (toggles on/off), plus GBA-only **CENTER BALL GEN3** and
+  **RIGHT BALL GEN3** toggles with a **BALL SIZE GEN3** selector
+  (SMALL / MEDIUM / LARGE / XL).
 
 ## Overlay combinations
 
 The mod ships **186 PNG files**. From them it can produce **326,652 unique
 possible on-screen overlays** across all supported games.
 
-Nothing is presented as a flat list — everything is built from eight short
-option rows (CONSOLE, DAY/NIGHT, GYM BADGE, POKEBALL, PKMN LOGO,
-PKMN GEN1-2, PARTY GEN1-2, PKMN GEN3), each with a handful of choices.
-The combinations emerge from those rows.
+Nothing is presented as a flat list — everything is built from fourteen
+short option rows (CONSOLE, DAY/NIGHT, GYM BADGE GEN1/2/3, PKMN LOGO,
+POKEBALL, CENTER BALL GEN3, RIGHT BALL GEN3, BALL SIZE GEN3, PKMN GEN1-2,
+PARTY GEN1-2, PKMN GEN3, EARNED BADGES GEN3), each with a handful of
+choices. The combinations emerge from those rows.
 
 A configuration is only counted when it is **valid** for the running game:
 mismatched console/theme picks, blocked rows, and options ignored by that
@@ -78,7 +80,7 @@ Each rendered overlay is a stack of up to four layers:
 
 1. **Frame** — device, theme, or party image (always present when a console
    is chosen)
-2. **Icons** — Pokéball and/or Pokémon logo
+2. **Icons** — Pokéball, Pokémon logo, and (GBA only) center/right Pokéballs
 3. **Gym badge** — Gen 1/2 GB-family, or FireRed/LeafGreen GBA only
 4. **Earned badges** — FireRed/LeafGreen GBA only
 
@@ -101,7 +103,7 @@ Gen 1 total: 1,496 + 748 + 748 + 748 + 16 + 2 = **3,758**
 
 ### Gen 2 (Gold, Silver, Crystal)
 
-Same structure as Gen 1, but `gym_badge_gen2` has **19** choices
+Same structure as Gen 1, but `GYM BADGE GEN2` has **19** choices
 (none + `AUTO (GYM)` + `AUTO (CITY)` + 8 Johto + 8 Kanto GSC).
 
 **GB** — 17 × 2 × 4 × 19 = **2,584**
@@ -160,15 +162,19 @@ Some selectable choices resolve to the **same rendered image**:
   (11 badge choices → 9 distinct images; 19 → 17 on Gen 2)
 - `LEFT AUTO`, `TOP AUTO`, `BOTH AUTO` earned badges pick one of the
   forced counts (28 earned choices → 25 distinct earned layers)
-- `BALL SIZE GEN3` has no effect when `POKEBALL` is not drawing a GBA ball
+- `BALL SIZE GEN3` has no effect when `RIGHT BALL GEN3` is off
   (64 icon combos → 40 distinct icon sets)
 
 Collapsing these produces **153,516 distinct composited screens** across
 all games. Almost the entire difference comes from FireRed/LeafGreen, where
 all three collapses stack multiplicatively:
 
-option states per FRLG console: 4 × 2 × 64 × 11 × 28 = 157,696
-distinct images per FRLG console: 4 × 2 × 40 × 9 × 25 = 72,000
+```
+
+option states per FRLG console:   4 × 2 × 64 × 11 × 28 = 157,696
+distinct images per FRLG console: 4 × 2 × 40 ×  9 × 25 =  72,000
+
+```
 
 The 326,652 figure is the **selectable** count. The 153,516 figure is the
 **visual** count. Both are valid, and both exclude illegal cross-generation
@@ -193,25 +199,220 @@ settings at the top, then generation-specific rows below.
 | **DAY/NIGHT** | `AUTO` | Picks day or night from your system clock (6am–6pm is day). Applies to SGB, GB, and GBA frames. |
 | | `DAY` | Always the day variant. |
 | | `NIGHT` | Always the night variant. |
-| **GYM BADGE** | `NONE` | No badge layer |
-| | `AUTO (GYM)` | Shows the matching badge when inside its gym. On Gen 1 and FireRed/LeafGreen it uses the Kanto badge art; on Gen 2 it uses the correct Gold/Silver/Crystal art, covering all sixteen Johto and Kanto gyms. |
-| | `AUTO (CITY)` | Shows the matching badge anywhere in the corresponding city, and inside the gym |
-| | `BOULDER` / `CASCADE` / `THUNDER` / `RAINBOW` / `SOUL` / `MARSH` / `VOLCANO` / `EARTH` | Forces a specific badge regardless of map |
-| **POKEBALL** | `NONE` | No Pokéball icon |
-| | `TOP-LEFT` | Draws the Pokéball in the top-left corner. Works on all three generations — on GB-family consoles it draws the standard GB/GBC Pokéball, on GBA / GBA SP it draws the top-left GBA Pokéball. |
-| | `GBA CENTERED` | Draws the centered GBA Pokéball. Only applies to GBA and GBA SP consoles. |
-| | `GBA BOTH` | Draws both the top-left and centered GBA Pokéballs. Only applies to GBA and GBA SP consoles. |
-| **PKMN LOGO** | `OFF` | No Pokémon logo icon |
-| | `ON` | Draws the Pokémon logo icon on top of GB, GBC, GBA, and GBA SP frames |
-| **PKMN GEN1-2** | `NONE` | No Pokémon theme for Gen 1/2 games |
-| | `CHIKORITA` / `GEODUDE` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `TOTODILE` | Pokémon-themed overlays for GB, GBC, and SGB. All themes have a variant for every Gen 1/2 console. |
 | **PARTY GEN1-2** | `NONE` | No party overlay |
 | | `BLOODDLL` / `DARTHTRON64` / `FERNANDO` / `FERNANDO B` / `FOXEGORY5` / `THEEON` / `TORCHICISLAND` / `TORCHICISLAND B` / `ZEAK6464` | Community-requested party overlays. Combines with `CONSOLE` to pick the hardware variant. Gen 1/2 only. |
+| **PKMN GEN1-2** | `NONE` | No Pokémon theme for Gen 1/2 games |
+| | `CHIKORITA` / `GEODUDE` / `KANGASKHAN` / `MEOWTH` / `NIDOKING` / `PIKACHU` / `TOTODILE` | Pokémon-themed overlays for GB, GBC, and SGB. All themes have a variant for every Gen 1/2 console. |
 | **PKMN GEN3** | `NONE` | No theme for Gen 3 games |
 | | `CELEBI` / `SUICUNE` | Pokémon-themed overlays for GBA and GBA SP |
 | | `POKEMON CENTER` | Pokémon Center themed overlay for GBA and GBA SP |
+| **EARNED BADGES GEN3** | `NONE` | No earned badge layer (FRLG only) |
+| | `LEFT AUTO` / `TOP AUTO` / `BOTH AUTO` | Reads the save file's badge flags and draws the earned badges on the left side, top, or both |
+| | `LEFT 1`–`LEFT 8` / `TOP 1`–`TOP 8` / `BOTH 1`–`BOTH 8` | Forces a specific earned-badge count regardless of save |
+| **GYM BADGE GEN1** | `NONE` | No badge layer |
+| | `AUTO (GYM)` | Shows the matching badge when inside its gym (Kanto gym order) |
+| | `AUTO (CITY)` | Shows the matching badge anywhere in the corresponding Kanto city, and inside the gym |
+| | `BOULDER` / `CASCADE` / `THUNDER` / `RAINBOW` / `SOUL` / `MARSH` / `VOLCANO` / `EARTH` | Forces a specific Kanto badge regardless of map |
+| **GYM BADGE GEN2** | `NONE` | No badge layer |
+| | `AUTO (GYM)` | Shows the matching badge when inside its gym (Johto order, then Kanto GSC order) |
+| | `AUTO (CITY)` | Shows the matching badge anywhere in the corresponding city, and inside the gym |
+| | `ZEPHYR` / `HIVE` / `PLAIN` / `FOG` / `STORM` / `MINERAL` / `GLACIER` / `RISING` | Forces a specific Johto badge |
+| | `BOULDER (GSC)` / `CASCADE (GSC)` / `THUNDER (GSC)` / `RAINBOW (GSC)` / `SOUL (GSC)` / `MARSH (GSC)` / `VOLCANO (GSC)` / `EARTH (GSC)` | Forces a specific Kanto badge as it appears in the GSC badge case |
+| **GYM BADGE GEN3** | `NONE` | No badge layer (FireRed / LeafGreen only) |
+| | `AUTO (GYM)` | Shows the matching badge when inside its gym |
+| | `AUTO (CITY)` | Shows the matching badge anywhere in the corresponding Kanto city, and inside the gym |
+| | `BOULDER` / `CASCADE` / `THUNDER` / `RAINBOW` / `SOUL` / `MARSH` / `VOLCANO` / `EARTH` | Forces a specific Kanto badge regardless of map |
+| **PKMN LOGO** | `OFF` | No Pokémon logo icon |
+| | `ON` | Draws the Pokémon logo icon on top of GB, GBC, GBA, and GBA SP frames |
+| **POKEBALL** | `OFF` | No Pokéball icon |
+| | `ON` | Draws the Pokéball icon. On GB-family consoles this is the standard GB/GBC Pokéball; on GBA / GBA SP this is the top-left GBA Pokéball. |
+| **CENTER BALL GEN3** | `OFF` | No centered GBA Pokéball |
+| | `ON` | Draws the centered GBA Pokéball. GBA and GBA SP only. |
+| **RIGHT BALL GEN3** | `OFF` | No right-side GBA Pokéball |
+| | `ON` | Draws the right-side GBA Pokéball. GBA and GBA SP only. |
+| **BALL SIZE GEN3** | `SMALL` | Right Pokéball drawn at small size (default) |
+| | `MEDIUM` | Right Pokéball drawn at medium size |
+| | `LARGE` | Right Pokéball drawn at large size |
+| | `XL` | Right Pokéball drawn at extra-large size |
 
-`CONSOLE`, `GYM BADGE`, `POKEBALL`, `PKMN LOGO`, `PKMN GEN1-2`,
+`CONSOLE`, `PARTY GEN1-2`, `PKMN GEN1-2`, `PKMN GEN3`, `EARNED BADGES GEN3`,
+`GYM BADGE GEN1/2/3`, `PKMN LOGO`, `POKEBALL`, `CENTER BALL GEN3`, and
+`RIGHT BALL GEN3` all default to `NONE`/`OFF`. If a theme is set without
+`CONSOLE`, a notice appears and no overlay is drawn.
+
+**`CONSOLE` and `PARTY` combine.** To draw a party frame, set both rows —
+the console selects the hardware variant, the party row selects the
+contributor. If `CONSOLE` is `NONE`, `SGB`, or `SGB GOLD 97` while a party
+is set, a notice appears and the base console frame draws instead.
+
+**`PARTY` overrides `PKMN`.** If both a party and a Pokémon theme are set,
+the party frame wins.
+
+**Icons and badges stack on the frame.** The `POKEBALL`, `PKMN LOGO`,
+`CENTER BALL GEN3`, and `RIGHT BALL GEN3` overlays draw full-screen on top
+of whatever base frame, theme, party, or badge is active. The `POKEBALL`
+row resolves to different assets depending on the current console: on
+GB-family consoles it draws the standard GB/GBC Pokéball; on GBA / GBA SP
+it draws the top-left GBA Pokéball. `CENTER BALL GEN3` and
+`RIGHT BALL GEN3` draw only when the console is GBA or GBA SP, and
+`BALL SIZE GEN3` only affects the right-side ball. All icons are suppressed
+on `CONSOLE = NONE`, `SGB`, and `SGB GOLD 97`.
+
+## Saving per save file
+
+Options save **per save file**, not globally. A fresh save starts at the
+mod's default settings (no console, no theme, no party, no icons,
+`AUTO (GYM)` badge, `AUTO` day/night). The first time you change an option
+in that save, the mod writes the value into that save's storage — and only
+that save.
+
+Gen 1/2 and Gen 3 saves hold separate settings. A frame chosen while
+playing Red never shows up on a FireRed boot, and vice versa.
+
+So:
+
+- **Red save 1** can show a GB Light frame while **Red save 2** shows an SGB
+  frame.
+- **Red** and **Crystal** share one bucket of GB/GBC/SGB selections.
+- **Gen 3** saves have their own GBA selections, independent of any
+  Gen 1/2 save.
+- Starting a new game gives you the mod's defaults, not whatever you had
+  selected last time.
+
+## Generation handling
+
+The mod resolves the generation-specific rows that apply to the running game
+and ignores the rest:
+
+- **Gen 1/2 games** (Red, Blue, Yellow, Gold, Silver, Crystal) read
+  `PARTY GEN1-2`, `PKMN GEN1-2`, `GYM BADGE GEN1`, and `GYM BADGE GEN2`.
+  The `PKMN GEN3`, `GYM BADGE GEN3`, and `EARNED BADGES GEN3` rows are
+  ignored.
+- **Gen 3 games** read `PKMN GEN3`, `GYM BADGE GEN3`, and
+  `EARNED BADGES GEN3`. The `PKMN GEN1-2`, `PARTY GEN1-2`, and
+  `GYM BADGE GEN1/2` rows are ignored. `GYM BADGE GEN3` only resolves on
+  FireRed and LeafGreen — Ruby, Sapphire, and Emerald show a warning
+  instead, since those Hoenn games have no Kanto gyms. `EARNED BADGES GEN3`
+  is FireRed / LeafGreen only.
+
+`CONSOLE`, `DAY/NIGHT`, `PKMN LOGO`, `POKEBALL`, `CENTER BALL GEN3`,
+`RIGHT BALL GEN3`, and `BALL SIZE GEN3` apply on all games, with the
+GBA-only icon rows restricted to GBA and GBA SP consoles and the badge
+layer restricted to consoles with matching art.
+
+The mod does not block any selection based on the running generation. When a
+console or theme from the other generation's set is selected, the mod draws
+the plain console frame with an informational notice rather than nothing, so
+a mismatched selection never leaves the screen bare.
+
+## GBA on Gen 1/2 games
+
+Selecting a GBA console on a Gen 1/2 game draws the GBA frame with an
+informational notice that GBA was not the hardware those games ran on. The
+frame renders; the notice is informational.
+
+Selecting a Gen 3 theme (`CELEBI`, `SUICUNE`, `POKEMON CENTER`) on a Gen 1/2
+game suppresses the themed overlay — there is no Gen 1/2 art for those
+themes — and draws the plain console frame with a notice.
+
+## Gen 3 games
+
+On Gen 3 games, GBA consoles and the Gen 3 themes (CELEBI, SUICUNE, POKEMON
+CENTER) draw normally. Selecting a GB, GBC, or SGB console draws the plain
+console frame with a notice, since there are no themed or party overlays for
+those consoles in the Gen 3 frame set. Selecting a Gen 1/2 theme (CHIKORITA,
+GEODUDE, etc.) suppresses the themed overlay and draws the plain console
+frame with a notice — those themes have no Gen 3 variants. Party frames do
+not render on Gen 3.
+
+## Hoenn games
+
+Ruby, Sapphire, and Emerald have no Kanto gyms, so the `GYM BADGE GEN3` row
+shows a 5-second warning toast on those games when any option other than
+`NONE` is selected:
+
+> GYM BADGE is not available on Hoenn games. Kanto gym badges are only
+> supported on Red, Blue, Yellow, Gold, Silver, Crystal, FireRed, and
+> LeafGreen.
+
+The console frame, themes, and icons all continue to draw normally — only
+the badge layer is skipped.
+
+## Gym badges
+
+The badge is a second overlay drawn on top of the base frame, not a
+replacement for it. Whatever the base overlay is — a themed GB or GBC frame,
+a party overlay, or a plain device frame — the badge draws over it. Every
+existing option keeps working exactly as before.
+
+**Console support for badges:**
+
+- **GB and GBC family** — badges draw over the frame on Gen 1 and Gen 2
+  games.
+- **GBA and GBA SP** — badges draw over the frame **only on FireRed and
+  LeafGreen**, where the Kanto gym maps exist.
+- **SGB and SGB GOLD 97** — badges are never drawn.
+
+Layer order:
+
+1. Base frame — chosen by the `CONSOLE`, `PKMN`, and `PARTY` rows
+2. Icons — `POKEBALL`, `PKMN LOGO`, `CENTER BALL GEN3`, and
+   `RIGHT BALL GEN3`, drawn on top when enabled and the console is compatible
+3. Gym badge — drawn on top, when the badge option applies and the console
+   supports it
+4. Earned badges — drawn on top (FireRed / LeafGreen GBA only)
+
+**`AUTO (GYM)`** reads the current map. When the player enters a gym, the
+matching badge appears. When the player leaves, it disappears. On Gen 1 and
+FireRed/LeafGreen the mapping follows the Kanto gym order. On Gen 2 it
+follows the Johto gym order and then the Kanto gym order, and each badge
+uses the correct Gold/Silver/Crystal artwork. All sixteen Gen 2 gyms are
+covered, including Clair's gym at `BLACKTHORN_GYM_1F` and Blaine's relocated
+gym at `SEAFOAM_GYM`.
+
+**`AUTO (CITY)`** extends the automatic behavior to the whole city instead
+of just the gym interior. Entering Pewter City shows the Boulder Badge and
+it stays visible anywhere in Pewter until the player leaves. Gym interiors
+are still covered by the same badge.
+
+Note that Viridian City is reachable at the very start of the game, before
+the player has earned any badges. Selecting `AUTO (CITY)` will show the
+Earth Badge on that first visit.
+
+**Manual mode** — selecting any specific badge forces it to draw regardless
+of which map the player is on.
+
+Some combinations:
+
+- `PARTY GEN1-2 = MEOWTH` + `GYM BADGE GEN1 = AUTO (GYM)` — Meowth's party
+  frame shows normally, and the Pewter badge appears when the player enters
+  Pewter Gym.
+- `CONSOLE = GBC` + `PKMN GEN1-2 = CHIKORITA` + `GYM BADGE GEN1 = EARTH` —
+  Chikorita's GBC frame is always accompanied by the Earth Badge.
+- `CONSOLE = GB LIGHT` + `GYM BADGE GEN1 = NONE` — clean GB Light device
+  frame with no badge at all.
+- `CONSOLE = SGB` + `GYM BADGE GEN1 = AUTO (CITY)` — SGB frame draws with
+  no badge, even inside a gym or city.
+- `CONSOLE = GBA SP` + `GYM BADGE GEN3 = AUTO (CITY)` — GBA SP frame draws
+  with no badge on non-FRLG games, and draws the matching Kanto badge on
+  FireRed or LeafGreen.
+- `CONSOLE = GBC` + `POKEBALL = ON` + `PKMN LOGO = ON` — GBC frame with
+  both icons stacked on top.
+- `CONSOLE = GBA` + `POKEBALL = ON` + `CENTER BALL GEN3 = ON` +
+  `RIGHT BALL GEN3 = ON` + `BALL SIZE GEN3 = LARGE` + `PKMN LOGO = ON` —
+  GBA frame with all four icons stacked on top.
+- `CONSOLE = GBA` + `PKMN GEN3 = CELEBI` + `GYM BADGE GEN3 = BOULDER` +
+  `EARNED BADGES GEN3 = BOTH 3` — Celebi GBA frame with the Boulder Badge
+  and three earned badges on the left and top.
+
+## Performance
+
+- **Cached path resolution.** The mod no longer re-evaluates the full
+  frame-selection tree on every frame. Previously each frame checked options,
+  built asset paths, and probed the filesystem to confirm each candidate
+  file existed — up to six file existence checks per frame during normal
+  play. That work is now memoized. The selection is recomputed only when
+  something that `, `GYM BADGE`, `POKEBALL`, `PKMN LOGO`, `PKMN GEN1-2`,
 `PARTY GEN1-2`, and `PKMN GEN3` all default to `NONE`/`OFF`. If a theme is
 set without `CONSOLE`, a notice appears and no overlay is drawn.
 
@@ -396,8 +597,7 @@ badge, or icon active during normal gameplay.
 
 ## Supported games
 
-Red, Blue, Yellow, Gold, Silver, Crystal — plus Gen 3 (FireRed, LeafGreen,
-Ruby, Sapphire, Emerald).
+Red, Blue, Yellow, Gold, Silver, Crystal, FireRed, LeafGreen, Ruby, Sapphire, Emerald.
 
 ## Display
 
