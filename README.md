@@ -28,7 +28,7 @@ whichever rows match the running game and ignores the rest.
 
 ## Frames included
 
-- **Per-game SGB borders** for Red, Blue, Yellow, Gold, Silver, and Crystal
+- **Per-game automatic SGB borders** for Red, Blue, Yellow, Gold, Silver, and Crystal
 - **Day and night variants** for all six supported Gen 1/2 games, switchable
   manually or automatically
 - **GOLD 97** — the SGB border from the Spaceworld '97 demo, with a night
