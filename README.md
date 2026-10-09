@@ -152,13 +152,13 @@ CONSOLE = NONE — no overlay drawn = 1
 
 **Grand total**
 
-Gen 1 (Red, Blue, Yellow)                        3,758
-Gen 2 (Gold, Silver, Crystal)                    6,478
-Gen 3 Hoenn (Ruby, Sapphire, Emerald)          315,392
-FireRed / LeafGreen                            315,392
-Blank state (CONSOLE = NONE)                         1
-------------------------------------------------------
-Total                                          641,021
+Gen 1 (Red, Blue, Yellow)                      3,758
+Gen 2 (Gold, Silver, Crystal)                  6,478
+Gen 3 Hoenn (Ruby, Sapphire, Emerald)        315,392
+FireRed / LeafGreen                          315,392
+Blank state (CONSOLE = NONE)                       1
+----------------------------------------------------
+Total                                        641,021
 
 **Why 641,021 combinations produce ~296,877 distinct screens**
 
