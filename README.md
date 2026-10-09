@@ -152,11 +152,11 @@ CONSOLE = NONE — no overlay drawn = 1
 
 **Grand total**
 
-Red, Blue, Yellow           3,758
-Gold, Silver, Crystal       6,478
-Firered, LeafGreen          315,392
-Ruby, Sapphire, Emerald     315,392
-Blank state (CONSOLE=NONE)  1
+- Red, Blue, Yellow           3,758
+- Gold, Silver, Crystal       6,478
+- Firered, LeafGreen          315,392
+- Ruby, Sapphire, Emerald     315,392
+- Blank state (CONSOLE=NONE)  1
 
 Total                       641,021
 
