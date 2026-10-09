@@ -1,4 +1,4 @@
-**641,021 overlay combinations from 218 hand-drawn PNG files — no AI art.**
+**798,717 overlay combinations from 222 hand-drawn PNG files — no AI art.**
 
 Manually reworked GB, GBC, GBA, SGB, and Hoenn overlays for Gen 1, 2,
 FireRed, LeafGreen, Ruby, Sapphire, and Emerald in gen1recomp. Per-game
@@ -43,8 +43,8 @@ resolves whichever rows match the running game and ignores the rest.
   The standard Game Boy frame has both day and night art.
 - GBA device frames — plain GBA and GBA SP, each with day and night
   variants selected through the DAY/NIGHT row
-- Themed GBA frames — CELEBI, SUICUNE, and POKEMON CENTER, each with day
-  and night variants across both GBA and GBA SP
+- Themed GBA frames — CELEBI, SUICUNE, POKEMON CENTER, and LATIOS &
+  LATIAS, each with day and night variants across both GBA and GBA SP
 - PARTY overlays — nine community-requested frames, each based on a
   contributor's current or favourite Gen 1/2 Pokémon. Available in GB,
   GB Dark, GB Light, GB Pocket, and GBC variants.
@@ -65,7 +65,7 @@ resolves whichever rows match the running game and ignores the rest.
 
 **Overlay combinations**
 
-The mod ships 218 PNG files. From them it can produce 641,021 unique
+The mod ships 222 PNG files. From them it can produce 798,717 unique
 possible on-screen overlays across all supported games.
 
 Nothing is presented as a flat list — everything is built from sixteen
@@ -131,20 +131,20 @@ Gen 2 total: 2,584 + 1,292 + 1,292 + 1,292 + 16 + 2 = 6,478
 
 GBA consoles only. Party frames are Gen 1/2 only.
 
-GBA / GBA SP — 4 theme results (none + celebi + suicune + pokemoncenter)
-× 2 day/night × 64 icon combos × 11 badge states × 28 earned-badge
-states = 157,696 per console
+GBA / GBA SP — 5 theme results (none + celebi + suicune + pokemoncenter
++ latioslatias) × 2 day/night × 64 icon combos × 11 badge states ×
+28 earned-badge states = 197,120 per console
 
-Hoenn total: 157,696 + 157,696 = 315,392
+Hoenn total: 197,120 + 197,120 = 394,240
 
 **FireRed / LeafGreen**
 
 GBA consoles only. All four layers are live.
 
-GBA / GBA SP — 4 theme results × 2 day/night × 64 icon combos ×
-11 badge states × 28 earned-badge states = 157,696 per console
+GBA / GBA SP — 5 theme results × 2 day/night × 64 icon combos ×
+11 badge states × 28 earned-badge states = 197,120 per console
 
-FireRed/LeafGreen total: 157,696 + 157,696 = 315,392
+FireRed/LeafGreen total: 197,120 + 197,120 = 394,240
 
 **Blank state**
 
@@ -154,13 +154,13 @@ CONSOLE = NONE — no overlay drawn = 1
 
 - Red, Blue, Yellow           3,758
 - Gold, Silver, Crystal       6,478
-- Firered, LeafGreen          315,392
-- Ruby, Sapphire, Emerald     315,392
+- Firered, LeafGreen          394,240
+- Ruby, Sapphire, Emerald     394,240
 - Blank state (CONSOLE=NONE)  1
 
-- **Total                       641,021**
+- **Total                       798,717**
 
-**Why 641,021 combinations produce ~296,877 distinct screens**
+**Why 798,717 combinations produce ~368,877 distinct screens**
 
 Some selectable choices resolve to the same rendered image:
 
@@ -171,18 +171,18 @@ Some selectable choices resolve to the same rendered image:
 - BALL SIZE GEN3 has no effect when RIGHT BALL GEN3 is off
   (64 icon combos → 40 distinct icon sets)
 
-Collapsing these produces approximately 296,877 distinct composited
+Collapsing these produces approximately 368,877 distinct composited
 screens across all games. Almost the entire difference comes from the
 Gen 3 games, where all three collapses stack multiplicatively:
 
-  option states per Gen 3 console:   4 × 2 × 64 × 11 × 28 = 157,696
-  distinct images per Gen 3 console: 4 × 2 × 40 ×  9 × 25 =  72,000
+  option states per Gen 3 console:   5 × 2 × 64 × 11 × 28 = 197,120
+  distinct images per Gen 3 console: 5 × 2 × 40 ×  9 × 25 =  90,000
 
 Four Gen 3 consoles (GBA and GBA SP, once for Hoenn and once for FRLG)
-contribute 4 × 72,000 = 288,000 distinct screens. Gen 1 contributes
+contribute 4 × 90,000 = 360,000 distinct screens. Gen 1 contributes
 3,078; Gen 2 contributes 5,798; blank state is 1.
 
-The 641,021 figure is the selectable count. The ~296,877 figure is the
+The 798,717 figure is the selectable count. The ~368,877 figure is the
 visual count. Both are valid, and both exclude illegal cross-generation
 states.
 
@@ -246,6 +246,7 @@ PKMN GEN3
   CELEBI
   SUICUNE
   POKEMON CENTER
+  LATIOS & LATIAS
 
   Pokémon-themed overlays for GBA and GBA SP.
 
@@ -449,19 +450,20 @@ Selecting a GBA console on a Gen 1/2 game draws the GBA frame with an
 informational notice that GBA was not the hardware those games ran on.
 The frame renders; the notice is informational.
 
-Selecting a Gen 3 theme (CELEBI, SUICUNE, POKEMON CENTER) on a Gen 1/2
-game suppresses the themed overlay — there is no Gen 1/2 art for those
-themes — and draws the plain console frame with a notice.
+Selecting a Gen 3 theme (CELEBI, SUICUNE, POKEMON CENTER, LATIOS &
+LATIAS) on a Gen 1/2 game suppresses the themed overlay — there is no
+Gen 1/2 art for those themes — and draws the plain console frame with a
+notice.
 
 **Gen 3 games**
 
 On Gen 3 games, GBA consoles and the Gen 3 themes (CELEBI, SUICUNE,
-POKEMON CENTER) draw normally. Selecting a GB, GBC, or SGB console draws
-the plain console frame with a notice, since there are no themed or
-party overlays for those consoles in the Gen 3 frame set. Selecting a
-Gen 1/2 theme (CHIKORITA, GEODUDE, etc.) suppresses the themed overlay
-and draws the plain console frame with a notice — those themes have no
-Gen 3 variants. Party frames do not render on Gen 3.
+POKEMON CENTER, LATIOS & LATIAS) draw normally. Selecting a GB, GBC, or
+SGB console draws the plain console frame with a notice, since there are
+no themed or party overlays for those consoles in the Gen 3 frame set.
+Selecting a Gen 1/2 theme (CHIKORITA, GEODUDE, etc.) suppresses the
+themed overlay and draws the plain console frame with a notice — those
+themes have no Gen 3 variants. Party frames do not render on Gen 3.
 
 **Gym badges**
 
@@ -530,6 +532,9 @@ Some combinations:
 - CONSOLE = GBA + PKMN GEN3 = CELEBI + GYM BADGE FRLG = BOULDER +
   EARNED BADGES FRLG = BOTH 3 — Celebi GBA frame with the Boulder Badge
   and three earned badges on the left and top.
+- CONSOLE = GBA + PKMN GEN3 = LATIOS & LATIAS + GYM BADGE RSE = RAIN +
+  EARNED BADGES RSE = BOTH 8 — Latios & Latias GBA frame with the Rain
+  Badge and all eight earned badges.
 
 **Performance**
 
