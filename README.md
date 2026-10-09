@@ -158,7 +158,7 @@ CONSOLE = NONE — no overlay drawn = 1
 - Ruby, Sapphire, Emerald     315,392
 - Blank state (CONSOLE=NONE)  1
 
-Total                       641,021
+- **Total                       641,021**
 
 **Why 641,021 combinations produce ~296,877 distinct screens**
 
