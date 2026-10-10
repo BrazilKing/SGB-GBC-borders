@@ -1,60 +1,61 @@
 6,868,897 overlay combinations from 149 hand-drawn PNG files — no AI art.
 
 Customizable GB, GBC, GBA and SGB overlays for Gen 1, 2, and 3 in gen1recomp.
+
 Quick start
 
-    Install the .zip via your mod manager, or drop the extracted folder into your mods directory.
+Install the .zip via your mod manager, or drop the extracted folder into your mods directory.
 
-    Enable the mod in the launcher's MODS panel.
+Enable the mod in the launcher's MODS panel.
 
-    Launch any supported game.
+Launch any supported game.
 
-    Open the mod options, set CONSOLE, and the frame appears immediately.
+Open the mod options, set CONSOLE, and the frame appears immediately.
 
 The overlay is off on first launch — set any row to a real value to enable it.
 Features
 
-    4:3 optimized, pixel-perfect on the TrimUI Brick (1024×768)
+4:3 optimized, pixel-perfect on the TrimUI Brick (1024×768)
 
-    Live updates — changes apply from the mod manager with no restart
+Live updates — changes apply from the mod manager with no restart
 
-    Per-save options — each playthrough stores its own settings
+Per-save options — each playthrough stores its own settings
 
-    Layered rendering — body + LED + logo + theme + party + icons + gym badge + earned badges, all stackable
+Layered rendering — body + LED + logo + theme + party + icons + gym badge + earned badges, all stackable
 
-    Fully cached — no per-frame filesystem work
+Fully cached — no per-frame filesystem work
 
-    Console-aware — every option resolves to the right art for the running game
+Console-aware — every option resolves to the right art for the running game
 
-    68% smaller install — 4.61 MB vs 14.6 MB in v1.3.7
+68% smaller install — 4.61 MB vs 14.6 MB in v1.3.7
 
 Frames included
 
 Gen 1/2
 
-    Per-game automatic SGB borders (Red, Blue, Yellow, Gold, Silver, Crystal)
+Per-game automatic SGB borders (Red, Blue, Yellow, Gold, Silver, Crystal)
 
-    Day and night variants, manual or auto
+Day and night variants, manual or auto
 
-    GOLD 97 — Spaceworld '97 demo border with Pikablu night version
+GOLD 97 — Spaceworld '97 demo border with Pikablu night version
 
-    Themed SGB frames — Chikorita, Geodude, Kangaskhan, Meowth, Nidoking, Pikachu, Totodile (day + night)
+Themed SGB frames — Chikorita, Geodude, Kangaskhan, Meowth, Nidoking, Pikachu, Totodile (day + night)
 
-    GB / GBC device frames — GB, GB Light, GB Pocket, GBC, each with day and night body variants, plus themed variants
+GB / GBC device frames — GB, GB Light, GB Pocket, GBC, each with day and night body variants, plus themed variants
 
-    Nine party overlays — community-requested frames
+Nine party overlays — community-requested frames
 
 Gen 3
 
-    GBA / GBA SP device frames — day + night variants
+GBA / GBA SP device frames — day + night variants
 
-    Themed GBA frames — Celebi, Suicune, Pokémon Center, Latios & Latias — all with day + night, GBA + GBA SP
+Themed GBA frames — Celebi, Suicune, Pokémon Center, Latios & Latias — all with day + night, GBA + GBA SP
 
 Badges
 
-    Forty gym badges — RBY Kanto (8), GSC Johto + Kanto (16), FRLG Kanto (8), RBSPEM Hoenn (8)
+Forty gym badges — RBY Kanto (8), GSC Johto + Kanto (16), FRLG Kanto (8), RBSPEM Hoenn (8)
 
-    Earned badges — FRLG and RSE, left / top / both placements, AUTO modes that read the save
+Earned badges — FRLG and RSE, left / top / both placements, AUTO modes that read the save
 
 Icons
 
@@ -489,11 +490,11 @@ Per-save options
 
 Options save per save file, not globally.
 
-    A fresh save starts at the mod's defaults.
+A fresh save starts at the mod's defaults.
 
-    Gen 1/2 and Gen 3 saves use separate buckets — a frame set on Red never appears on FireRed.
+Gen 1/2 and Gen 3 saves use separate buckets — a frame set on Red never appears on FireRed.
 
-    Starting a new game gives you the defaults, not last session's selection.
+Starting a new game gives you the defaults, not last session's selection.
 
 Note: the mod manager menu shows the last-used value globally, not the current save's value. Per-save behavior is honored on-screen — if a save has POKEBALL = ON, the ball draws even if the menu reads OFF. Watch the frame itself to confirm what a save is using.
 Compatibility
@@ -538,40 +539,39 @@ Optimized for the TrimUI Brick at 1024×768. Other resolutions scale proportiona
 All 4:3 screens use the 4:3 viewport from gen1recomp v0.3.5 onwards.
 
 16:9 and mobile support has been removed. Use v1.0.4 for partial 16:9/mobile support (incomplete, untested). Running this 4:3 release on a non-4:3 screen will stretch the artwork.
+
 Known limitations
 
-    Party frames — Gen 1/2 only. Gen 3 games draw the base frame instead.
+Party frames — Gen 1/2 only. Gen 3 games draw the base frame instead.
 
-    Earned badges — FRLG and Hoenn only. Gen 1 and Gen 2 don't have an earned-badge layer yet.
+Earned badges — FRLG and Hoenn only. Gen 1 and Gen 2 don't have an earned-badge layer yet.
 
-    SGB / SGB GOLD 97 — Flat frames; do not support GB LOGO or LED overrides.
-
-    Console/theme mismatches — Fall back to the plain frame with a notice.
+SGB / SGB GOLD 97 — Flat frames; do not support GB LOGO or LED overrides.
 
 Known bugs
 
-    AUTO (GYM) does not work on FireRed / LeafGreen yet. Use AUTO (CITY) or set the badge manually.
+AUTO (GYM) does not work on FireRed / LeafGreen yet. Use AUTO (CITY) or set the badge manually.
 
-    AUTO (GYM) and AUTO (CITY) are untested on Hoenn (Ruby, Sapphire, Emerald). Manual badge selection works.
+AUTO (GYM) and AUTO (CITY) are untested on Hoenn (Ruby, Sapphire, Emerald). Manual badge selection works.
 
 Performance
 
-    Cached path resolution — no more filesystem probes per frame. Recomputed only on option change, map change, or day/night flip.
+Cached path resolution — no more filesystem probes per frame. Recomputed only on option change, map change, or day/night flip.
 
-    Zero-cost idle rendering — when nothing is drawn, the render hook returns before touching any graphics state.
+Zero-cost idle rendering — when nothing is drawn, the render hook returns before touching any graphics state.
 
-    Correct SGB resolution even when the game version is detected late.
+Correct SGB resolution even when the game version is detected late.
 
 Most noticeable on lower-power devices with a frame, badge, or icon active.
 Installation
 
-    Install the .zip through your mod manager, or copy the extracted folder into your mods directory.
+Install the .zip through your mod manager, or copy the extracted folder into your mods directory.
 
-    Enable the mod in the launcher's MODS panel.
+Enable the mod in the launcher's MODS panel.
 
-    Launch any supported game — the overlay is off on first launch.
+Launch any supported game — the overlay is off on first launch.
 
-    Open the mod options, set CONSOLE (and optionally a theme, party, badge, or icon row), and the frame appears.
+Open the mod options, set CONSOLE (and optionally a theme, party, badge, or icon row), and the frame appears.
 
 Updating
 
