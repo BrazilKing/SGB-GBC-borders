@@ -1,4 +1,4 @@
-8,243,269 overlay combinations from 154 hand-drawn PNG files — no AI art.
+**8,243,269 overlay combinations** from 154 hand-drawn PNG files — no AI art.
 
 Customizable GB, GBC, GBA and SGB overlays for Gen 1, 2, and 3 in gen1recomp.
 
