@@ -596,25 +596,25 @@ Feedback welcome via GitHub issues or the gen1recomp Discord mod section. If rep
 
 Notes
 
-    The mod platform doesn't support per-generation schemas. All 20 rows appear on every boot — the row labels are the only signal of which apply where.
+The mod platform doesn't support per-generation schemas. All 20 rows appear on every boot — the row labels are the only signal of which apply where.
 
-    The overlay is off on first launch to prevent UI cropping on certain devices. Set any row to a real value to enable it.
+The overlay is off on first launch to prevent UI cropping on certain devices. Set any row to a real value to enable it.
 
-    Changes apply live — no restart needed.
+Changes apply live — no restart needed.
 
-    Gen 1/2 and Gen 3 save separately.
+Gen 1/2 and Gen 3 save separately.
 
-    DAY/NIGHT applies to SGB, GB, GBC, and GBA frames. On GB/GBC consoles it switches the body between grey (day) and dark (night); the logo and LED stay the same. On SGB it selects the day or night variant of the per-game frame. On GBA it switches between the light and standard backgrounds. Party overlays are day-only.
+DAY/NIGHT applies to SGB, GB, GBC, and GBA frames. On GB/GBC consoles it switches the body between grey (day) and dark (night); the logo and LED stay the same. On SGB it selects the day or night variant of the per-game frame. On GBA it switches between the light and standard backgrounds. Party overlays are day-only.
 
-    GBC now supports day/night. Previously only GB, GB Light, and GB Pocket had the day/night body variants — now GBC uses the same grey/dark body switching.
+GBC now supports day/night. Previously only GB, GB Light, and GB Pocket had the day/night body variants — now GBC uses the same grey/dark body switching.
 
-    Icons are console-aware. POKEBALL works on GB-family and GBA-family; CENTER BALL GEN3 and RIGHT BALL GEN3 are GBA-only. BALL SIZE GEN3 affects only the right-side ball. All icons are suppressed on SGB, SGB GOLD 97, and CONSOLE = NONE.
+Icons are console-aware. POKEBALL works on GB-family and GBA-family; CENTER BALL GEN3 and RIGHT BALL GEN3 are GBA-only. BALL SIZE GEN3 affects only the right-side ball. All icons are suppressed on SGB, SGB GOLD 97, and CONSOLE = NONE.
 
-    Gym badges draw on GB-family consoles for Gen 1/2, and on GBA-family consoles for Gen 3. Never drawn on SGB.
+Gym badges draw on GB-family consoles for Gen 1/2, and on GBA-family consoles for Gen 3. Never drawn on SGB.
 
-    Modular console layers. GB LOGO, LED, and GBA LOGO let you override or disable individual chrome elements. CENTER NY TEXT toggles the Pokémon Center top overlay.
+Modular console layers. GB LOGO, LED, and GBA LOGO let you override or disable individual chrome elements. CENTER NY TEXT toggles the Pokémon Center top overlay.
 
-    All artwork is manually reworked by the author. No AI art was used.
+All artwork is manually reworked by the author. No AI art was used.
 
 Credits
 
