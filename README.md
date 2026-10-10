@@ -1,5 +1,3 @@
-G1R Classic Overlays
-
 6,868,897 overlay combinations from 149 hand-drawn PNG files — no AI art.
 
 Customizable GB, GBC, GBA and SGB overlays for Gen 1, 2, and 3 in gen1recomp.
@@ -41,7 +39,7 @@ Gen 1/2
 
     Themed SGB frames — Chikorita, Geodude, Kangaskhan, Meowth, Nidoking, Pikachu, Totodile (day + night)
 
-    GB / GBC device frames — GB, GB Light, GB Pocket, GBC, plus themed variants
+    GB / GBC device frames — GB, GB Light, GB Pocket, GBC, each with day and night body variants, plus themed variants
 
     Nine party overlays — community-requested frames
 
@@ -144,7 +142,7 @@ Rules:
 
 AUTO behavior
 
-DAY/NIGHT = AUTO picks day or night from your system clock (6am–6pm is day).
+DAY/NIGHT = AUTO picks day or night from your system clock (6am–6pm is day). On GB/GBC consoles this switches the shared body between grey and dark. On SGB it selects the day or night variant of the per-game frame. On GBA it selects the light or standard background.
 
 GB LOGO = AUTO follows the selected console — GB gets GAME BOY, GB POCKET gets GAME BOY POCKET, etc.
 
@@ -244,7 +242,7 @@ Notes
 
     Gen 1/2 and Gen 3 save separately.
 
-    DAY/NIGHT applies to SGB, GB, and GBA frames. All GBC frames are day-only; party overlays are day-only.
+    DAY/NIGHT applies to SGB, GB, GBC, and GBA frames. On GB/GBC consoles it switches the body between grey (day) and dark (night); the logo and LED stay the same. On SGB it selects the day or night variant of the per-game frame. On GBA it switches between the light and standard backgrounds. Party overlays are day-only.
 
     Icons are console-aware. POKEBALL works on GB-family and GBA-family; CENTER BALL GEN3 and RIGHT BALL GEN3 are GBA-only. BALL SIZE GEN3 affects only the right-side ball. All icons are suppressed on SGB, SGB GOLD 97, and CONSOLE = NONE.
 
