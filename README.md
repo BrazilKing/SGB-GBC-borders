@@ -2,7 +2,8 @@
 
 Customizable GB, GBC, GBA and SGB overlays for Gen 1, 2, and 3 in gen1recomp.
 
-Quick start
+**Quick start**
+
 
 Install the .zip via your mod manager, or drop the extracted folder into your mods directory.
 
@@ -29,7 +30,8 @@ Console-aware — every option resolves to the right art for the running game
 
 68% smaller install — 4.61 MB vs 14.6 MB in v1.3.7
 
-Frames included
+
+**Frames included**
 
 Gen 1/2
 
@@ -65,7 +67,8 @@ Icons
 
     GBA-only center / right Pokéballs with size control (Small / Medium / Large / XL)
 
-Overlay combinations
+
+**Overlay combinations**
 
 The mod ships 149 PNG files and can produce 6,868,897 unique valid overlays across all games.
 
