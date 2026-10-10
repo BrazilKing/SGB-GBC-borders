@@ -1,3 +1,5 @@
+G1R Classic Overlays
+
 6,868,897 overlay combinations from 149 hand-drawn PNG files — no AI art.
 
 Customizable GB, GBC, GBA and SGB overlays for Gen 1, 2, and 3 in gen1recomp.
@@ -29,6 +31,7 @@ Features
     68% smaller install — 4.61 MB vs 14.6 MB in v1.3.7
 
 Frames included
+
 Gen 1/2
 
     Per-game automatic SGB borders (Red, Blue, Yellow, Gold, Silver, Crystal)
@@ -114,21 +117,21 @@ How options resolve
 
 Each overlay is a stack of layers:
 
-    8. Earned badges — Gen 3 GBA only
+    Body — device background
 
-    7. Gym badge — Gen 1/2 GB-family, Gen 3 GBA
+    LED — GB / GBC power LED
 
-    6. Icons — Pokéball, logo, center/right balls
+    Logo — GBA / GBA SP / GB / GBC logo layer
 
-    5. Party — Gen 1/2 only
+    Theme art — character art on top of shared chrome
 
-    4. Theme art — character art on top of shared chrome
+    Party — Gen 1/2 only
 
-    3. Logo — GBA / GBA SP / GB / GBC logo layer
+    Icons — Pokéball, logo, center/right balls
 
-    2. LED — GB / GBC power LED
+    Gym badge — Gen 1/2 GB-family, Gen 3 GBA
 
-    1. Body — device background
+    Earned badges — Gen 3 GBA only
 
 Rules:
 
