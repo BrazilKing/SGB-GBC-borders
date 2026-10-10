@@ -1,616 +1,616 @@
-**6,885,405 overlay combinations from 149 hand-drawn PNG files — no AI art.**
+6,882,443 overlay combinations from 149 hand-drawn PNG files — no AI art.
 
 Customizable GB, GBC, GBA and SGB overlays for Gen 1, 2, and 3 in gen1recomp.
 
-**Quick start**
+Quick start
 
-- Install the .zip via your mod manager, or drop the extracted folder into your mods directory.
+    Install the .zip via your mod manager, or drop the extracted folder into your mods directory.
 
-- Enable the mod in the launcher's MODS panel.
+    Enable the mod in the launcher's MODS panel.
 
-- Launch any supported game.
+    Launch any supported game.
 
-- Open the mod options, set CONSOLE, and the frame appears immediately.
+    Open the mod options, set CONSOLE, and the frame appears immediately.
 
 The overlay is off on first launch — set any row to a real value to enable it.
 
-**Features**
+Features
 
-- 4:3 optimized, pixel-perfect on the TrimUI Brick (1024×768)
+    4:3 optimized, pixel-perfect on the TrimUI Brick (1024×768)
 
-- Live updates — changes apply from the mod manager with no restart
+    Live updates — changes apply from the mod manager with no restart
 
-- Per-save options — each playthrough stores its own settings
+    Per-save options — each playthrough stores its own settings
 
-- Layered rendering — body + LED + logo + theme + party + icons + gym badge + earned badges, all stackable
+    Layered rendering — body + LED + logo + theme + party + icons + gym badge + earned badges, all stackable
 
-- Fully cached — no per-frame filesystem work
+    Fully cached — no per-frame filesystem work
 
-- Console-aware — every option resolves to the right art for the running game
+    Console-aware — every option resolves to the right art for the running game
 
-- 68% smaller install — 4.61 MB vs 14.6 MB in v1.3.7
+    68% smaller install — 4.61 MB vs 14.6 MB in v1.3.7
 
-**Frames included**
+Frames included
 
-**Gen 1/2**
+Gen 1/2
 
-- Per-game automatic SGB borders (Red, Blue, Yellow, Gold, Silver, Crystal)
+    Per-game automatic SGB borders (Red, Blue, Yellow, Gold, Silver, Crystal)
 
-- Day and night variants, manual or auto
+    Day and night variants, manual or auto
 
-- GOLD 97 — Spaceworld '97 demo border with Pikablu night version
+    GOLD 97 — Spaceworld '97 demo border with Pikablu night version
 
-- Themed SGB frames — Chikorita, Geodude, Kangaskhan, Meowth, Nidoking, Pikachu, Totodile (day + night)
+    Themed SGB frames — Chikorita, Geodude, Kangaskhan, Meowth, Nidoking, Pikachu, Totodile (day + night)
 
-- GB / GBC device frames — GB, GB Light, GB Pocket, GBC, each with day and night body variants, plus themed variants
+    GB / GBC device frames — GB, GB Light, GB Pocket, GBC, each with day and night body variants, plus themed variants
 
-- Nine party overlays — community-requested frames
+    Nine party overlays — community-requested frames
 
-- Nine themed frames — Chikorita, Geodude, Kangaskhan, Meowth, Nidoking, Pikachu, Special Pikachu, Totodile
+    Nine themed frames — Chikorita, Geodude, Kangaskhan, Meowth, Nidoking, Pikachu, Special Pikachu, Totodile
 
-**Gen 3**
+Gen 3
 
-- GBA / GBA SP device frames — day + night variants
+    GBA / GBA SP device frames — day + night variants
 
-- Themed GBA frames — Celebi, Suicune, Pokémon Center, Latios & Latias — all with day + night, GBA + GBA SP
+    Themed GBA frames — Celebi, Suicune, Pokémon Center, Latios & Latias — all with day + night, GBA + GBA SP
 
-**Badges**
+Badges
 
-- Forty gym badges — RBY Kanto (8), GSC Johto + Kanto (16), FRLG Kanto (8), RBSPEM Hoenn (8)
+    Forty gym badges — RBY Kanto (8), GSC Johto + Kanto (16), FRLG Kanto (8), RBSPEM Hoenn (8)
 
-- Earned badges — FRLG and RSE, left / top / both placements, AUTO modes that read the save
+    Earned badges — FRLG and RSE, left / top / both placements, AUTO modes that read the save
 
-**Icons**
+Icons
 
-- Pokéball (console-aware)
+    Pokéball (console-aware)
 
-- Pokémon logo
+    Pokémon logo
 
-- GBA-only center / right Pokéballs with size control (Small / Medium / Large / XL)
+    GBA-only center / right Pokéballs with size control (Small / Medium / Large / XL)
 
-**Overlay combinations**
+Overlay combinations
 
-The mod ships 149 PNG files and can produce 6,885,405 unique valid overlays across all games.
+The mod ships 149 PNG files and can produce 6,882,443 unique valid overlays across all games.
 
 The count is the product of every independent option that applies to a given game, summed across all game classes.
 
-- Gen 1 (Red, Blue, Yellow): 95,526 combinations
+    Gen 1 (Red, Blue, Yellow): 95,044 combinations
 
-- Gen 2 (Gold, Silver, Crystal): 164,646 combinations
+    Gen 2 (Gold, Silver, Crystal): 164,166 combinations
 
-- Gen 3 Hoenn (Ruby, Sapphire, Emerald): 3,311,616 combinations
+    Gen 3 Hoenn (Ruby, Sapphire, Emerald): 3,311,616 combinations
 
-- FireRed / LeafGreen: 3,311,616 combinations
+    FireRed / LeafGreen: 3,311,616 combinations
 
-- Blank state (CONSOLE = NONE): 1
+    Blank state (CONSOLE = NONE): 1
 
-- Total: 6,885,405
+    Total: 6,882,443
 
-**Per-game calculation**
+Per-game calculation
 
-Gen 1 and Gen 2 have the same structure. The variables per console are:
+Gen 1 and Gen 2 have the same structure. The variables per non-SGB console are:
 
-- frame-content (18): 1 plain + 9 themes + 9 parties − 1 overlap (none counted twice)
+    frame-content (18): 1 plain + 9 themes + 9 parties − 1 overlap (none counted twice)
 
-- day/night (2 on GB, 1 elsewhere)
+    day/night (2 on GB, 1 elsewhere)
 
-- icons (4): POKEBALL × PKMN LOGO
+    icons (4): POKEBALL × PKMN LOGO
 
-- gym badge (11 for Gen 1, 19 for Gen 2)
+    gym badge (11 for Gen 1, 19 for Gen 2)
 
-- GB LOGO (6)
+    GB LOGO (6)
 
-- LED (4)
-
-- SGB frames skip the party/theme split and use a different layout
+    LED (4)
 
 Gen 1 per-console breakdown:
 
-- GB: 18 × 2 × 4 × 11 × 6 × 4 = 38,016
+    GB: 18 × 2 × 4 × 11 × 6 × 4 = 38,016
 
-- GB LIGHT: 18 × 1 × 4 × 11 × 6 × 4 = 19,008
+    GB LIGHT: 18 × 1 × 4 × 11 × 6 × 4 = 19,008
 
-- GB POCKET: 18 × 1 × 4 × 11 × 6 × 4 = 19,008
+    GB POCKET: 18 × 1 × 4 × 11 × 6 × 4 = 19,008
 
-- GBC: 18 × 1 × 4 × 11 × 6 × 4 = 19,008
+    GBC: 18 × 1 × 4 × 11 × 6 × 4 = 19,008
 
-- SGB: (1 + 9) × 2 × 6 × 4 = 480
+    SGB: 1 × 2 = 2 (flat frame, day/night only)
 
-- SGB GOLD 97: 1 × 2 × 6 × 4 = 48
+    SGB GOLD 97: 1 × 2 = 2 (flat frame, day/night only)
 
-Gen 1 total: 38,016 + 19,008 + 19,008 + 19,008 + 480 + 48 = 95,568
+Gen 1 total: 38,016 + 19,008 + 19,008 + 19,008 + 2 + 2 = 95,044
 
 Gen 2 uses the same structure with 19 badge choices:
 
-- GB: 18 × 2 × 4 × 19 × 6 × 4 = 65,664
+    GB: 18 × 2 × 4 × 19 × 6 × 4 = 65,664
 
-- GB LIGHT: 18 × 1 × 4 × 19 × 6 × 4 = 32,832
+    GB LIGHT: 18 × 1 × 4 × 19 × 6 × 4 = 32,832
 
-- GB POCKET: 18 × 1 × 4 × 19 × 6 × 4 = 32,832
+    GB POCKET: 18 × 1 × 4 × 19 × 6 × 4 = 32,832
 
-- GBC: 18 × 1 × 4 × 19 × 6 × 4 = 32,832
+    GBC: 18 × 1 × 4 × 19 × 6 × 4 = 32,832
 
-- SGB: (1 + 9) × 2 × 6 × 4 = 480
+    SGB: 1 × 2 = 2
 
-- SGB GOLD 97: 1 × 2 × 6 × 4 = 48
+    SGB GOLD 97: 1 × 2 = 2
 
-Gen 2 total: 65,664 + 32,832 + 32,832 + 32,832 + 480 + 48 = 164,688
+Gen 2 total: 65,664 + 32,832 + 32,832 + 32,832 + 2 + 2 = 164,166
 
 Gen 3 uses a different formula. Frame-content is 7 (none + celebi + suicune + 3 Pokémon Center NY states + latioslatias), icons are 64, and GBA LOGO replaces GB LOGO/LED:
 
-- GBA: 7 × 2 × 64 × 11 × 28 × 6 = 1,655,808
+    GBA: 7 × 2 × 64 × 11 × 28 × 6 = 1,655,808
 
-- GBA SP: 7 × 2 × 64 × 11 × 28 × 6 = 1,655,808
+    GBA SP: 7 × 2 × 64 × 11 × 28 × 6 = 1,655,808
 
-- Hoenn total: 3,311,616
+    Hoenn total: 3,311,616
 
-- FRLG total: 3,311,616
+    FRLG total: 3,311,616
 
 Blank state: 1
 
-Grand total: 95,568 + 164,688 + 3,311,616 + 3,311,616 + 1 = 6,883,489
+Grand total: 95,044 + 164,166 + 3,311,616 + 3,311,616 + 1 = 6,882,443
 
-The exact figure depends on how selectors like AUTO (GYM) and AUTO (CITY) are counted. Treating them as distinct choices (they are selectable) yields 6,885,405. Collapsing them to the badge images they resolve to yields a smaller visual count.
+The exact figure counts selectors like AUTO (GYM) and AUTO (CITY) as the distinct choices they are. Collapsing them to the badge images they resolve to yields a smaller visual count.
 
-**Options reference**
+Options reference
 
 20 rows, always visible. Only the rows matching the running game are read.
 
-**Universal**
+Universal
 
-**CONSOLE** — All games — default NONE
+CONSOLE — All games — default NONE
 
 Selects the device frame. Must be set to anything other than NONE for the overlay to draw.
 
-- NONE
+    NONE
 
-- GB
+    GB
 
-- SGB
+    SGB
 
-- SGB GOLD 97
+    SGB GOLD 97
 
-- GB POCKET
+    GB POCKET
 
-- GB LIGHT
+    GB LIGHT
 
-- GBC
+    GBC
 
-- GBA
+    GBA
 
-- GBA SP
+    GBA SP
 
-**DAY/NIGHT** — All games — default AUTO
+DAY/NIGHT — All games — default AUTO
 
 AUTO picks from the system clock (6am–6pm = day). Switches GB/GBC body between grey and dark, picks the SGB day/night frame variant, and selects the GBA light or standard background.
 
-- AUTO
+    AUTO
 
-- DAY
+    DAY
 
-- NIGHT
+    NIGHT
 
-**Frame-layer overrides**
+Frame-layer overrides
 
-**GB LOGO** — GB / GBC family — default AUTO
+GB LOGO — GB / GBC family — default AUTO
 
-Override or disable the logo layer. AUTO follows the selected console.
+Override or disable the logo layer. AUTO follows the selected console. Ignored on SGB and SGB GOLD 97.
 
-- AUTO
+    AUTO
 
-- GAME BOY
+    GAME BOY
 
-- GAME BOY POCKET
+    GAME BOY POCKET
 
-- GAME BOY LIGHT
+    GAME BOY LIGHT
 
-- GAME BOY COLOR
+    GAME BOY COLOR
 
-- OFF
+    OFF
 
-**LED** — GB / GBC family — default AUTO
+LED — GB / GBC family — default AUTO
 
-Override or disable the power LED. AUTO uses the plain LED on GB and the BATTERY LED on all others.
+Override or disable the power LED. AUTO uses the plain LED on GB and the BATTERY LED on all others. Ignored on SGB and SGB GOLD 97.
 
-- AUTO
+    AUTO
 
-- GB
+    GB
 
-- GBC
+    GBC
 
-- OFF
+    OFF
 
-**GBA LOGO** — GBA / GBA SP — default AUTO
+GBA LOGO — GBA / GBA SP — default AUTO
 
 Override or disable the GBA logo. AUTO is theme-aware — silver for most themes, gold for Pokémon Center.
 
-- AUTO
+    AUTO
 
-- SILVER GBA
+    SILVER GBA
 
-- SILVER GBA SP
+    SILVER GBA SP
 
-- GOLD POKEMON CENTER
+    GOLD POKEMON CENTER
 
-- GOLD POKEMON CENTER SP
+    GOLD POKEMON CENTER SP
 
-- OFF
+    OFF
 
-**CENTER NY TEXT** — Pokémon Center only — default AUTO
+CENTER NY TEXT — Pokémon Center only — default AUTO
 
 Toggle the "Pokémon Center New York" top overlay. AUTO hides it when a gym badge is active.
 
-- AUTO
+    AUTO
 
-- ALWAYS
+    ALWAYS
 
-- HIDDEN
+    HIDDEN
 
-**Gen 1/2 frames**
+Gen 1/2 frames
 
-**PARTY GEN1-2** — Gen 1/2 — default NONE
+PARTY GEN1-2 — Gen 1/2 — default NONE
 
-Community-requested party frames. Combines with CONSOLE to pick the hardware variant. Stacks under PKMN GEN1-2 — if both are set, the party frame draws first and the themed character art draws on top.
+Community-requested party frames. Combines with CONSOLE to pick the hardware variant. Stacks under PKMN GEN1-2 — if both are set, the party frame draws first and the themed character art draws on top. Ignored on SGB and SGB GOLD 97.
 
-- NONE
+    NONE
 
-- BLOODDLL
+    BLOODDLL
 
-- DARTHTRON64
+    DARTHTRON64
 
-- FERNANDO
+    FERNANDO
 
-- FERNANDO B
+    FERNANDO B
 
-- FOXEGORY5
+    FOXEGORY5
 
-- THEEON
+    THEEON
 
-- TORCHICISLAND
+    TORCHICISLAND
 
-- TORCHICISLAND B
+    TORCHICISLAND B
 
-- ZEAK6464
+    ZEAK6464
 
-**PKMN GEN1-2** — Gen 1/2 — default NONE
+PKMN GEN1-2 — Gen 1/2 — default NONE
 
-Themed character art for GB / GBC consoles.
+Themed character art for GB / GBC consoles. Ignored on SGB and SGB GOLD 97.
 
-- NONE
+    NONE
 
-- CHIKORITA
+    CHIKORITA
 
-- GEODUDE
+    GEODUDE
 
-- KANGASKHAN
+    KANGASKHAN
 
-- MEOWTH
+    MEOWTH
 
-- NIDOKING
+    NIDOKING
 
-- PIKACHU
+    PIKACHU
 
-- SPECIAL PIKACHU
+    SPECIAL PIKACHU
 
-- TOTODILE
+    TOTODILE
 
-**Gen 3 frames**
+Gen 3 frames
 
-**PKMN GEN3** — Gen 3 — default NONE
+PKMN GEN3 — Gen 3 — default NONE
 
 Themed character art for GBA / GBA SP consoles. Pokémon Center also draws the gold GBA logo and optional NY text.
 
-- NONE
+    NONE
 
-- CELEBI
+    CELEBI
 
-- SUICUNE
+    SUICUNE
 
-- POKEMON CENTER
+    POKEMON CENTER
 
-- LATIOS & LATIAS
+    LATIOS & LATIAS
 
-**Gen 3 badges**
+Gen 3 badges
 
-**EARNED BADGES FRLG** — FireRed / LeafGreen — default NONE
+EARNED BADGES FRLG — FireRed / LeafGreen — default NONE
 
 Left / top / both earned badge overlays. AUTO modes read the save and draw exactly the earned badges. Numbered modes force a count.
 
-- NONE
+    NONE
 
-- LEFT AUTO
+    LEFT AUTO
 
-- TOP AUTO
+    TOP AUTO
 
-- BOTH AUTO
+    BOTH AUTO
 
-- LEFT 1 … LEFT 8
+    LEFT 1 … LEFT 8
 
-- TOP 1 … TOP 8
+    TOP 1 … TOP 8
 
-- BOTH 1 … BOTH 8
+    BOTH 1 … BOTH 8
 
-**EARNED BADGES RSE** — Ruby / Sapphire / Emerald — default NONE
+EARNED BADGES RSE — Ruby / Sapphire / Emerald — default NONE
 
 Same structure as FRLG. AUTO modes are order-independent, so Emerald's out-of-order play draws correctly.
 
-- NONE
+    NONE
 
-- LEFT AUTO
+    LEFT AUTO
 
-- TOP AUTO
+    TOP AUTO
 
-- BOTH AUTO
+    BOTH AUTO
 
-- LEFT 1 … LEFT 8
+    LEFT 1 … LEFT 8
 
-- TOP 1 … TOP 8
+    TOP 1 … TOP 8
 
-- BOTH 1 … BOTH 8
+    BOTH 1 … BOTH 8
 
-**Gym badges**
+Gym badges
 
-**GYM BADGE GEN1** — RBY — default AUTO (GYM)
+GYM BADGE GEN1 — RBY — default AUTO (GYM)
 
-AUTO (GYM) shows the badge inside its gym. AUTO (CITY) shows it anywhere in the matching city. Manual values force a specific badge.
+AUTO (GYM) shows the badge inside its gym. AUTO (CITY) shows it anywhere in the matching city. Manual values force a specific badge. Ignored on SGB and SGB GOLD 97.
 
-- NONE
+    NONE
 
-- AUTO (GYM)
+    AUTO (GYM)
 
-- AUTO (CITY)
+    AUTO (CITY)
 
-- BOULDER
+    BOULDER
 
-- CASCADE
+    CASCADE
 
-- THUNDER
+    THUNDER
 
-- RAINBOW
+    RAINBOW
 
-- SOUL
+    SOUL
 
-- MARSH
+    MARSH
 
-- VOLCANO
+    VOLCANO
 
-- EARTH
+    EARTH
 
-**GYM BADGE GEN2** — GSC — default AUTO (GYM)
+GYM BADGE GEN2 — GSC — default AUTO (GYM)
 
-Covers all sixteen Johto and Kanto gyms, including Clair at BLACKTHORN_GYM_1F and Blaine at SEAFOAM_GYM.
+Covers all sixteen Johto and Kanto gyms, including Clair at BLACKTHORN_GYM_1F and Blaine at SEAFOAM_GYM. Ignored on SGB and SGB GOLD 97.
 
-- NONE
+    NONE
 
-- AUTO (GYM)
+    AUTO (GYM)
 
-- AUTO (CITY)
+    AUTO (CITY)
 
-- ZEPHYR
+    ZEPHYR
 
-- HIVE
+    HIVE
 
-- PLAIN
+    PLAIN
 
-- FOG
+    FOG
 
-- STORM
+    STORM
 
-- MINERAL
+    MINERAL
 
-- GLACIER
+    GLACIER
 
-- RISING
+    RISING
 
-- BOULDER (GSC)
+    BOULDER (GSC)
 
-- CASCADE (GSC)
+    CASCADE (GSC)
 
-- THUNDER (GSC)
+    THUNDER (GSC)
 
-- RAINBOW (GSC)
+    RAINBOW (GSC)
 
-- SOUL (GSC)
+    SOUL (GSC)
 
-- MARSH (GSC)
+    MARSH (GSC)
 
-- VOLCANO (GSC)
+    VOLCANO (GSC)
 
-- EARTH (GSC)
+    EARTH (GSC)
 
-**GYM BADGE FRLG** — FireRed / LeafGreen — default AUTO (GYM)
+GYM BADGE FRLG — FireRed / LeafGreen — default AUTO (GYM)
 
 Kanto badges on GBA / GBA SP consoles.
 
-- NONE
+    NONE
 
-- AUTO (GYM)
+    AUTO (GYM)
 
-- AUTO (CITY)
+    AUTO (CITY)
 
-- BOULDER
+    BOULDER
 
-- CASCADE
+    CASCADE
 
-- THUNDER
+    THUNDER
 
-- RAINBOW
+    RAINBOW
 
-- SOUL
+    SOUL
 
-- MARSH
+    MARSH
 
-- VOLCANO
+    VOLCANO
 
-- EARTH
+    EARTH
 
-**GYM BADGE RSE** — Ruby / Sapphire / Emerald — default AUTO (GYM)
+GYM BADGE RSE — Ruby / Sapphire / Emerald — default AUTO (GYM)
 
 Hoenn badges on GBA / GBA SP consoles.
 
-- NONE
+    NONE
 
-- AUTO (GYM)
+    AUTO (GYM)
 
-- AUTO (CITY)
+    AUTO (CITY)
 
-- STONE
+    STONE
 
-- KNUCKLE
+    KNUCKLE
 
-- DYNAMO
+    DYNAMO
 
-- HEAT
+    HEAT
 
-- BALANCE
+    BALANCE
 
-- FEATHER
+    FEATHER
 
-- MIND
+    MIND
 
-- RAIN
+    RAIN
 
-**Icons**
+Icons
 
-**PKMN LOGO** — All — default OFF
+PKMN LOGO — All — default OFF
 
 Draws the Pokémon logo icon.
 
-- OFF
+    OFF
 
-- ON
+    ON
 
-**POKEBALL** — All — default OFF
+POKEBALL — All — default OFF
 
 Draws the Pokéball icon. Console-aware — GB/GBC uses the standard ball, GBA uses the top-left ball.
 
-- OFF
+    OFF
 
-- ON
+    ON
 
-**CENTER BALL GEN3** — GBA only — default OFF
+CENTER BALL GEN3 — GBA only — default OFF
 
 Draws the centered GBA Pokéball.
 
-- OFF
+    OFF
 
-- ON
+    ON
 
-**RIGHT BALL GEN3** — GBA only — default OFF
+RIGHT BALL GEN3 — GBA only — default OFF
 
 Draws the right-side GBA Pokéball.
 
-- OFF
+    OFF
 
-- ON
+    ON
 
-**BALL SIZE GEN3** — GBA only — default SMALL
+BALL SIZE GEN3 — GBA only — default SMALL
 
 Size of the right-side GBA Pokéball. Ignored when RIGHT BALL GEN3 is off.
 
-- SMALL
+    SMALL
 
-- MEDIUM
+    MEDIUM
 
-- LARGE
+    LARGE
 
-- XL
+    XL
 
-**How options resolve**
+How options resolve
 
 Each overlay is a stack of layers, drawn in this order:
 
-- Body — device background
+    Body — device background
 
-- LED — GB / GBC power LED
+    LED — GB / GBC power LED
 
-- Logo — GBA / GBA SP / GB / GBC logo layer
+    Logo — GBA / GBA SP / GB / GBC logo layer
 
-- Party — Gen 1/2 only
+    Party — Gen 1/2 only
 
-- Theme art — character art on top of shared chrome
+    Theme art — character art on top of shared chrome
 
-- Icons — Pokéball, logo, center/right balls
+    Icons — Pokéball, logo, center/right balls
 
-- Gym badge — Gen 1/2 GB-family, Gen 3 GBA
+    Gym badge — Gen 1/2 GB-family, Gen 3 GBA
 
-- Earned badges — Gen 3 GBA only
+    Earned badges — Gen 3 GBA only
 
 Rules:
 
-- CONSOLE + PARTY combine — the console selects the hardware, the party row selects the contributor.
+    CONSOLE + PARTY combine — the console selects the hardware, the party row selects the contributor.
 
-- PARTY and PKMN stack — the party frame draws first, then the themed character art on top. Both can be active at the same time.
+    PARTY and PKMN stack — the party frame draws first, then the themed character art on top. Both can be active at the same time.
 
-- Icons and badges stack on top of the frame.
+    Icons and badges stack on top of the frame.
 
-- GB LOGO / LED / GBA LOGO / CENTER NY TEXT override or disable the corresponding layer.
+    GB LOGO / LED / GBA LOGO / CENTER NY TEXT override or disable the corresponding layer.
 
-**AUTO behavior**
+    SGB and SGB GOLD 97 are flat frames and ignore all layer overrides and stacked options.
 
-**DAY/NIGHT** — Picks day or night from the system clock (6am–6pm = day). Switches GB/GBC body, SGB frame variant, and GBA background.
+AUTO behavior
 
-**GB LOGO** — Follows the selected console — GB gets GAME BOY, GB POCKET gets GAME BOY POCKET, etc.
+DAY/NIGHT — Picks day or night from the system clock (6am–6pm = day). Switches GB/GBC body, SGB frame variant, and GBA background.
 
-**LED** — Follows the selected console — GB gets the plain LED, all others get the BATTERY LED.
+GB LOGO — Follows the selected console — GB gets GAME BOY, GB POCKET gets GAME BOY POCKET, etc.
 
-**GBA LOGO** — Theme-aware — silver for most themes, gold for Pokémon Center.
+LED — Follows the selected console — GB gets the plain LED, all others get the BATTERY LED.
 
-**CENTER NY TEXT** — Hides the NY overlay when a gym badge is active.
+GBA LOGO — Theme-aware — silver for most themes, gold for Pokémon Center.
 
-**AUTO (GYM)** — Reads the current map. Enters a gym = matching badge; leaves = no badge.
+CENTER NY TEXT — Hides the NY overlay when a gym badge is active.
 
-**AUTO (CITY)** — Same as AUTO (GYM) but extends to the whole city.
+AUTO (GYM) — Reads the current map. Enters a gym = matching badge; leaves = no badge.
 
-**Per-save options**
+AUTO (CITY) — Same as AUTO (GYM) but extends to the whole city.
+
+Per-save options
 
 Options save per save file, not globally.
 
-- A fresh save starts at the mod's defaults.
+    A fresh save starts at the mod's defaults.
 
-- Gen 1/2 and Gen 3 saves use separate buckets — a frame set on Red never appears on FireRed.
+    Gen 1/2 and Gen 3 saves use separate buckets — a frame set on Red never appears on FireRed.
 
-- Starting a new game gives you the defaults, not last session's selection.
+    Starting a new game gives you the defaults, not last session's selection.
 
 Note: the mod manager menu shows the last-used value globally, not the current save's value. Per-save behavior is honored on-screen — if a save has POKEBALL = ON, the ball draws even if the menu reads OFF. Watch the frame itself to confirm what a save is using.
 
-**Compatibility**
+Compatibility
 
-**Red / Blue / Yellow**
+Red / Blue / Yellow
 
-- Gym badge: Kanto (RBY) ✅
+    Gym badge: Kanto (RBY) ✅
 
-- Earned badges: —
+    Earned badges: —
 
-- Party frames: ✅
+    Party frames: ✅
 
-**Gold / Silver / Crystal**
+Gold / Silver / Crystal
 
-- Gym badge: Johto + Kanto (GSC) ✅
+    Gym badge: Johto + Kanto (GSC) ✅
 
-- Earned badges: —
+    Earned badges: —
 
-- Party frames: ✅
+    Party frames: ✅
 
-**Ruby / Sapphire / Emerald**
+Ruby / Sapphire / Emerald
 
-- Gym badge: Hoenn ✅
+    Gym badge: Hoenn ✅
 
-- Earned badges: Hoenn ✅
+    Earned badges: Hoenn ✅
 
-- Party frames: —
+    Party frames: —
 
-**FireRed / LeafGreen**
+FireRed / LeafGreen
 
-- Gym badge: Kanto (FRLG) ✅
+    Gym badge: Kanto (FRLG) ✅
 
-- Earned badges: Kanto (FRLG) ✅
+    Earned badges: Kanto (FRLG) ✅
 
-- Party frames: —
+    Party frames: —
 
 Console/theme mismatches (e.g. GBA on a Gen 1 game) fall back to the plain console frame and show a notice — nothing ever renders bare.
 
-**Display**
+Display
 
 Optimized for the TrimUI Brick at 1024×768. Other resolutions scale proportionally, but pixel alignment isn't guaranteed.
 
@@ -618,72 +618,72 @@ All 4:3 screens use the 4:3 viewport from gen1recomp v0.3.5 onwards.
 
 16:9 and mobile support has been removed. Use v1.0.4 for partial 16:9/mobile support (incomplete, untested). Running this 4:3 release on a non-4:3 screen will stretch the artwork.
 
-**Known limitations**
+Known limitations
 
-- Party frames — Gen 1/2 only. Gen 3 games draw the base frame instead.
+    Party frames — Gen 1/2 only. Gen 3 games draw the base frame instead.
 
-- Earned badges — FRLG and Hoenn only. Gen 1 and Gen 2 don't have an earned-badge layer yet.
+    Earned badges — FRLG and Hoenn only. Gen 1 and Gen 2 don't have an earned-badge layer yet.
 
-- SGB / SGB GOLD 97 — Flat frames; do not support GB LOGO or LED overrides.
+    SGB / SGB GOLD 97 — Flat frames. They ignore GB LOGO, LED, PARTY GEN1-2, PKMN GEN1-2, and gym badge overrides. Only DAY/NIGHT applies to them.
 
-**Known bugs**
+Known bugs
 
-- AUTO (GYM) does not work on FireRed / LeafGreen yet. Use AUTO (CITY) or set the badge manually.
+    AUTO (GYM) does not work on FireRed / LeafGreen yet. Use AUTO (CITY) or set the badge manually.
 
-- AUTO (GYM) and AUTO (CITY) are untested on Hoenn (Ruby, Sapphire, Emerald). Manual badge selection works.
+    AUTO (GYM) and AUTO (CITY) are untested on Hoenn (Ruby, Sapphire, Emerald). Manual badge selection works.
 
-**Performance**
+Performance
 
-- Cached path resolution — no more filesystem probes per frame. Recomputed only on option change, map change, or day/night flip.
+    Cached path resolution — no more filesystem probes per frame. Recomputed only on option change, map change, or day/night flip.
 
-- Zero-cost idle rendering — when nothing is drawn, the render hook returns before touching any graphics state.
+    Zero-cost idle rendering — when nothing is drawn, the render hook returns before touching any graphics state.
 
-- Correct SGB resolution even when the game version is detected late.
+    Correct SGB resolution even when the game version is detected late.
 
 Most noticeable on lower-power devices with a frame, badge, or icon active.
 
-**Installation**
+Installation
 
-- Install the .zip through your mod manager, or copy the extracted folder into your mods directory.
+    Install the .zip through your mod manager, or copy the extracted folder into your mods directory.
 
-- Enable the mod in the launcher's MODS panel.
+    Enable the mod in the launcher's MODS panel.
 
-- Launch any supported game — the overlay is off on first launch.
+    Launch any supported game — the overlay is off on first launch.
 
-- Open the mod options, set CONSOLE (and optionally a theme, party, badge, or icon row), and the frame appears.
+    Open the mod options, set CONSOLE (and optionally a theme, party, badge, or icon row), and the frame appears.
 
-**Updating**
+Updating
 
 The launcher's MODS panel shows an Update button when a newer release is on GitHub. The Versions button lets you roll back (e.g. to v1.0.4 for 16:9/mobile).
 
-**Testing**
+Testing
 
 All 4:3 functionality is tested on the TrimUI Brick.
 
 Feedback welcome via GitHub issues or the gen1recomp Discord mod section. If reporting from another device, please include your device, resolution, and how the borders rendered.
 
-**Notes**
+Notes
 
-- The mod platform doesn't support per-generation schemas. All 20 rows appear on every boot — the row labels are the only signal of which apply where.
+    The mod platform doesn't support per-generation schemas. All 20 rows appear on every boot — the row labels are the only signal of which apply where.
 
-- The overlay is off on first launch to prevent UI cropping on certain devices. Set any row to a real value to enable it.
+    The overlay is off on first launch to prevent UI cropping on certain devices. Set any row to a real value to enable it.
 
-- Changes apply live — no restart needed.
+    Changes apply live — no restart needed.
 
-- Gen 1/2 and Gen 3 save separately.
+    Gen 1/2 and Gen 3 save separately.
 
-- DAY/NIGHT applies to SGB, GB, GBC, and GBA frames. On GB/GBC consoles it switches the body between grey (day) and dark (night); the logo and LED stay the same. On SGB it selects the day or night variant of the per-game frame. On GBA it switches between the light and standard backgrounds. Party overlays are day-only.
+    DAY/NIGHT applies to SGB, GB, GBC, and GBA frames. On GB/GBC consoles it switches the body between grey (day) and dark (night); the logo and LED stay the same. On SGB it selects the day or night variant of the per-game frame. On GBA it switches between the light and standard backgrounds. Party overlays are day-only.
 
-- GBC now supports day/night. Previously only GB, GB Light, and GB Pocket had the day/night body variants — now GBC uses the same grey/dark body switching.
+    GBC now supports day/night. Previously only GB, GB Light, and GB Pocket had the day/night body variants — now GBC uses the same grey/dark body switching.
 
-- Icons are console-aware. POKEBALL works on GB-family and GBA-family; CENTER BALL GEN3 and RIGHT BALL GEN3 are GBA-only. BALL SIZE GEN3 affects only the right-side ball. All icons are suppressed on SGB, SGB GOLD 97, and CONSOLE = NONE.
+    Icons are console-aware. POKEBALL works on GB-family and GBA-family; CENTER BALL GEN3 and RIGHT BALL GEN3 are GBA-only. BALL SIZE GEN3 affects only the right-side ball. All icons are suppressed on SGB, SGB GOLD 97, and CONSOLE = NONE.
 
-- Gym badges draw on GB-family consoles for Gen 1/2, and on GBA-family consoles for Gen 3. Never drawn on SGB.
+    Gym badges draw on GB-family consoles for Gen 1/2, and on GBA-family consoles for Gen 3. Never drawn on SGB.
 
-- Modular console layers. GB LOGO, LED, and GBA LOGO let you override or disable individual chrome elements. CENTER NY TEXT toggles the Pokémon Center top overlay.
+    Modular console layers. GB LOGO, LED, and GBA LOGO let you override or disable individual chrome elements. CENTER NY TEXT toggles the Pokémon Center top overlay. All ignored on SGB and SGB GOLD 97.
 
-- All artwork is manually reworked by the author. No AI art was used.
+    All artwork is manually reworked by the author. No AI art was used.
 
-**Credits**
+Credits
 
 Borders and mod by BrazilKing, based on original SGB frames and GBC Pokémon editions. PARTY overlays are community-requested, each based on a contributor's current or favourite Gen 1/2 Pokémon.
