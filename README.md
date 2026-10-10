@@ -244,6 +244,8 @@ Notes
 
     DAY/NIGHT applies to SGB, GB, GBC, and GBA frames. On GB/GBC consoles it switches the body between grey (day) and dark (night); the logo and LED stay the same. On SGB it selects the day or night variant of the per-game frame. On GBA it switches between the light and standard backgrounds. Party overlays are day-only.
 
+    GBC now supports day/night. Previously only GB, GB Light, and GB Pocket had the day/night body variants — now GBC uses the same grey/dark body switching.
+
     Icons are console-aware. POKEBALL works on GB-family and GBA-family; CENTER BALL GEN3 and RIGHT BALL GEN3 are GBA-only. BALL SIZE GEN3 affects only the right-side ball. All icons are suppressed on SGB, SGB GOLD 97, and CONSOLE = NONE.
 
     Gym badges draw on GB-family consoles for Gen 1/2, and on GBA-family consoles for Gen 3. Never drawn on SGB.
