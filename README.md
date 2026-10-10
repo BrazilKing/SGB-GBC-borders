@@ -1,7 +1,6 @@
-**8,243,269 overlay combinations from 154 hand-drawn PNG files — no AI art.**
+8,243,269 overlay combinations from 154 hand-drawn PNG files — no AI art.
 
 Customizable GB, GBC, GBA, and SGB overlays for Gen 1, 2, and 3 in gen1recomp.
-
 Quick start
 
     Install the .zip via your mod manager, or drop the extracted folder into your mods directory.
@@ -13,7 +12,6 @@ Quick start
     Open the mod options, set CONSOLE, and the frame appears immediately.
 
 The overlay is off on first launch — set any row to a real value to enable it.
-
 Features
 
     4:3 optimized, pixel-perfect on the TrimUI Brick (1024×768)
@@ -31,7 +29,6 @@ Features
     68% smaller install — 4.61 MB vs 14.6 MB in v1.3.7
 
 Frames included
-
 Gen 1/2
 
     Per-game automatic SGB borders (Red, Blue, Yellow, Gold, Silver, Crystal)
@@ -151,11 +148,9 @@ Blank state: 1
 Grand total: 594,018 + 1,026,018 + 3,311,616 + 3,311,616 + 1 = 8,243,269
 
 The exact figure counts selectors like AUTO (GYM) and AUTO (CITY) as the distinct choices they are. Collapsing them to the badge images they resolve to yields a smaller visual count.
-
 Options reference
 
 20 rows, always visible. Only the rows matching the running game are read.
-
 Universal
 
 CONSOLE — All games — default NONE
@@ -554,19 +549,19 @@ Rules:
 
 AUTO behavior
 
-DAY/NIGHT — Picks day or night from the system clock (6am–6pm = day). Switches GB/GBC body, SGB border variant, and GBA background.
+    DAY/NIGHT — Picks day or night from the system clock (6am–6pm = day). Switches GB/GBC body, SGB border variant, and GBA background.
 
-GB LOGO — Follows the selected console — GB gets GAME BOY, GB POCKET gets GAME BOY POCKET, etc.
+    GB LOGO — Follows the selected console — GB gets GAME BOY, GB POCKET gets GAME BOY POCKET, etc.
 
-LED — Follows the selected console — GB gets the plain LED, all others get the BATTERY LED.
+    LED — Follows the selected console — GB gets the plain LED, all others get the BATTERY LED.
 
-GBA LOGO — Theme-aware — silver for most themes, gold for Pokémon Center.
+    GBA LOGO — Theme-aware — silver for most themes, gold for Pokémon Center.
 
-GBA NY TOP — Hides the NY overlay when a gym badge is active.
+    GBA NY TOP — Hides the NY overlay when a gym badge is active.
 
-AUTO (GYM) — Reads the current map. Enters a gym = matching badge; leaves = no badge.
+    AUTO (GYM) — Reads the current map. Enters a gym = matching badge; leaves = no badge.
 
-AUTO (CITY) — Same as AUTO (GYM) but extends to the whole city.
+    AUTO (CITY) — Same as AUTO (GYM) but extends to the whole city.
 
 Per-save options
 
@@ -579,9 +574,7 @@ Options save per save file, not globally.
     Starting a new game gives you the defaults, not last session's selection.
 
 Note: the mod manager menu shows the last-used value globally, not the current save's value. Per-save behavior is honored on-screen — if a save has POKEBALL = ON, the ball draws even if the menu reads OFF. Watch the frame itself to confirm what a save is using.
-
 Compatibility
-
 Red / Blue / Yellow
 
     Gym badge: Kanto (RBY) ✅
@@ -615,7 +608,6 @@ FireRed / LeafGreen
     Party frames: —
 
 Console/theme mismatches (e.g. GBA on a Gen 1 game) fall back to the plain console frame and show a notice — nothing ever renders bare.
-
 Display
 
 Optimized for the TrimUI Brick at 1024×768. Other resolutions scale proportionally, but pixel alignment isn't guaranteed.
@@ -623,7 +615,6 @@ Optimized for the TrimUI Brick at 1024×768. Other resolutions scale proportiona
 All 4:3 screens use the 4:3 viewport from gen1recomp v0.3.5 onwards.
 
 16:9 and mobile support has been removed. Use v1.0.4 for partial 16:9/mobile support (incomplete, untested). Running this 4:3 release on a non-4:3 screen will stretch the artwork.
-
 Known limitations
 
     Party frames — Gen 1/2 only. Gen 3 games draw the base frame instead.
@@ -651,7 +642,6 @@ Performance
     Correct SGB resolution even when the game version is detected late.
 
 Most noticeable on lower-power devices with a frame, badge, or icon active.
-
 Installation
 
     Install the .zip through your mod manager, or copy the extracted folder into your mods directory.
@@ -665,13 +655,11 @@ Installation
 Updating
 
 The launcher's MODS panel shows an Update button when a newer release is on GitHub. The Versions button lets you roll back (e.g. to v1.0.4 for 16:9/mobile).
-
 Testing
 
 All 4:3 functionality is tested on the TrimUI Brick.
 
 Feedback welcome via GitHub issues or the gen1recomp Discord mod section. If reporting from another device, please include your device, resolution, and how the borders rendered.
-
 Notes
 
     The mod platform doesn't support per-generation schemas. All 20 rows appear on every boot — the row labels are the only signal of which apply where.
