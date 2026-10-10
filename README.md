@@ -1,6 +1,6 @@
-**8,243,269 overlay combinations from 154 hand-drawn PNG files — no AI art.**
+8,243,269 overlay combinations from 154 hand-drawn PNG files — no AI art.
 
-Customizable GB, GBC, GBA and SGB overlays for Gen 1, 2, and 3 in gen1recomp.
+Customizable GB, GBC, GBA, SGB, and Hoenn overlays for Gen 1, 2, FireRed, LeafGreen, Ruby, Sapphire, and Emerald in gen1recomp.
 
 Quick start
 
@@ -22,7 +22,7 @@ Features
 
     Per-save options — each playthrough stores its own settings
 
-    Layered rendering — body + right ball + LED + logo + party + theme + icons + gym badge + earned badges, all stackable
+    Layered rendering — body + LED + right ball + logo + party + theme + icons + gym badge + earned badges, all stackable
 
     Fully cached — no per-frame filesystem work
 
@@ -238,9 +238,9 @@ Override or disable the GBA logo. AUTO is theme-aware — silver for most themes
 
     OFF
 
-CENTER NY TEXT — Pokémon Center only — default AUTO
+GBA NY TOP — GBA / GBA SP — default AUTO
 
-Toggle the "Pokémon Center New York" top overlay. AUTO hides it when a gym badge is active; ALWAYS renders it regardless; HIDDEN suppresses it.
+Toggle the "Pokémon Center NEW YORK" top overlay. AUTO draws it only when the Pokémon Center theme is active and no badge is drawn. ALWAYS draws it on any GBA theme. HIDDEN suppresses it entirely.
 
     AUTO
 
@@ -474,14 +474,6 @@ Hoenn badges on GBA / GBA SP consoles.
 
 Icons
 
-PKMN LOGO — All — default OFF
-
-Draws the Pokémon logo icon.
-
-    OFF
-
-    ON
-
 POKEBALL — All — default OFF
 
 Draws the Pokéball icon. Console-aware — GB/GBC uses the standard ball, GBA uses the top-left ball.
@@ -518,15 +510,23 @@ Size of the right-side Pokéball. Ignored when RIGHT BALL is off.
 
     XL
 
+PKMN LOGO — All — default OFF
+
+Draws the Pokémon logo icon.
+
+    OFF
+
+    ON
+
 How options resolve
 
 Each overlay is a stack of layers, drawn in this order:
 
     Body — device background
 
-    Right ball — right-side Pokéball, on top of the body
-
     LED — GB / GBC power indicator
+
+    Right ball — right-side Pokéball, on top of the LED, under the logo
 
     Logo — GB / GBC / GBA wordmark
 
@@ -548,7 +548,7 @@ Rules:
 
     Icons and badges stack on top of the frame.
 
-    GB LOGO / LED / GBA LOGO / CENTER NY TEXT override or disable the corresponding layer.
+    GB LOGO / LED / GBA LOGO / GBA NY TOP override or disable the corresponding layer.
 
     SGB and SGB GOLD 97 have a flat base frame; SGB also supports themed overlays stacked on top.
 
@@ -562,7 +562,7 @@ LED — Follows the selected console — GB gets the plain LED, all others get t
 
 GBA LOGO — Theme-aware — silver for most themes, gold for Pokémon Center.
 
-CENTER NY TEXT — Hides the NY overlay when a gym badge is active.
+GBA NY TOP — Hides the NY overlay when a gym badge is active.
 
 AUTO (GYM) — Reads the current map. Enters a gym = matching badge; leaves = no badge.
 
@@ -644,6 +644,8 @@ Performance
 
     Cached path resolution — no more filesystem probes per frame. Recomputed only on option change, map change, or day/night flip.
 
+    LRU image cache — every unique PNG the mod can draw is loaded once and reused. No per-frame asset lookups during normal play.
+
     Zero-cost idle rendering — when nothing is drawn, the render hook returns before touching any graphics state.
 
     Correct SGB resolution even when the game version is detected late.
@@ -688,7 +690,7 @@ Notes
 
     Gym badges draw on GB-family consoles for Gen 1/2, and on GBA-family consoles for Gen 3. Never drawn on SGB.
 
-    Modular console layers. GB LOGO, LED, and GBA LOGO let you override or disable individual chrome elements. CENTER NY TEXT toggles the Pokémon Center top overlay. Icons and badges stack on top of the frame.
+    Modular console layers. GB LOGO, LED, and GBA LOGO let you override or disable individual chrome elements. GBA NY TOP toggles the Pokémon Center top overlay. Icons and badges stack on top of the frame.
 
     All artwork is manually reworked by the author. No AI art was used.
 
