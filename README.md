@@ -46,6 +46,8 @@ Gen 1/2
 
     Nine party overlays — community-requested frames
 
+    Nine themed frames — Chikorita, Geodude, Kangaskhan, Meowth, Nidoking, Pikachu, Special Pikachu, Totodile
+
 Gen 3
 
     GBA / GBA SP device frames — day + night variants
@@ -180,7 +182,7 @@ Gen 1/2 frames
 
 PARTY GEN1-2 — Gen 1/2 — default NONE
 
-Community-requested party frames. Combines with CONSOLE to pick the hardware variant. Overrides PKMN GEN1-2 if both are set.
+Community-requested party frames. Combines with CONSOLE to pick the hardware variant. Stacks under PKMN GEN1-2 — if both are set, the party frame draws first and the themed character art draws on top.
 
     NONE
 
@@ -456,9 +458,9 @@ Each overlay is a stack of layers, drawn in this order:
 
     Logo — GBA / GBA SP / GB / GBC logo layer
 
-    Theme art — character art on top of shared chrome
-
     Party — Gen 1/2 only
+
+    Theme art — character art on top of shared chrome
 
     Icons — Pokéball, logo, center/right balls
 
@@ -470,7 +472,7 @@ Rules:
 
     CONSOLE + PARTY combine — the console selects the hardware, the party row selects the contributor.
 
-    PARTY overrides PKMN — if both are set, the party frame wins.
+    PARTY and PKMN stack — the party frame draws first, then the themed character art on top. Both can be active at the same time.
 
     Icons and badges stack on top of the frame.
 
