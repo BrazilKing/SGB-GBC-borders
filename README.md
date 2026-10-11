@@ -316,7 +316,7 @@ GBA LOGO — GBA / GBA SP — default AUTO
 
 Override or disable the GBA logo.
 
-AUTO is theme-aware: silver for most themes, gold for Pokémon Center.
+AUTO is theme-aware: silver for most themes, gold for PKMNCENTER.
 
 - AUTO
 
@@ -742,7 +742,7 @@ Rules:
 
 - LED. Follows the selected console: GB gets the plain LED, all others get the BATTERY LED.
 
-- GBA LOGO. Theme-aware: silver for most themes, gold for Pokémon Center.
+- GBA LOGO. Theme-aware: silver for most themes, gold for PKMNCENTER.
 
 - GBA NY TOP. Hides the NY overlay when a gym badge is active.
 
@@ -802,6 +802,10 @@ Watch the frame itself to confirm what a save is using.
 
 Console/theme mismatches (for example, GBA on a Gen 1 game) fall back to the plain console frame and show a notice.
 
+The same notice appears when an explicit option value cannot be drawn on the current console or game generation.
+
+AUTO, OFF, and NONE never trigger a notice.
+
 Nothing ever renders bare.
 
 **Display**
@@ -845,6 +849,8 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
 - Warn-once per missing asset. A missing file logs exactly once, not once per frame.
 
 - Icon resolver caches its own warning string alongside its path list.
+
+- Frame, badge, icon, and earned-badge resolvers each have their own warning slot. Up to four notices stack on screen, each shown once per unique message for 5 seconds.
 
 Most noticeable on lower-power devices with a frame, badge, or icon active.
 
@@ -890,9 +896,11 @@ If reporting from another device, please include your device, resolution, and ho
 
 - Gym badges draw on GB-family consoles for Gen 1/2, and on GBA-family consoles for Gen 3. Never drawn on SGB.
 
+- Options that do not apply to the current console or game generation show a short on-screen notice for 5 seconds when an explicit value is selected and cannot be drawn. AUTO, OFF, and NONE never warn.
+
 - Modular console layers. GB LOGO, LED, GBA LOGO, LEFT LOGO, TOP CENTER LOGO, and GBA NY TOP let you override or disable individual chrome elements. Icons and badges stack on top of the frame.
 
-- The PKMNCENTER theme (previously POKEMON CENTER) now draws on top of the console background instead of replacing it, so DAY/NIGHT applies to it correctly.
+- The PKMNCENTER theme (previously POKEMON CENTER) draws on top of the console background instead of replacing it, so DAY/NIGHT applies to it correctly on both GBA and GBA SP.
 
 - All artwork is manually reworked by the author. No AI art was used.
 
