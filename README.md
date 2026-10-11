@@ -22,7 +22,7 @@ The overlay is off on first launch. Set any row to a real value to enable it.
 
 - Per-save options. Each playthrough stores its own settings.
 
-- Layered rendering. Body + party + theme + left/center/right balls + LED + logo + wordmarks + badge, all stackable.
+- Layered rendering. Body + balls + party + theme + LED + logo + wordmarks + badge, all stackable.
 
 - Fully cached. No per-frame filesystem work.
 
@@ -694,15 +694,15 @@ Each overlay is a stack of layers, drawn in this order.
 
 - Body — device background.
 
-- Party — PARTY GEN1-2.
-
-- Theme art — PKMN GEN1-2, drawn over the party.
-
 - Left ball.
 
 - Center ball.
 
 - Right ball.
+
+- Party — PARTY GEN1-2.
+
+- Theme art — PKMN GEN1-2, drawn over the party.
 
 - LED — GB / GBC power indicator.
 
@@ -720,13 +720,13 @@ Then, drawn after the frame:
 
 - Body — device background.
 
-- Theme art — PKMN GEN3.
-
 - Left ball.
 
 - Center ball.
 
 - Right ball.
+
+- Theme art — PKMN GEN3.
 
 - GBA LOGO — device wordmark.
 
@@ -750,11 +750,15 @@ No party, no theme art, no balls, no icons, no badges.
 
 Rules:
 
+- The three balls are the first layers after the body. Party and theme art draw over them.
+
 - PARTY and PKMN GEN1-2 stack. The party frame draws first, then the themed character art on top.
 
-- Balls draw under party, theme art, LED, and logos.
+- LED and GB LOGO draw over the party and theme art.
 
-- Logos draw on top of party, theme art, and balls.
+- GBA LOGO and GBA NY TOP draw over the theme art.
+
+- LEFT LOGO and TOP CENTER LOGO draw on top of the frame.
 
 - Badges draw on top of everything.
 
@@ -924,7 +928,7 @@ If reporting from another device, please include your device, resolution, and ho
 
 - GBC supports day/night. GB, GB Light, GB Pocket, and GBC all use the same grey/dark body switching.
 
-- Ball layers sit under the party, theme, LED, and logo layers. Logos draw on top of the balls. Badges draw on top of everything.
+- The three balls are the first layers after the body. Party, theme art, LED, and logo all draw over them. Logos and badges draw on top of everything.
 
 - SGB draws a single base frame. Party, theme art, balls, icons, and badges are suppressed on SGB.
 
