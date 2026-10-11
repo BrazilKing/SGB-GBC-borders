@@ -1,4 +1,4 @@
-**318,492,037 overlay combinations from 167 hand-drawn PNG files — no AI art.**
+**318,492,009 overlay combinations from 167 hand-drawn PNG files — no AI art.**
 
 **Customizable GB, GBC, GBA, and SGB overlays for Gen 1, 2, and 3 in gen1recomp.**
 
@@ -74,13 +74,13 @@ The overlay is off on first launch. Set any row to a real value to enable it.
 
 **Overlay combinations**
 
-The mod ships 167 PNG files and can produce 318,492,037 unique valid overlays across all games.
+The mod ships 167 PNG files and can produce 318,492,009 unique valid overlays across all games.
 
 The count is the product of every independent option that applies to a given game, summed across all game classes.
 
-- Gen 1 (Red, Blue, Yellow): 80,190,018 combinations
+- Gen 1 (Red, Blue, Yellow): 80,190,004 combinations
 
-- Gen 2 (Gold, Silver, Crystal): 138,510,018 combinations
+- Gen 2 (Gold, Silver, Crystal): 138,510,004 combinations
 
 - Gen 3 Hoenn (Ruby, Sapphire, Emerald): 49,896,000 combinations
 
@@ -88,7 +88,7 @@ The count is the product of every independent option that applies to a given gam
 
 - Blank state (CONSOLE = NONE): 1
 
-- Total: 318,492,037
+- Total: 318,492,009
 
 **Per-game calculation**
 
@@ -164,9 +164,9 @@ The variables per non-SGB console are:
 
 - GBC: 108 × 1 × 450 × 11 × 6 × 5 = 16,038,000
 
-- SGB: 2 (day, night — no stacking)
+- SGB: 2 (day, night — base frame only)
 
-- SGB GOLD 97: 2 (day, night — no stacking)
+- SGB GOLD 97: 2 (day, night — base frame only)
 
 Gen 1 total: 32,076,000 + 16,038,000 + 16,038,000 + 16,038,000 + 2 + 2 = **80,190,004**
 
