@@ -22,7 +22,7 @@ The overlay is off on first launch. Set any row to a real value to enable it.
 
 - Per-save options. Each playthrough stores its own settings.
 
-- Layered rendering. Body + LED + logo + party + theme + left/center/right balls + icons + gym badge + earned badges, all stackable.
+- Layered rendering. Body + party + theme + left/center/right balls + LED + logo + wordmarks + badge, all stackable.
 
 - Fully cached. No per-frame filesystem work.
 
@@ -39,8 +39,6 @@ The overlay is off on first launch. Set any row to a real value to enable it.
 - Day and night variants, manual or auto.
 
 - GOLD 97. Spaceworld '97 demo border with Pikablu night version.
-
-- Themed SGB overlays. Chikorita, Geodude, Kangaskhan, Meowth, Nidoking, Pikachu, Totodile (day + night), stacked on top of the base SGB border.
 
 - GB / GBC device frames. GB, GB Light, GB Pocket, GBC, each with day and night body variants, plus themed variants.
 
@@ -166,11 +164,11 @@ The variables per non-SGB console are:
 
 - GBC: 108 × 1 × 450 × 11 × 6 × 5 = 16,038,000
 
-- SGB: 8 × 2 = 16 (base border + 7 themed overlays × day/night)
+- SGB: 2 (day, night — no stacking)
 
-- SGB GOLD 97: 1 × 2 = 2 (base only, day/night)
+- SGB GOLD 97: 2 (day, night — no stacking)
 
-Gen 1 total: 32,076,000 + 16,038,000 + 16,038,000 + 16,038,000 + 16 + 2 = **80,190,018**
+Gen 1 total: 32,076,000 + 16,038,000 + 16,038,000 + 16,038,000 + 2 + 2 = **80,190,004**
 
 **Gen 2 per-console breakdown**
 
@@ -184,11 +182,11 @@ Gen 2 uses the same structure, with 19 badge choices.
 
 - GBC: 108 × 1 × 450 × 19 × 6 × 5 = 27,702,000
 
-- SGB: 8 × 2 = 16
+- SGB: 2 (day, night)
 
-- SGB GOLD 97: 1 × 2 = 2
+- SGB GOLD 97: 2 (day, night)
 
-Gen 2 total: 55,404,000 + 27,702,000 + 27,702,000 + 27,702,000 + 16 + 2 = **138,510,018**
+Gen 2 total: 55,404,000 + 27,702,000 + 27,702,000 + 27,702,000 + 2 + 2 = **138,510,004**
 
 **Gen 3 calculation**
 
@@ -220,7 +218,7 @@ FRLG total: **49,896,000**
 
 - Blank state: 1
 
-- 80,190,018 + 138,510,018 + 49,896,000 + 49,896,000 + 1 = **318,492,037**
+- 80,190,004 + 138,510,004 + 49,896,000 + 49,896,000 + 1 = **318,492,009**
 
 The exact figure counts selectors like AUTO (GYM) and AUTO (CITY) as the distinct choices they are.
 
@@ -228,7 +226,7 @@ Collapsing them to the badge images they resolve to yields a smaller visual coun
 
 Gen 3 NY text states also collapse, because 4 non-PKMNCENTER themes treat AUTO and HIDDEN identically.
 
-Under that stricter definition, the total is **291,880,837 distinct visuals**.
+Under that stricter definition, the total is **291,880,819 distinct visuals**.
 
 **Options reference**
 
@@ -478,8 +476,6 @@ PKMN GEN1-2 — Gen 1/2 — default NONE
 
 Themed character art for GB / GBC consoles.
 
-On SGB, the themed art is stacked on top of the base border.
-
 Stacks with PARTY GEN1-2.
 
 - NONE
@@ -692,47 +688,79 @@ Hoenn badges on GBA / GBA SP consoles.
 
 **How options resolve**
 
-Each overlay is a stack of layers, drawn in this order:
+Each overlay is a stack of layers, drawn in this order.
+
+**GB / GBC:**
 
 - Body — device background.
 
+- Party — PARTY GEN1-2.
+
+- Theme art — PKMN GEN1-2, drawn over the party.
+
+- Left ball.
+
+- Center ball.
+
+- Right ball.
+
 - LED — GB / GBC power indicator.
 
-- Logo — GB / GBC / GBA wordmark.
+- GB LOGO — device wordmark.
 
-- Party — Gen 1/2 only.
+Then, drawn after the frame:
 
-- Theme art — character art on top of shared chrome.
+- LEFT LOGO.
 
-- Left logo / top center logo.
+- TOP CENTER LOGO.
 
-- Left ball / center ball / right ball.
+- Gym badge.
+
+**GBA / GBA SP:**
+
+- Body — device background.
+
+- Theme art — PKMN GEN3.
+
+- Left ball.
+
+- Center ball.
+
+- Right ball.
+
+- GBA LOGO — device wordmark.
 
 - GBA NY TOP.
 
-- Icons — Pokéball, Pokémon logo.
+Then, drawn after the frame:
 
-- Gym badge — Gen 1/2 GB-family, Gen 3 GBA.
+- LEFT LOGO.
 
-- Earned badges — Gen 3 GBA only.
+- TOP CENTER LOGO.
+
+- Gym badge.
+
+- Earned badge.
+
+**SGB / SGB GOLD 97:**
+
+- Base frame only. Day or night variant.
+
+No party, no theme art, no balls, no icons, no badges.
 
 Rules:
 
-- CONSOLE + PARTY combine. The console selects the hardware, the party row selects the contributor.
+- PARTY and PKMN GEN1-2 stack. The party frame draws first, then the themed character art on top.
 
-- PARTY and PKMN stack. The party frame draws first, then the themed character art on top. Both can be active at the same time.
+- Balls draw under party, theme art, LED, and logos.
 
-- LEFT LOGO and TOP CENTER LOGO stack. Different screen positions.
+- Logos draw on top of party, theme art, and balls.
 
-- LEFT BALL, CENTER BALL, RIGHT BALL stack. Different screen positions.
+- Badges draw on top of everything.
 
-- Icons and badges stack on top of the frame.
+- The PKMNCENTER theme draws as an overlay on the console background, so DAY/NIGHT applies.
 
-- GB LOGO / LED / GBA LOGO / GBA NY TOP override or disable the corresponding layer.
-
-- The PKMNCENTER theme draws as an overlay on the console background, so DAY/NIGHT still applies.
-
-- SGB and SGB GOLD 97 have a flat base frame. SGB also supports themed overlays stacked on top.
+- Explicit values that cannot be drawn on the current console or game generation show a short on-screen notice.
 
 **AUTO behavior**
 
@@ -822,9 +850,11 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
 
 **Known limitations**
 
-- Party frames. Gen 1/2 only. Gen 3 games draw the base frame instead.
+- Party frames. Gen 1/2 only. Gen 3 games draw the base frame instead. SGB draws the base frame only.
 
 - Earned badges. FRLG and Hoenn only. Gen 1 and Gen 2 don't have an earned-badge layer yet.
+
+- SGB. Base frame only. No party, theme, ball, icon, or badge layers.
 
 - SGB GOLD 97. Flat frame, no themed overlays.
 
@@ -848,7 +878,9 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
 
 - Warn-once per missing asset. A missing file logs exactly once, not once per frame.
 
-- Icon resolver caches its own warning string alongside its path list.
+- Frame cache includes ball options, so changing a ball updates the frame immediately.
+
+- Icon cache is scoped to the two wordmark logos.
 
 - Frame, badge, icon, and earned-badge resolvers each have their own warning slot. Up to four notices stack on screen, each shown once per unique message for 5 seconds.
 
@@ -888,17 +920,19 @@ If reporting from another device, please include your device, resolution, and ho
 
 - Gen 1/2 and Gen 3 save separately.
 
-- DAY/NIGHT applies to SGB, GB, GBC, and GBA frames. On GB/GBC consoles it switches the body between grey (day) and dark (night); the logo and LED stay the same. On SGB it selects the day or night variant of the per-game border. On GBA it switches between the light and standard backgrounds. Party overlays stack on top of the GB/GBC body, so they appear over both the grey (day) and dark (night) console.
+- DAY/NIGHT applies to SGB, GB, GBC, and GBA frames. On GB/GBC consoles it switches the body between grey (day) and dark (night). On SGB it selects the day or night variant of the per-game border. On GBA it switches between the light and standard backgrounds.
 
 - GBC supports day/night. GB, GB Light, GB Pocket, and GBC all use the same grey/dark body switching.
+
+- Ball layers sit under the party, theme, LED, and logo layers. Logos draw on top of the balls. Badges draw on top of everything.
+
+- SGB draws a single base frame. Party, theme art, balls, icons, and badges are suppressed on SGB.
 
 - Icons are console-aware. LEFT BALL, CENTER BALL, and RIGHT BALL each render at their own screen position. LEFT BALL SIZE applies only on GBA / GBA SP. RIGHT BALL SIZE applies only to the right-side ball. All icons are suppressed on SGB, SGB GOLD 97, and CONSOLE = NONE.
 
 - Gym badges draw on GB-family consoles for Gen 1/2, and on GBA-family consoles for Gen 3. Never drawn on SGB.
 
 - Options that do not apply to the current console or game generation show a short on-screen notice for 5 seconds when an explicit value is selected and cannot be drawn. AUTO, OFF, and NONE never warn.
-
-- Modular console layers. GB LOGO, LED, GBA LOGO, LEFT LOGO, TOP CENTER LOGO, and GBA NY TOP let you override or disable individual chrome elements. Icons and badges stack on top of the frame.
 
 - The PKMNCENTER theme (previously POKEMON CENTER) draws on top of the console background instead of replacing it, so DAY/NIGHT applies to it correctly on both GBA and GBA SP.
 
