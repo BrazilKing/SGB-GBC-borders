@@ -1,4 +1,4 @@
-476,106,624,009 overlay combinations from 257 hand-drawn PNG files — no AI art.
+**476,106,624,009 overlay combinations from 257 hand-drawn PNG files — no AI art.**
 
 Full earned badge coverage across all three generations, three new Pokémon
 logo variants, a resizable left Pokéball, a performance overhaul, and a
