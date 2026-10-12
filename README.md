@@ -1,7 +1,8 @@
-**952,213,248,009 overlay combinations from 257 hand-drawn PNG files — no AI art.**
+**713,998,368,009 overlay combinations from 257 hand-drawn PNG files — no AI art.**
 
-Two new earned-badge rows, a reworked Pokémon Center New York top logo,
-cleaner menu labels, reordered choice lists, and simplified storage values.
+Reworked earned-badge rows, corrected Pokémon Center New York top logo,
+reordered choice lists, simplified storage values, and a crash fix for
+Gen 2.
 
 Customizable GB, GBC, GBA, and SGB overlays for Gen 1, 2, and 3 in gen1recomp.
 
@@ -95,9 +96,16 @@ Gen 3
 - Earned badges. RBY, GSC, FRLG, and RSE. Placements per game. AUTO modes
   that read the save.
 
-- New in 1.5.0. EARNED LEFT/TOP and EARNED LR/BOTTOM G2 replace the
-  single EARNED BADGE PLACEMENT row so Gen-1 and Gen-3 users don't see
-  Gen-2-only options.
+- Two rows control earned badges:
+
+  EARNED LEFT/LEFT&RIGHT groups the two columnar placements. LEFT draws
+  the left column. LEFT&RIGHT draws the wide left-and-right band.
+
+  EARNED TOP/BOTTOM groups the two horizontal placements. TOP draws the
+  top row. BOTTOM draws the bottom row. BOTH draws both.
+
+  LEFT&RIGHT and BOTTOM are Gen 2 only. On Gen 1 and Gen 3, selecting
+  them shows a notice and no such badges are drawn.
 
 **ICONS**
 
@@ -107,6 +115,9 @@ Gen 3
 
 - Pokémon logo, three variants: PKMN, PKMN B, PKMN C. GB/GBC left and top
   slots.
+
+- Pokémon Center NY banner, top-center on GBA / GBA SP. Shared asset
+  between GBA and GBA SP.
 
 - Pokéball (console-aware).
 
@@ -119,32 +130,29 @@ Gen 3
 
 **OVERLAY COMBINATIONS**
 
-The mod ships 257 PNG files and can produce 952,213,248,009 unique valid
+The mod ships 257 PNG files and can produce 713,998,368,009 unique valid
 overlays across all games.
 
 The count is the product of every independent option that applies to a
 given game, summed across all game classes.
 
-- Gen 1 (Red, Blue, Yellow): 348,986,880,004 combinations
+- Gen 1 (Red, Blue, Yellow): 261,740,160,004 combinations
 
-- Gen 2 (Gold, Silver, Crystal): 602,795,520,004 combinations
+- Gen 2 (Gold, Silver, Crystal): 452,096,640,004 combinations
 
-- Gen 3 Hoenn (Ruby, Sapphire, Emerald): 215,424,000 combinations
+- Gen 3 Hoenn (Ruby, Sapphire, Emerald): 80,784,000 combinations
 
-- FireRed / LeafGreen: 215,424,000 combinations
+- FireRed / LeafGreen: 80,784,000 combinations
 
 - Blank state (CONSOLE = OFF): 1
 
-- Total: 952,213,248,009
+- Total: 713,998,368,009
 
-This roughly doubles the 1.4.9 count of 476,106,624,009. The growth comes
-entirely from splitting EARNED BADGE PLACEMENT (8 values) into two rows:
-
-- EARNED LEFT/TOP (4 values)
-
-- EARNED LR/BOTTOM G2 (4 values)
-
-8 → 4 × 4 = 16. A ×2 jump on every game.
+The earned-badge placement block now contributes 12 states
+(EARNED LEFT/LEFT&RIGHT with 3 values × EARNED TOP/BOTTOM with 4 values)
+instead of 16. LEFT&RIGHT is a single wide image that already covers both
+columns, so LEFT + LEFT&RIGHT would double-draw the left column and is
+not offered.
 
 **PER-GAME CALCULATION**
 
@@ -192,43 +200,45 @@ Gym badge
 
 Earned badge
 
-- EARNED LEFT/TOP: 4.
+- EARNED LEFT/LEFT&RIGHT: 3.
 
-- EARNED LR/BOTTOM G2: 4.
+- EARNED TOP/BOTTOM: 4.
+
+- Earned placement product: 3 × 4 = 12.
 
 - EARNED COUNT: 17.
 
 Gen 1 per-console breakdown
 
-- GB: 108 × 2 × 216,000 × 11 × 16 × 17 = 139,594,752,000
+- GB: 108 × 2 × 216,000 × 11 × 12 × 17 = 104,696,064,000
 
-- GB LIGHT: 69,797,376,000
+- GB LIGHT: 52,348,032,000
 
-- GB POCKET: 69,797,376,000
+- GB POCKET: 52,348,032,000
 
-- GBC: 69,797,376,000
+- GBC: 52,348,032,000
 
 - SGB: 2 (day, night — base frame only)
 
 - SGB GOLD 97: 2 (day, night — base frame only)
 
-Gen 1 total: 348,986,880,004
+Gen 1 total: 261,740,160,004
 
 Gen 2 per-console breakdown
 
-- GB: 108 × 2 × 216,000 × 19 × 16 × 17 = 241,118,208,000
+- GB: 108 × 2 × 216,000 × 19 × 12 × 17 = 180,838,656,000
 
-- GB LIGHT: 120,559,104,000
+- GB LIGHT: 90,419,328,000
 
-- GB POCKET: 120,559,104,000
+- GB POCKET: 90,419,328,000
 
-- GBC: 120,559,104,000
+- GBC: 90,419,328,000
 
 - SGB: 2
 
 - SGB GOLD 97: 2
 
-Gen 2 total: 602,795,520,004
+Gen 2 total: 452,096,640,004
 
 Gen 3 calculation
 
@@ -241,28 +251,28 @@ Gen 3 calculation
 
 - Badge: 11.
 
-- Earned LEFT/TOP: 4.
+- Earned LEFT/LEFT&RIGHT: 3.
 
-- Earned LR/BOTTOM G2: 4.
+- Earned TOP/BOTTOM: 4.
 
 - Earned count: 17.
 
 Per console:
 
-- GBA: 5 × 2 × 3,600 × 11 × 16 × 17 = 107,712,000
+- GBA: 5 × 2 × 3,600 × 11 × 12 × 17 = 80,784,000
 
-- GBA SP: 107,712,000
+- GBA SP: 80,784,000
 
-Hoenn total: 215,424,000
+Hoenn total: 80,784,000
 
-FRLG total: 215,424,000
+FRLG total: 80,784,000
 
 Grand total
 
 - Blank state: 1
 
-- 348,986,880,004 + 602,795,520,004 + 215,424,000 + 215,424,000 + 1
-  = 952,213,248,009
+- 261,740,160,004 + 452,096,640,004 + 80,784,000 + 80,784,000 + 1
+  = 713,998,368,009
 
 The exact figure counts selectors like AUTO (GYM) and AUTO (CITY) as the
 distinct choices they are.
@@ -695,34 +705,34 @@ Hoenn badges on GBA / GBA SP consoles.
 
 Earned badges
 
-EARNED LEFT/TOP — All — default OFF
+EARNED LEFT/LEFT&RIGHT — All — default OFF
 
-Selects whether the LEFT and TOP earned badge layers draw.
+Selects which of the two columnar earned-badge placements draws.
 
-LEFT draws the left column. TOP draws the top row. BOTH draws both.
+LEFT draws the left column. LEFT&RIGHT draws the wide left-and-right
+band. LEFT&RIGHT is Gen 2 only; on Gen 1 and Gen 3 it shows a notice
+and nothing is drawn.
+
+BOTH is not offered because LEFT&RIGHT already covers both columns;
+drawing LEFT on top would double-render the left column.
 
 - OFF
 
 - LEFT
 
-- TOP
+- LEFT&RIGHT
 
-- BOTH
+EARNED TOP/BOTTOM — All — default OFF
 
-EARNED LR/BOTTOM G2 — Gen 2 — default OFF
+Selects which of the two horizontal earned-badge placements draws.
 
-Selects whether the Gen-2-only LEFT&RIGHT and BOTTOM earned badge
-layers draw.
-
-LEFT&RIGHT draws the left and right columns. BOTTOM draws the bottom
-row. BOTH draws both.
-
-On Gen 1 and Gen 3 games, this row is ignored and only EARNED LEFT/TOP
-draws.
+TOP draws the top row. BOTTOM draws the bottom row. BOTH draws both.
+BOTTOM is Gen 2 only; on Gen 1 and Gen 3 it shows a notice and only
+TOP draws.
 
 - OFF
 
-- LEFT&RIGHT
+- TOP
 
 - BOTTOM
 
@@ -821,6 +831,9 @@ Rules:
 
 - Explicit values that cannot be drawn on the current console or game
   generation show a short on-screen notice. AUTO and OFF never warn.
+
+- SGB lists the frame-layer options it is ignoring in a single notice,
+  and shows separate notices for logos and manual gym badges.
 
 **AUTO BEHAVIOR**
 
@@ -926,8 +939,9 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
 
 - BAR LOGO. Gen 1/2 only.
 
-- EARNED LR/BOTTOM G2. Gen 2 only. On Gen 1 and Gen 3, only EARNED
-  LEFT/TOP draws.
+- EARNED LEFT/LEFT&RIGHT and EARNED TOP/BOTTOM. LEFT&RIGHT and BOTTOM
+  are Gen 2 only. On Gen 1 and Gen 3, selecting them shows a notice and
+  no such badges are drawn.
 
 - SGB. Base frame only. No party, theme, ball, icon, or badge layers.
 
@@ -967,8 +981,12 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
   mod.options_changed, map.entered, and day/night flip. That removes
   roughly 25 storage reads per frame from the previous design.
 
-- Image cache capped at 64 entries. Every frame the mod can draw fits in
+- Image cache capped at 128 entries. Every frame the mod can draw fits in
   the cache, so nothing evicts during normal play.
+
+- Evicted images are released. If the cache does evict (for example after
+  a run of option changes), the GPU-side texture is freed immediately via
+  Image:release().
 
 - Frame, badge, icon, and earned-badge resolvers each have their own
   warning slot. Up to four notices stack on screen, each shown once per
@@ -996,24 +1014,6 @@ on GitHub.
 
 The Versions button lets you roll back (for example, to v1.0.4 for
 16:9/mobile).
-
-**MIGRATION FROM 1.4.9**
-
-- NONE values remap to OFF on every row that previously used NONE.
-
-- TOP LOGO NY values remap as follows:
-
-    NY AUTO GEN3   → AUTO
-    NY ALWAYS GEN3 → PKMN CT NY
-    NY HIDDEN GEN3 → OFF
-
-- All other rows carry their 1.4.9 values over unchanged.
-
-- EARNED BADGE PLACEMENT does not carry over to EARNED LEFT/TOP or
-  EARNED LR/BOTTOM G2. The player re-picks both rows once.
-
-- Rolling back to 1.4.9 is not supported. The new keys are ignored by
-  1.4.9, and the migration rewrites TOP LOGO on first read.
 
 **TESTING**
 
@@ -1063,6 +1063,10 @@ and how the borders rendered.
 - Options that do not apply to the current console or game generation
   show a short on-screen notice for 5 seconds when an explicit value is
   selected and cannot be drawn. AUTO and OFF never warn.
+
+- On SGB, frame-layer options that SGB cannot draw are listed in a single
+  consolidated notice. Logo selections and manual gym badge selections
+  each produce their own notice.
 
 - The PKMNCENTER theme (previously POKEMON CENTER) draws on top of the
   console background instead of replacing it, so DAY/NIGHT applies to it
