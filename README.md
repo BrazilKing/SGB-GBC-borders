@@ -1,10 +1,10 @@
 **713,998,368,009 overlay combinations from 257 hand-drawn PNG files — no AI art.**
 
-Reworked earned-badge rows, corrected Pokémon Center New York top logo,
-reordered choice lists, simplified storage values, and a crash fix for
-Gen 2.
-
-Customizable GB, GBC, GBA, and SGB overlays for Gen 1, 2, and 3 in gen1recomp.
+Hand-reworked GB, GBC, GBA, and SGB overlays for every Gen 1, 2, and 3
+game in gen1recomp. Twenty menu rows, fully stackable, per-save, live-
+updating, and cached to the point where the mod costs two canvas blits
+per frame no matter how much you enable. Off on first launch. Set
+CONSOLE to anything other than OFF and the frame appears.
 
 **CONTENTS**
 
@@ -54,21 +54,23 @@ The overlay is off on first launch. Set any row to a real value to enable it.
 - Layered rendering. Body + balls + party + theme + LED + logo + bar +
   wordmarks + badge, all stackable.
 
-- Fully cached. No per-frame filesystem work.
+- Fully cached. No per-frame filesystem work. Two canvas blits per frame.
 
 - Console-aware. Every option resolves to the right art for the running game.
 
-- 68% smaller install. 4.61 MB vs 14.6 MB in v1.3.7.
+- 59% smaller install. 6 MB vs 14.6 MB in v1.3.7.
 
 **FRAMES INCLUDED**
 
 Gen 1/2
 
-- Per-game automatic SGB borders (Red, Blue, Yellow, Gold, Silver, Crystal).
-
-- Day and night variants, manual or auto.
+- Per-game automatic SGB borders. Selecting CONSOLE = SGB auto-resolves
+  to the running game's border (Red, Blue, Yellow, Gold, Silver, Crystal).
+  Day and night variants.
 
 - GOLD 97. Spaceworld '97 demo border with Pikablu night version.
+  Selecting CONSOLE = SGB GOLD 97 forces this frame for every game,
+  overriding the per-game auto selection.
 
 - GB / GBC device frames. GB, GB Light, GB Pocket, GBC, each with day and
   night body variants, plus themed variants.
@@ -292,13 +294,22 @@ Selects the device frame.
 
 Must be set to anything other than OFF for the overlay to draw.
 
+SGB is auto-selecting: it resolves to the per-game SGB border for the
+running game (Red → red border, Blue → blue border, Yellow → yellow
+border, Gold → gold border, Silver → silver border, Crystal → crystal
+border). DAY/NIGHT picks the day or night variant of that border.
+
+SGB GOLD 97 overrides the auto behavior and always draws the Spaceworld
+'97 GOLD 97 border regardless of the running game. Day/night still
+applies.
+
 - OFF
 
 - GB
 
-- SGB
+- SGB — auto per-game border
 
-- SGB GOLD 97
+- SGB GOLD 97 — fixed gold97 border, overrides auto
 
 - GB POCKET
 
@@ -837,6 +848,10 @@ Rules:
 
 **AUTO BEHAVIOR**
 
+- CONSOLE = SGB. Auto-resolves per game: Red, Blue, Yellow, Gold,
+  Silver, or Crystal each get their own SGB border. SGB GOLD 97 is a
+  fixed override and always draws the Spaceworld '97 border.
+
 - DAY/NIGHT. Picks day or night from the system clock (6am–6pm = day).
   Switches GB/GBC body, SGB border variant, and GBA background.
 
@@ -963,16 +978,45 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
 
 **PERFORMANCE**
 
-- Cached path resolution. No more filesystem probes per frame. Recomputed
-  only on option change, map change, or day/night flip.
+- Composite canvases. Frame layers, icons, and gym badge are baked into
+  a single static canvas; earned badges are baked into a second canvas.
+  Per-frame cost is two blits, regardless of how many layers are enabled.
+
+- Static composite rebuilds only when its underlying paths change (option
+  change, map change, day/night flip). Unrelated option changes cost
+  nothing.
+
+- Earned composite is built incrementally, a few PNGs per frame, and
+  swapped in atomically when complete. Peak live textures for the earned
+  layer is bounded regardless of badge count or how often the position
+  options are changed.
+
+- LRU canvas caches. Up to 4 recently-built canvases are kept per
+  composite, so switching back to a previously-seen console, logo, gym,
+  or earned-badge configuration is an instant lookup.
+
+- Memoized keys. Composite keys are cached and only recomputed when the
+  path list or backbuffer size changes. No per-frame string work.
+
+- Throttled day/night sampling. The system clock is read twice per second
+  instead of once per frame.
 
 - LRU image cache. Every unique PNG the mod can draw is loaded once and
-  reused. No per-frame asset lookups during normal play.
+  reused. Ceiling of 64 entries comfortably covers every frame layer a
+  single save can display at once.
+
+- Corrected release semantics. Only images the mod owns (loaded via raw
+  LÖVE paths) are released on eviction; framework-cached images are
+  dropped from the mod's table without release, since releasing them
+  corrupts the framework's asset table.
+
+- Asset loader chain. Tries love.graphics.newImage with common mount
+  prefixes first, then FileData → ImageData → Image, then the framework
+  loader as a last resort. A one-time log line reports which path was
+  taken, so slow-fallback cases are visible in the log.
 
 - Zero-cost idle rendering. When nothing is drawn, the render hook
   returns before touching any graphics state.
-
-- Correct SGB resolution even when the game version is detected late.
 
 - Warn-once per missing asset. A missing file logs exactly once, not once
   per frame.
@@ -980,13 +1024,6 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
 - Event-driven cache invalidation. Cache rebuilds only on game.ready,
   mod.options_changed, map.entered, and day/night flip. That removes
   roughly 25 storage reads per frame from the previous design.
-
-- Image cache capped at 128 entries. Every frame the mod can draw fits in
-  the cache, so nothing evicts during normal play.
-
-- Evicted images are released. If the cache does evict (for example after
-  a run of option changes), the GPU-side texture is freed immediately via
-  Image:release().
 
 - Frame, badge, icon, and earned-badge resolvers each have their own
   warning slot. Up to four notices stack on screen, each shown once per
@@ -1036,6 +1073,11 @@ and how the borders rendered.
 - Changes apply live. No restart needed.
 
 - Gen 1/2 and Gen 3 save separately.
+
+- SGB auto-resolves per game. CONSOLE = SGB picks the correct border for
+  Red, Blue, Yellow, Gold, Silver, or Crystal without any further setup.
+  CONSOLE = SGB GOLD 97 skips the auto selection and always draws the
+  fixed GOLD 97 frame.
 
 - DAY/NIGHT applies to SGB, GB, GBC, and GBA frames. On GB/GBC consoles
   it switches the body between grey (day) and dark (night). On SGB it
