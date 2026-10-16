@@ -1,7 +1,7 @@
-**713,998,368,009 overlay combinations from 257 hand-drawn PNG files — no AI art.**
+**77 trillion (77,111,823,744,972) overlay combinations from 284 hand-drawn PNG files — no AI art.**
 
 Hand-reworked GB, GBC, GBA, and SGB overlays for every Gen 1, 2, and 3
-game in gen1recomp. Twenty menu rows, fully stackable, per-save, live-
+game in gen1recomp. Twenty-two menu rows, fully stackable, per-save, live-
 updating, and cached to the point where the mod costs two canvas blits
 per frame no matter how much you enable. Off on first launch. Set
 CONSOLE to anything other than OFF and the frame appears.
@@ -64,21 +64,29 @@ The overlay is off on first launch. Set any row to a real value to enable it.
 
 Gen 1/2
 
-- Per-game automatic SGB borders. Selecting CONSOLE = SGB auto-resolves
-  to the running game's border (Red, Blue, Yellow, Gold, Silver, Crystal).
-  Day and night variants.
+- SGB THEME row. Scrolls through 15 frames: AUTO (GAME), GOLD 97, RED,
+  BLUE, YELLOW, GOLD, SILVER, CRYSTAL, CHIKORITA, GEODUDE, KANGASKHAN,
+  MEOWTH, NIDOKING, PIKACHU, TOTODILE. Day and night variants for all.
 
-- GOLD 97. Spaceworld '97 demo border with Pikablu night version.
-  Selecting CONSOLE = SGB GOLD 97 forces this frame for every game,
-  overriding the per-game auto selection.
+  AUTO (GAME) resolves to the running game's own SGB border. GOLD 97 is
+  the Spaceworld '97 demo border with the Pikablu night version. RED
+  through CRYSTAL pin an official cart's border regardless of the running
+  game. CHIKORITA through TOTODILE pin a themed overlay.
 
 - GB / GBC device frames. GB, GB Light, GB Pocket, GBC, each with day and
   night body variants, plus themed variants.
 
-- Eleven party overlays. Community-requested frames.
+- Eleven party overlays, split into left and right. PARTY L and PARTY R
+  each scroll through the same eleven designs independently, so the two
+  sides can differ. Community-requested frames.
 
-- Eight themed frames. Chikorita, Geodude, Kangaskhan, Meowth, Nidoking,
-  Pikachu, Special Pikachu, Totodile.
+- Twelve themed PKMN overlays, split into left and right. PKMN L and
+  PKMN R each scroll through all twelve designs. The eight GB/GBC themes
+  (Chikorita, Geodude, Kangaskhan, Meowth, Nidoking, Pikachu, Special
+  Pikachu, Totodile) apply to Gen 1/2 games. The four GBA themes (Celebi,
+  Suicune, PKMNCENTER, Latios & Latias) apply to Gen 3 games. The
+  resolver routes to the correct asset folder for the running game and
+  warns on a generation mismatch.
 
 - Pokéball LED. Plain red, BATTERY variant, and a Pokéball-shaped "POWER"
   LED from the Special Pikachu edition.
@@ -87,8 +95,8 @@ Gen 3
 
 - GBA / GBA SP device frames, day + night variants.
 
-- Themed GBA frames. Celebi, Suicune, PKMNCENTER, Latios & Latias. All
-  with day + night, GBA + GBA SP.
+- Themed GBA frames. Celebi, Suicune, PKMNCENTER, Latios & Latias. Each
+  split into left and right. All with day + night, GBA + GBA SP.
 
 **BADGES**
 
@@ -132,25 +140,30 @@ Gen 3
 
 **OVERLAY COMBINATIONS**
 
-The mod ships 257 PNG files and can produce 713,998,368,009 unique valid
-overlays across all games.
+The mod ships 284 PNG files and can produce 77,111,823,744,972 unique
+valid overlays across all games.
 
 The count is the product of every independent option that applies to a
 given game, summed across all game classes.
 
-- Gen 1 (Red, Blue, Yellow): 261,740,160,004 combinations
+- Gen 1 (Red, Blue, Yellow): 28,267,937,280,030 combinations
 
-- Gen 2 (Gold, Silver, Crystal): 452,096,640,004 combinations
+- Gen 2 (Gold, Silver, Crystal): 48,826,437,120,030 combinations
 
-- Gen 3 Hoenn (Ruby, Sapphire, Emerald): 80,784,000 combinations
+- Gen 3 Hoenn (Ruby, Sapphire, Emerald): 807,840,000 combinations
 
-- FireRed / LeafGreen: 80,784,000 combinations
+- FireRed / LeafGreen: 807,840,000 combinations
 
 - Blank state (CONSOLE = OFF): 1
 
-- Total: 713,998,368,009
+- Total: 77,111,823,744,972
 
-The earned-badge placement block now contributes 12 states
+PARTY and PKMN each split into independent L and R rows, so the frame
+content factor grew from 12 × 9 = 108 in v1.5.5 to
+12 × 12 × 9 × 9 = 11,664 in v1.5.6 — a ×108 multiplier per Gen 1/2
+console and ×5 per Gen 3 console (PKMN L × PKMN R alone).
+
+The earned-badge placement block contributes 12 states
 (EARNED LEFT/LEFT&RIGHT with 3 values × EARNED TOP/BOTTOM with 4 values)
 instead of 16. LEFT&RIGHT is a single wide image that already covers both
 columns, so LEFT + LEFT&RIGHT would double-draw the left column and is
@@ -162,11 +175,12 @@ Gen 1 and Gen 2 have the same structure.
 
 The variables per non-SGB console are:
 
-Frame content — 108
+Frame content — 11,664
 
-- 11 parties + 1 OFF, stacked with 8 themes + 1 OFF.
+- PARTY L (11 + 1 OFF) × PARTY R (11 + 1 OFF) × PKMN L (8 + 1 OFF) ×
+  PKMN R (8 + 1 OFF).
 
-- Formula: 12 × 9 = 108.
+- Formula: 12 × 12 × 9 × 9 = 11,664.
 
 Day / night
 
@@ -212,39 +226,35 @@ Earned badge
 
 Gen 1 per-console breakdown
 
-- GB: 108 × 2 × 216,000 × 11 × 12 × 17 = 104,696,064,000
+- GB: 11,664 × 2 × 216,000 × 11 × 12 × 17 = 11,307,174,912,000
 
-- GB LIGHT: 52,348,032,000
+- GB LIGHT: 5,653,587,456,000
 
-- GB POCKET: 52,348,032,000
+- GB POCKET: 5,653,587,456,000
 
-- GBC: 52,348,032,000
+- GBC: 5,653,587,456,000
 
-- SGB: 2 (day, night — base frame only)
+- SGB: 30 (SGB THEME × 15, day/night × 2 — base frame only)
 
-- SGB GOLD 97: 2 (day, night — base frame only)
-
-Gen 1 total: 261,740,160,004
+Gen 1 total: 28,267,937,280,030
 
 Gen 2 per-console breakdown
 
-- GB: 108 × 2 × 216,000 × 19 × 12 × 17 = 180,838,656,000
+- GB: 11,664 × 2 × 216,000 × 19 × 12 × 17 = 19,530,574,848,000
 
-- GB LIGHT: 90,419,328,000
+- GB LIGHT: 9,765,287,424,000
 
-- GB POCKET: 90,419,328,000
+- GB POCKET: 9,765,287,424,000
 
-- GBC: 90,419,328,000
+- GBC: 9,765,287,424,000
 
-- SGB: 2
+- SGB: 30
 
-- SGB GOLD 97: 2
-
-Gen 2 total: 452,096,640,004
+Gen 2 total: 48,826,437,120,030
 
 Gen 3 calculation
 
-- Frame content: 5 (PKMN G3).
+- Frame content: 25 (PKMN G3 split into PKMN L × PKMN R, 5 × 5).
 
 - Day / night: 2.
 
@@ -261,20 +271,20 @@ Gen 3 calculation
 
 Per console:
 
-- GBA: 5 × 2 × 3,600 × 11 × 12 × 17 = 80,784,000
+- GBA: 25 × 2 × 3,600 × 11 × 12 × 17 = 403,920,000
 
-- GBA SP: 80,784,000
+- GBA SP: 403,920,000
 
-Hoenn total: 80,784,000
+Hoenn total: 807,840,000
 
-FRLG total: 80,784,000
+FRLG total: 807,840,000
 
 Grand total
 
 - Blank state: 1
 
-- 261,740,160,004 + 452,096,640,004 + 80,784,000 + 80,784,000 + 1
-  = 713,998,368,009
+- 28,267,937,280,030 + 48,826,437,120,030 + 807,840,000 + 807,840,000 + 1
+  = 77,111,823,744,972
 
 The exact figure counts selectors like AUTO (GYM) and AUTO (CITY) as the
 distinct choices they are.
@@ -284,7 +294,7 @@ visual count.
 
 **OPTIONS REFERENCE**
 
-20 rows, always visible. Only the rows matching the running game are read.
+22 rows, always visible. Only the rows matching the running game are read.
 
 Universal
 
@@ -294,22 +304,11 @@ Selects the device frame.
 
 Must be set to anything other than OFF for the overlay to draw.
 
-SGB is auto-selecting: it resolves to the per-game SGB border for the
-running game (Red → red border, Blue → blue border, Yellow → yellow
-border, Gold → gold border, Silver → silver border, Crystal → crystal
-border). DAY/NIGHT picks the day or night variant of that border.
-
-SGB GOLD 97 overrides the auto behavior and always draws the Spaceworld
-'97 GOLD 97 border regardless of the running game. Day/night still
-applies.
-
 - OFF
 
 - GB
 
-- SGB — auto per-game border
-
-- SGB GOLD 97 — fixed gold97 border, overrides auto
+- SGB — SGB THEME row picks the frame
 
 - GB POCKET
 
@@ -321,13 +320,53 @@ applies.
 
 - GBA SP
 
+SGB THEME — Gen 1/2 on SGB — default AUTO (GAME)
+
+Selects which SGB frame draws when CONSOLE = SGB.
+
+AUTO (GAME) auto-resolves per game: Red, Blue, Yellow, Gold, Silver, or
+Crystal each get their own SGB border. GOLD 97 forces the Spaceworld '97
+demo border for every game. RED through CRYSTAL pin an official cart
+regardless of the running game. CHIKORITA through TOTODILE pin a themed
+overlay.
+
+- AUTO (GAME)
+
+- GOLD 97
+
+- RED
+
+- BLUE
+
+- YELLOW
+
+- GOLD
+
+- SILVER
+
+- CRYSTAL
+
+- CHIKORITA
+
+- GEODUDE
+
+- KANGASKHAN
+
+- MEOWTH
+
+- NIDOKING
+
+- PIKACHU
+
+- TOTODILE
+
 DAY/NIGHT — All games — default AUTO
 
 AUTO picks from the system clock (6am–6pm = day).
 
 On GB/GBC consoles it switches the body between grey and dark.
 
-On SGB it selects the day or night variant of the per-game border.
+On SGB it selects the day or night variant of the SGB THEME frame.
 
 On GBA it selects the light (day) or standard (night) background.
 
@@ -435,8 +474,8 @@ Stacks with LEFT LOGO.
 
 AUTO behavior on GBA / GBA SP:
 
-- Draws the Pokémon Center New York banner only when PKMN G3 is set to
-  PKMNCENTER and no gym badge is active on the current map.
+- Draws the Pokémon Center New York banner only when PKMN L or PKMN R is
+  set to PKMNCENTER and no gym badge is active on the current map.
 
 - In every other case AUTO draws nothing and stays silent.
 
@@ -512,14 +551,17 @@ On GB/GBC and GBA, the size is one of SMALL, MEDIUM, LARGE, XL.
 
 Gen 1/2 frames
 
-PARTY — Gen 1/2 — default OFF
+PARTY L — Gen 1/2 — default OFF
 
-Community-requested party frames.
+Left-side community-requested party frame.
+
+Stacks with PARTY R for the right side. If PARTY L and PARTY R are both
+set, both draw. If only one is set, only that side draws.
 
 Combines with CONSOLE to pick the hardware variant.
 
-Stacks under PKMN G1-2: if both are set, the party frame draws first
-and the themed character art draws on top.
+Stacks under PKMN L / PKMN R: if both are set, the party frame draws
+first and the themed character art draws on top.
 
 - OFF
 
@@ -545,11 +587,21 @@ and the themed character art draws on top.
 
 - ZEAK6464
 
-PKMN G1-2 — Gen 1/2 — default OFF
+PARTY R — Gen 1/2 — default OFF
 
-Themed character art for GB / GBC consoles.
+Right-side community-requested party frame. Independent of PARTY L.
 
-Stacks with PARTY.
+Same choices as PARTY L.
+
+PKMN L — Gen 1/2 — default OFF
+
+Left-side themed character art.
+
+On Gen 1/2 games, the eight GB/GBC themes apply. On Gen 3 games, the four
+GBA themes apply. Themes from the wrong generation produce a targeted
+notice and nothing is drawn on that side.
+
+Stacks with PKMN R for the right side.
 
 - OFF
 
@@ -569,17 +621,6 @@ Stacks with PARTY.
 
 - TOTODILE
 
-Gen 3 frames
-
-PKMN G3 — Gen 3 — default OFF
-
-Themed character art for GBA / GBA SP consoles.
-
-PKMNCENTER draws the Pokémon Center overlay on top of the console
-background.
-
-- OFF
-
 - CELEBI
 
 - LATIOS & LATIAS
@@ -587,6 +628,12 @@ background.
 - PKMNCENTER
 
 - SUICUNE
+
+PKMN R — Gen 1/2 — default OFF
+
+Right-side themed character art. Independent of PKMN L.
+
+Same choices as PKMN L.
 
 Gym badges
 
@@ -777,9 +824,13 @@ GB / GBC:
 
 - Right ball.
 
-- Party — PARTY.
+- Party L — PARTY L.
 
-- Theme art — PKMN G1-2, drawn over the party.
+- Party R — PARTY R.
+
+- Theme art left — PKMN L, drawn over the party.
+
+- Theme art right — PKMN R, drawn over the party.
 
 - LED.
 
@@ -805,7 +856,9 @@ GBA / GBA SP:
 
 - Right ball.
 
-- Theme art — PKMN G3.
+- Theme art left — PKMN L.
+
+- Theme art right — PKMN R.
 
 - BOTTOM LOGO — device wordmark.
 
@@ -815,9 +868,9 @@ GBA / GBA SP:
 
 - Earned badge.
 
-SGB / SGB GOLD 97:
+SGB:
 
-- Base frame only. Day or night variant.
+- Base frame only — SGB THEME row picks which one. Day or night variant.
 
 No party, no theme art, no balls, no icons, no badges.
 
@@ -826,7 +879,7 @@ Rules:
 - The three balls are the first layers after the body. Party and theme
   art draw over them.
 
-- PARTY and PKMN G1-2 stack. The party frame draws first, then the
+- PARTY L/R and PKMN L/R stack. The party frames draw first, then the
   themed character art on top.
 
 - LED and BOTTOM LOGO draw over the party and theme art.
@@ -846,11 +899,17 @@ Rules:
 - SGB lists the frame-layer options it is ignoring in a single notice,
   and shows separate notices for logos and manual gym badges.
 
+- All warnings on screen merge into a single wrapped, vertically growing
+  box. Duplicate preamble sentences are removed. The box stays on
+  screen long enough to read (4–10 seconds based on length).
+
 **AUTO BEHAVIOR**
 
-- CONSOLE = SGB. Auto-resolves per game: Red, Blue, Yellow, Gold,
-  Silver, or Crystal each get their own SGB border. SGB GOLD 97 is a
-  fixed override and always draws the Spaceworld '97 border.
+- CONSOLE = SGB. Auto-resolves per game via SGB THEME = AUTO (GAME):
+  Red, Blue, Yellow, Gold, Silver, or Crystal each get their own SGB
+  border. SGB THEME = GOLD 97 is a fixed override that always draws the
+  Spaceworld '97 border. Any other SGB THEME value pins that specific
+  frame regardless of the running game.
 
 - DAY/NIGHT. Picks day or night from the system clock (6am–6pm = day).
   Switches GB/GBC body, SGB border variant, and GBA background.
@@ -862,8 +921,8 @@ Rules:
   get the BATTERY LED.
 
 - TOP LOGO AUTO. On GBA / GBA SP, draws the Pokémon Center New York
-  banner only when PKMN G3 = PKMNCENTER and no gym badge is active on
-  the current map. Otherwise silent. On GB / GBC, no-op.
+  banner only when PKMN L or PKMN R is PKMNCENTER and no gym badge is
+  active on the current map. Otherwise silent. On GB / GBC, no-op.
 
 - AUTO (GYM). Reads the current map. Enters a gym = matching badge;
   leaves = no badge.
@@ -881,6 +940,14 @@ Options save per save file, not globally.
 
 - Starting a new game gives you the defaults, not last session's
   selection.
+
+Prior versions migrate automatically on first load:
+
+- CONSOLE = SGB GOLD 97 migrates to CONSOLE = SGB + SGB THEME = GOLD 97.
+
+- PARTY (v1.5.5) migrates into both PARTY L and PARTY R.
+
+- PKMN G1-2 / PKMN G3 (v1.5.5) migrate into both PKMN L and PKMN R.
 
 The mod manager menu shows the last-used value globally, not the current
 save's value.
@@ -960,7 +1027,8 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
 
 - SGB. Base frame only. No party, theme, ball, icon, or badge layers.
 
-- SGB GOLD 97. Flat frame, no themed overlays.
+- SGB THEME. Only applies when CONSOLE = SGB. On other consoles it is
+  ignored and a notice is shown.
 
 - NINTENDO, PKMN B, and PKMN C logos. GB/GBC only. There are no GBA
   variants.
@@ -1002,8 +1070,9 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
   instead of once per frame.
 
 - LRU image cache. Every unique PNG the mod can draw is loaded once and
-  reused. Ceiling of 64 entries comfortably covers every frame layer a
-  single save can display at once.
+  reused. Ceiling of 96 entries comfortably covers every frame layer a
+  single save can display at once, including the full PARTY / PKMN L/R
+  theme set.
 
 - Corrected release semantics. Only images the mod owns (loaded via raw
   LÖVE paths) are released on eviction; framework-cached images are
@@ -1015,6 +1084,11 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
   loader as a last resort. A one-time log line reports which path was
   taken, so slow-fallback cases are visible in the log.
 
+- Single read pass per rebuild. Every option a rebuild consults is read
+  once via a single table, and asset existence checks are memoized for
+  the session. Combined, a rebuild does roughly half the storage and
+  filesystem lookups it used to.
+
 - Zero-cost idle rendering. When nothing is drawn, the render hook
   returns before touching any graphics state.
 
@@ -1025,9 +1099,10 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
   mod.options_changed, map.entered, and day/night flip. That removes
   roughly 25 storage reads per frame from the previous design.
 
-- Frame, badge, icon, and earned-badge resolvers each have their own
-  warning slot. Up to four notices stack on screen, each shown once per
-  unique message for 5 seconds.
+- Merged warning display. Frame, icon, gym, and earned-badge warnings
+  collapse into one merged, word-wrapped, vertically growing box.
+  Duplicate preamble sentences are removed. The box shows once per
+  unique merged state and stays for 4–10 seconds depending on length.
 
 Most noticeable on lower-power devices with a frame, badge, or icon
 active.
@@ -1063,7 +1138,7 @@ and how the borders rendered.
 
 **NOTES**
 
-- The mod platform doesn't support per-generation schemas. All 20 rows
+- The mod platform doesn't support per-generation schemas. All 22 rows
   appear on every boot. The row labels are the only signal of which
   apply where.
 
@@ -1074,14 +1149,15 @@ and how the borders rendered.
 
 - Gen 1/2 and Gen 3 save separately.
 
-- SGB auto-resolves per game. CONSOLE = SGB picks the correct border for
-  Red, Blue, Yellow, Gold, Silver, or Crystal without any further setup.
-  CONSOLE = SGB GOLD 97 skips the auto selection and always draws the
-  fixed GOLD 97 frame.
+- SGB auto-resolves per game via SGB THEME = AUTO (GAME). CONSOLE = SGB
+  picks the correct border for Red, Blue, Yellow, Gold, Silver, or
+  Crystal without any further setup. SGB THEME = GOLD 97 skips the auto
+  selection and always draws the fixed GOLD 97 frame. Any other SGB
+  THEME value pins that specific frame regardless of the running game.
 
 - DAY/NIGHT applies to SGB, GB, GBC, and GBA frames. On GB/GBC consoles
   it switches the body between grey (day) and dark (night). On SGB it
-  selects the day or night variant of the per-game border. On GBA it
+  selects the day or night variant of the SGB THEME frame. On GBA it
   switches between the light and standard backgrounds.
 
 - GBC supports day/night. GB, GB Light, GB Pocket, and GBC all use the
@@ -1097,18 +1173,23 @@ and how the borders rendered.
 - Icons are console-aware. LEFT BALL, CENTER BALL, and RIGHT BALL each
   render at their own screen position. LEFT BALL and RIGHT BALL carry
   their own size on both GB/GBC and GBA. All icons are suppressed on
-  SGB, SGB GOLD 97, and CONSOLE = OFF.
+  SGB and CONSOLE = OFF.
 
 - Gym badges draw on GB-family consoles for Gen 1/2, and on GBA-family
   consoles for Gen 3. Never drawn on SGB.
 
 - Options that do not apply to the current console or game generation
-  show a short on-screen notice for 5 seconds when an explicit value is
-  selected and cannot be drawn. AUTO and OFF never warn.
+  show a short on-screen notice when an explicit value is selected and
+  cannot be drawn. AUTO and OFF never warn.
 
 - On SGB, frame-layer options that SGB cannot draw are listed in a single
   consolidated notice. Logo selections and manual gym badge selections
   each produce their own notice.
+
+- All warnings on screen merge into one wrapped box. Frame, icon, gym,
+  and earned channels combine into a single message; duplicate preamble
+  sentences collapse. The box grows vertically to fit the text and stays
+  on screen long enough to read.
 
 - The PKMNCENTER theme (previously POKEMON CENTER) draws on top of the
   console background instead of replacing it, so DAY/NIGHT applies to it
@@ -1116,6 +1197,8 @@ and how the borders rendered.
 
 - The PKMN Center New York top banner is a single asset shared between
   GBA and GBA SP. No SP-specific variant is required.
+
+- Reworked GBC Special Pikachu Edition overlay, brightness optimized.
 
 - All artwork is manually reworked by the author. No AI art was used.
 
