@@ -1,4 +1,4 @@
-**77 trillion (77,111,823,744,972) overlay combinations from 284 hand-drawn PNG files — no AI art.**
+**77 trillion (77,095,990,080,060) overlay combinations from 332 hand-drawn PNG files — no AI art.**
 
 Hand-reworked GB, GBC, GBA, and SGB overlays for every Gen 1, 2, and 3
 game in gen1recomp. Twenty-two menu rows, fully stackable, per-save, live-
@@ -106,6 +106,11 @@ Gen 3
 - Earned badges. RBY, GSC, FRLG, and RSE. Placements per game. AUTO modes
   that read the save.
 
+- v1.6.0 adds 48 earned-badge assets. RBY, FRLG, and RSE each gain a full
+  8-badge LEFT&RIGHT set and a full 8-badge BOTTOM set. All four
+  placements (LEFT, TOP, LEFT&RIGHT, BOTTOM) now ship on every game
+  family. Gen 1 and Gen 3 catch up to Gen 2, which already had them.
+
 - Two rows control earned badges:
 
   EARNED LEFT/LEFT&RIGHT groups the two columnar placements. LEFT draws
@@ -114,8 +119,7 @@ Gen 3
   EARNED TOP/BOTTOM groups the two horizontal placements. TOP draws the
   top row. BOTTOM draws the bottom row. BOTH draws both.
 
-  LEFT&RIGHT and BOTTOM are Gen 2 only. On Gen 1 and Gen 3, selecting
-  them shows a notice and no such badges are drawn.
+  All four placements draw on Gen 1, Gen 2, and Gen 3.
 
 **ICONS**
 
@@ -140,7 +144,7 @@ Gen 3
 
 **OVERLAY COMBINATIONS**
 
-The mod ships 284 PNG files and can produce 77,111,823,744,972 unique
+The mod ships 332 PNG files and can produce 77,095,990,080,060 unique
 valid overlays across all games.
 
 The count is the product of every independent option that applies to a
@@ -156,7 +160,20 @@ given game, summed across all game classes.
 
 - Blank state (CONSOLE = OFF): 1
 
-- Total: 77,111,823,744,972
+- Total: 77,095,990,080,061 (77,095,990,080,060 valid overlays + 1 blank)
+
+v1.6.0 adds 48 earned-badge PNGs so that every placement (LEFT, TOP,
+LEFT&RIGHT, BOTTOM) is backed by real assets on every game family. The
+formula has always counted 12 earned-placement states per gen, but on
+v1.5.8 only 4 of those states rendered outside Gen 2 — LEFT&RIGHT and
+BOTTOM warned and drew nothing on Gen 1 and Gen 3. v1.6.0 is the first
+version where every counted combination is backed by pixels.
+
+The v1.5.8 printed total (77,111,823,744,972) had a 15,833,664,911
+arithmetic error in the addition line. The per-category figures were
+always correct; the sum line was not. Both versions now report the same
+correct total because the formula always counted 12 earned-placement
+states per gen.
 
 PARTY and PKMN each split into independent L and R rows, so the frame
 content factor grew from 12 × 9 = 108 in v1.5.5 to
@@ -284,7 +301,9 @@ Grand total
 - Blank state: 1
 
 - 28,267,937,280,030 + 48,826,437,120,030 + 807,840,000 + 807,840,000 + 1
-  = 77,111,823,744,972
+  = 77,095,990,080,061
+
+- Valid overlays exclude the blank state: 77,095,990,080,060.
 
 The exact figure counts selectors like AUTO (GYM) and AUTO (CITY) as the
 distinct choices they are.
@@ -768,8 +787,7 @@ EARNED LEFT/LEFT&RIGHT — All — default OFF
 Selects which of the two columnar earned-badge placements draws.
 
 LEFT draws the left column. LEFT&RIGHT draws the wide left-and-right
-band. LEFT&RIGHT is Gen 2 only; on Gen 1 and Gen 3 it shows a notice
-and nothing is drawn.
+band. All four placements ship on every game family as of v1.6.0.
 
 BOTH is not offered because LEFT&RIGHT already covers both columns;
 drawing LEFT on top would double-render the left column.
@@ -785,8 +803,7 @@ EARNED TOP/BOTTOM — All — default OFF
 Selects which of the two horizontal earned-badge placements draws.
 
 TOP draws the top row. BOTTOM draws the bottom row. BOTH draws both.
-BOTTOM is Gen 2 only; on Gen 1 and Gen 3 it shows a notice and only
-TOP draws.
+All four placements ship on every game family as of v1.6.0.
 
 - OFF
 
@@ -963,7 +980,7 @@ Red / Blue / Yellow
 
 - Gym badge: Kanto (RBY) ✅
 
-- Earned badges: ✅
+- Earned badges: Kanto (RBY) ✅ — all four placements
 
 - Party frames: ✅
 
@@ -971,7 +988,7 @@ Gold / Silver / Crystal
 
 - Gym badge: Johto + Kanto (GSC) ✅
 
-- Earned badges: ✅
+- Earned badges: Johto + Kanto (GSC) ✅ — all four placements
 
 - Party frames: ✅
 
@@ -979,7 +996,7 @@ Ruby / Sapphire / Emerald
 
 - Gym badge: Hoenn ✅
 
-- Earned badges: Hoenn ✅
+- Earned badges: Hoenn ✅ — all four placements
 
 - Party frames: —
 
@@ -987,7 +1004,7 @@ FireRed / LeafGreen
 
 - Gym badge: Kanto (FRLG) ✅
 
-- Earned badges: Kanto (FRLG) ✅
+- Earned badges: Kanto (FRLG) ✅ — all four placements
 
 - Party frames: —
 
@@ -1020,10 +1037,6 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
   SGB draws the base frame only.
 
 - BAR LOGO. Gen 1/2 only.
-
-- EARNED LEFT/LEFT&RIGHT and EARNED TOP/BOTTOM. LEFT&RIGHT and BOTTOM
-  are Gen 2 only. On Gen 1 and Gen 3, selecting them shows a notice and
-  no such badges are drawn.
 
 - SGB. Base frame only. No party, theme, ball, icon, or badge layers.
 
@@ -1059,6 +1072,11 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
   layer is bounded regardless of badge count or how often the position
   options are changed.
 
+- Debounced invalidation. Option changes are debounced 80 ms before the
+  cache rebuilds. A burst of value changes (fast scroll through an
+  option's choices) collapses into a single rebuild. This is what fixed
+  the random scroll crashes introduced by v1.5.8's enlarged state space.
+
 - LRU canvas caches. Up to 4 recently-built canvases are kept per
   composite, so switching back to a previously-seen console, logo, gym,
   or earned-badge configuration is an instant lookup.
@@ -1072,7 +1090,7 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
 - LRU image cache. Every unique PNG the mod can draw is loaded once and
   reused. Ceiling of 96 entries comfortably covers every frame layer a
   single save can display at once, including the full PARTY / PKMN L/R
-  theme set.
+  theme set and the new v1.6.0 earned-badge assets.
 
 - Corrected release semantics. Only images the mod owns (loaded via raw
   LÖVE paths) are released on eviction; framework-cached images are
@@ -1096,8 +1114,8 @@ Running this 4:3 release on a non-4:3 screen will stretch the artwork.
   per frame.
 
 - Event-driven cache invalidation. Cache rebuilds only on game.ready,
-  mod.options_changed, map.entered, and day/night flip. That removes
-  roughly 25 storage reads per frame from the previous design.
+  mod.options_changed (debounced), map.entered, and day/night flip. That
+  removes roughly 25 storage reads per frame from the previous design.
 
 - Merged warning display. Frame, icon, gym, and earned-badge warnings
   collapse into one merged, word-wrapped, vertically growing box.
@@ -1177,6 +1195,9 @@ and how the borders rendered.
 
 - Gym badges draw on GB-family consoles for Gen 1/2, and on GBA-family
   consoles for Gen 3. Never drawn on SGB.
+
+- Earned badges draw all four placements (LEFT, TOP, LEFT&RIGHT, BOTTOM)
+  on every game family as of v1.6.0.
 
 - Options that do not apply to the current console or game generation
   show a short on-screen notice when an explicit value is selected and
